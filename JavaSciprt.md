@@ -4,7 +4,7 @@
 * [事件委托](#事件委托)
 * [原型继承](#原型继承)
 * [闭包](#闭包)
-* [AJAX](#AJAX)
+* [Ajax](#Ajax)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -59,6 +59,6 @@ test() // Hi! xiaoming
 虽然sayHi函数已经执行完毕，但是其活动对象也不会被销毁，因为test函数仍然引用着sayHi函数中的变量name，这就是闭包。
 
 
-## AJAX
+## <span id = "Ajax">Ajax</span>
 Ajax（asynchronous JavaScript and XML）是使用客户端上的许多 Web 技术，创建异步 Web 应用的一种 Web 开发技术。借助 Ajax，Web 应用可以异步（在后台）向服务器发送数据和从服务器检索数据，而不会干扰现有页面的显示和行为。通过将数据交换层与表示层分离，Ajax 允许网页和扩展 Web 应用程序动态更改内容，而无需重新加载整个页面。实际上，现在通常将 JSON 替换为 XML，因为 JavaScript 对 JSON 有原生支持优势。<br>
 XMLHttpRequest API 经常用于异步通信。此外还有最近流行的fetch API。
