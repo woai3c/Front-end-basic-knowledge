@@ -58,30 +58,30 @@ JS高程第3版 第6章 继承
 寄生组合式继承
 ```
 function SuperType(name) {
- this.name = name
- this.colors = ['red']
+    this.name = name
+    this.colors = ['red']
 }
 
 SuperType.prototype.sayName = function() {
- console.log(this.name)
+    console.log(this.name)
 }
 // 继承实例属性
 function SubType(name, age) {
- SuperType.call(this, name)
- this.age = age
+    SuperType.call(this, name)
+    this.age = age
 }
 
 function inheritPrototype(subType, superType) {
- let prototype = Object.create(superType.prototype)
- prototype.constructor = subType
- subType.prototype = prototype
+    let prototype = Object.create(superType.prototype)
+    prototype.constructor = subType
+    subType.prototype = prototype
 }
 // 继承原型方法
 inheritPrototype(SubType, SuperType)
 
 // 定义自己的原型方法
 SubType.prototype.sayAge = function() {
- console.log(this.age)
+    console.log(this.age)
 }
 ```
 
@@ -90,9 +90,9 @@ SubType.prototype.sayAge = function() {
 闭包是指有权访问另一个函数作用域中的变量的函数。
 ```
 function sayHi(name) {
- return () => {
-  console.log(`Hi! ${name}`)
- }
+    return () => {
+       console.log(`Hi! ${name}`)
+    }
 }
 const test = sayHi('xiaoming')
 test() // Hi! xiaoming
@@ -106,19 +106,19 @@ XMLHttpRequest API 经常用于异步通信。此外还有最近流行的fetch A
 ```
 let xmlhttp
 if (window.XMLHttpRequest) {
-		//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-		xmlhttp = new XMLHttpRequest()
+	//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+	xmlhttp = new XMLHttpRequest()
 } else {
-		// IE6, IE5 浏览器执行代码
-		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+	// IE6, IE5 浏览器执行代码
+	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
 }
 xmlhttp.onreadystatechange = () => {
-		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-			document.getElementById("myDiv").innerHTML = xmlhttp.responseText
-		}
+	if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+		document.getElementById("myDiv").innerHTML = xmlhttp.responseText
 	}
-	xmlhttp.open("GET", "/ajax/test.txt", true)
-	xmlhttp.send()
+}
+xmlhttp.open("GET", "/ajax/test.txt", true)
+xmlhttp.send()
 ```
 
 ## 变量提升
@@ -129,8 +129,8 @@ var会使变量提升，这意味着变量可以在声明之前使用。let和co
 ## 对象深拷贝
 ```
 let o1 = {a:{
-  b:1
- }
+    b:1
+  }
 }
 let o2 = JSON.parse(JSON.stringify(o1))
 ```
@@ -139,6 +139,6 @@ let o2 = JSON.parse(JSON.stringify(o1))
 ## 数组去重
 ```
 function unique (arr) {
-  return Array.from(new Set(arr))
+   return Array.from(new Set(arr))
 }
 ```
