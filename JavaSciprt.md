@@ -146,4 +146,9 @@ function unique (arr) {
 
 
 ## 数据类型
-Undefined Null Boolean Number String Object
+1 Undefined 
+2 Null 
+3 Boolean 
+4 Number
+5 String 
+6 Object
