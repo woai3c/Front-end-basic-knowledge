@@ -10,6 +10,7 @@
 * [变量提升](#变量提升)
 * [对象深拷贝](#对象深拷贝)
 * [数组去重](#数组去重)
+* [数据类型](#数据类型)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -142,3 +143,7 @@ function unique (arr) {
    return Array.from(new Set(arr))
 }
 ```
+
+
+## 数据类型
+Undefined Null Boolean Number String Object
