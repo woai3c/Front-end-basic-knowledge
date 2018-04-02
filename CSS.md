@@ -1,4 +1,5 @@
 ## 本文内容引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
+## 作者 Yangshun Tay
 # CSS 问题
 
 本章节是[前端开发者面试问题 - CSS 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
