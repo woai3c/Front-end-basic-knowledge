@@ -1,4 +1,4 @@
-* [`cookie`、`sessionStorage`和`localStorage`的区别](#`cookie`、`sessionStorage`和`localStorage`的区别)
+* [`cookie`、`sessionStorage`和`localStorage`的区别](#cookiesessionstorage和localstorage的区别)
 
 ## `cookie`、`sessionStorage`和`localStorage`的区别。
 
