@@ -1,4 +1,6 @@
 * [`cookie`、`sessionStorage`和`localStorage`的区别](#cookiesessionstorage和localstorage的区别)
+* [为什么最好把 CSS 的<link>标签放在<head></head>之间？为什么最好把 JS 的<script>标签恰好放在</body>之前，有例外情况吗？](#为什么最好把 CSS 的<link>标签放在<head></head>之间？为什么最好把 JS 的<script>标签恰好放在</body>之前，有例外情况吗)
+* [什么是渐进式渲染（progressive rendering）](#什么是渐进式渲染（progressive rendering）)
 
 ## `cookie`、`sessionStorage`和`localStorage`的区别。
 
@@ -13,3 +15,26 @@
 | 容量（每个域名）                                   | 4kb                                                | 5MB            | 5MB              |
 | 访问权限                                           | 任意窗口                                           | 任意窗口       | 当前页面窗口     |
 
+
+## 为什么最好把 CSS 的<link>标签放在<head></head>之间？为什么最好把 JS 的<script>标签恰好放在</body>之前，有例外情况吗？
+#### 把<link>放在<head>中
+
+把<link>标签放在<head></head>之间是规范要求的内容。此外，这种做法可以让页面逐步呈现，提高了用户体验。将样式表放在文档底部附近，会使许多浏览器（包括 Internet Explorer）不能逐步呈现页面。一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容。
+
+#### 把<script>标签恰好放在</body>之前
+
+脚本在下载和执行期间会阻止 HTML 解析。把<script>标签放在底部，保证 HTML 首先完成解析，将页面尽早呈现给用户。
+
+例外情况是当你的脚本里包含document.write()时。但是现在，document.write()不推荐使用。同时，将<script>标签放在底部，意味着浏览器不能开始下载脚本，直到整个文档（document）被解析。也许，对此比较好的做法是，<script>使用defer属性，放在<head>中。
+
+
+## 什么是渐进式渲染（progressive rendering）？
+渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
+
+在以前互联网带宽较小的时期，这种技术更为普遍。如今，移动终端的盛行，而移动网络往往不稳定，渐进式渲染在现代前端开发中仍然有用武之地。
+
+一些举例：
+
+* 图片懒加载——页面上的图片不会一次性全部加载。当用户滚动页面到图片部分时，JavaScript 将加载并显示图像。
+* 确定显示内容的优先级（分层次渲染）——为了尽快将页面呈现给用户，页面只包含基本的最少量的 CSS、脚本和内容，然后可以使用延迟加载脚本或监听DOMContentLoaded/load事件加载其他资源和内容。
+* 异步加载 HTML 片段——当页面通过后台渲染时，把 HTML 拆分，通过异步请求，分块发送给浏览器。
