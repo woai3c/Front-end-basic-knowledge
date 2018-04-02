@@ -1,4 +1,4 @@
-* [同源策略](#cookiesessionStorage和localStorage的区别)
+* [`cookie`、`sessionStorage`和`localStorage`的区别](#cookiesessionStorage和localStorage的区别)
 
 ## `cookie`、`sessionStorage`和`localStorage`的区别。
 
