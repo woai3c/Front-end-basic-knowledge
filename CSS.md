@@ -1,4 +1,4 @@
-## 本文内容引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md#%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%B9%E5%BC%8F%E5%8F%AF%E4%BB%A5%E9%9A%90%E8%97%8F%E5%86%85%E5%AE%B9%E4%BD%BF%E5%85%B6%E4%BB%85%E9%80%82%E7%94%A8%E4%BA%8E%E5%B1%8F%E5%B9%95%E9%98%85%E8%AF%BB%E5%99%A8)
+## 本文内容引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
 # CSS 问题
 
 本章节是[前端开发者面试问题 - CSS 部分](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/questions/css-questions.md)的参考答案。 欢迎提出 PR 进行建议和指正！
