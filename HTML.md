@@ -1,5 +1,5 @@
 * [`cookie`、`sessionStorage`和`localStorage`的区别](#cookiesessionstorage和localstorage的区别)
-* [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
+* [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把 css的link标签放在headhead之间为什么最好把JS的script标签恰好放在body之前有例外情况吗)
 * [什么是渐进式渲染（progressive rendering）](#什么是渐进式渲染progressive-rendering)
 
 ## `cookie`、`sessionStorage`和`localStorage`的区别。
@@ -17,6 +17,7 @@
 
 ## 为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？
 **把`<link>`放在`<head>`中**
+
 把`<link>`标签放在`<head></head>`之间是规范要求的内容。此外，这种做法可以让页面逐步呈现，提高了用户体验。将样式表放在文档底部附近，会使许多浏览器（包括 Internet Explorer）不能逐步呈现页面。一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容。
 
 **把`<script>`标签恰好放在`</body>`之前**
