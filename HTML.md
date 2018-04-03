@@ -7,6 +7,7 @@
 [HTML5 MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
 
 
+
 ## `cookie`、`sessionStorage`和`localStorage`的区别。
 上面提到的技术名词，都是在客户端以键值对存储的存储机制，并且只能将值存储为字符串。
 
