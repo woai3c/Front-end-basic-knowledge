@@ -1,7 +1,5 @@
 ## 本文内容大部分引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
 
-# CSS 问题
-
 * [CSS 选择器的优先级是如何计算的？](#css-选择器的优先级是如何计算的)
 * [重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？](#重置resettingcss-和-标准化normalizingcss-的区别是什么你会选择哪种方式为什么)
 * [请阐述`Float`定位的工作原理。](#请阐述float定位的工作原理)
@@ -33,6 +31,7 @@
 * [响应式设计与自适应设计有何不同？](#响应式设计与自适应设计有何不同)
 * [你有没有使用过视网膜分辨率的图形？当中使用什么技术？](#你有没有使用过视网膜分辨率的图形当中使用什么技术)
 * [什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。](#什么情况下用translate而不用绝对定位什么时候情况相反)
+* [行内元素、块级元素区别](#行内元素、块级元素区别)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -457,3 +456,10 @@ TODO
 * https://neal.codes/blog/front-end-interview-css-questions
 * https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
+
+
+## 行内元素、块级元素区别
+行内元素：和有他元素都在一行上，高度、行高及外边距和内边距都不可改变，文字图片的宽度不可改变，只能容纳文本或者其他行内元素；其中img是行元素
+
+块级元素：总是在新行上开始，高度、行高及外边距和内边距都可控制，可以容纳内敛元素和其他元素；行元素转换为块级元素方式：display：block；
+
