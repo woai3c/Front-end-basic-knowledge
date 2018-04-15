@@ -14,6 +14,7 @@
 * [prototype和__proto__](#prototype和__proto__)
 * [域名收敛](#域名收敛)
 * [首屏时间、白屏时间](#首屏时间白屏时间)
+* 当你在浏览器输入一个地址后发生了什么(#当你在浏览器输入一个地址后发生了什么)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -184,3 +185,7 @@ window.onload = () => {
     new Date() - performance.timing.responseStart
 }
 ```
+
+
+## 当你在浏览器输入一个地址后发生了什么
+https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?utm_medium=social&utm_source=wechat_session&from=timeline&isappinstalled=0
