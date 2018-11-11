@@ -1,6 +1,7 @@
 
 * [同源策略](#同源策略)
 * [跨域资源共享CORS](#跨域资源共享)
+* [事件绑定的方式](#事件绑定的方式)
 * [事件委托](#事件委托)
 * [事件循环](#事件循环)
 * [原型继承](#原型继承)
@@ -22,6 +23,23 @@
 
 ## 跨域资源共享
 [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
+
+
+## 事件绑定的方式
+* 嵌入dom
+```
+<button onclick="func()">按钮</button>
+```
+
+* 直接绑定
+```
+btn.onclick = function(){}
+```
+
+* 事件监听
+```
+btn.addEventListener('click',function(){})
+```
 
 
 ## 事件委托
