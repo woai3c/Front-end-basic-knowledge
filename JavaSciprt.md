@@ -13,6 +13,7 @@
 * [对象深拷贝](#对象深拷贝)
 * [数组去重](#数组去重)
 * [数据类型](#数据类型)
+* [内置对象](#内置对象)
 * [prototype和__proto__](#prototype和__proto__)
 * [域名收敛](#域名收敛)
 * [首屏时间、白屏时间](#首屏时间白屏时间)
@@ -184,6 +185,23 @@ function unique (arr) {
 5. String 
 6. Object
 
+
+## 内置对象
+* String
+* Number
+* Boolean
+* Object
+* Function
+* Array
+* Date
+* RegExp
+* Error
+
+原始值 "I am a string" 并不是一个对象，它只是一个字面量，并且是一个不可变的值。
+如果要在这个字面量上执行一些操作，比如获取长度、访问其中某个字符等，那需要将其
+转换为 String 对象。
+幸好，在必要时语言会自动把字符串字面量转换成一个 String 对象，也就是说你并不需要
+显式创建一个对象。
 
 ## prototype和__proto__
 首先，要明确几个点：
