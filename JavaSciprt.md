@@ -220,6 +220,8 @@ PC 时代为了突破浏览器的域名并发限制。有了域名发散。<br>
 
 
 ## 首屏时间、白屏时间
+Performance 接口可以获取到当前页面中与性能相关的信息。<br>
+该类型的对象可以通过调用只读属性 Window.performance 来获得。<br>
 白屏时间：
 ```
 performance.timing.responseStart - performance.timing.navigationStart
@@ -230,7 +232,7 @@ window.onload = () => {
     new Date() - performance.timing.responseStart
 }
 ```
-
+https://developer.mozilla.org/zh-CN/docs/Web/API/Performance
 
 ## 当你在浏览器输入一个地址后发生了什么
 https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?utm_medium=social&utm_source=wechat_session&from=timeline&isappinstalled=0
