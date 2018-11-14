@@ -184,6 +184,7 @@ function unique (arr) {
 4. Number
 5. String 
 6. Object
+7. symbol(ES6新增)
 
 
 ## 内置对象
