@@ -18,6 +18,7 @@
 * [域名收敛](#域名收敛)
 * [首屏时间、白屏时间](#首屏时间白屏时间)
 * [当你在浏览器输入一个地址后发生了什么](#当你在浏览器输入一个地址后发生了什么)
+* [自动分号](#自动分号)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -238,3 +239,12 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/Performance
 
 ## 当你在浏览器输入一个地址后发生了什么
 https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?utm_medium=social&utm_source=wechat_session&from=timeline&isappinstalled=0
+
+
+## 自动分号
+有时 JavaScript 会自动为代码行补上缺失的分号，即自动分号插入（Automatic SemicolonInsertion，ASI）。<br>
+因为如果缺失了必要的 ; ，代码将无法运行，语言的容错性也会降低。ASI 能让我们忽略那些不必要的 ; 。<br>
+请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。<br>
+如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分
+号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会
+这样做。
