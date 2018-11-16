@@ -1,6 +1,7 @@
 
 * [同源策略](#同源策略)
 * [跨域资源共享CORS](#跨域资源共享)
+* [JSONP](#JSONP)
 * [事件绑定的方式](#事件绑定的方式)
 * [事件委托](#事件委托)
 * [事件循环](#事件循环)
@@ -27,6 +28,10 @@
 ## 跨域资源共享
 [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
+
+## JSONP
+这是我认为写得比较通俗易懂的一篇文章 直接转载过来<br>
+https://blog.csdn.net/hansexploration/article/details/80314948
 
 ## 事件绑定的方式
 * 嵌入dom
