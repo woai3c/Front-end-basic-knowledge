@@ -90,9 +90,8 @@ document.querySelectorAll('li').forEach((e) => {
 
 
 ## prototype和__proto__的关系是什么
-所有的对象拥有__proto__属性，它指向Object.prototype
+所有的对象都拥有__proto__属性，它指向Object.prototype
 ```
-Object.prototype.__proto__ // null
 let obj = {}
 obj.__proto__ === Object.prototype // true
 ```
@@ -101,8 +100,12 @@ obj.__proto__ === Object.prototype // true
 function func() {}
 func.prototype.__proto__ === Object.prototype // true
 ```
-只有函数和Object同时具有prototype和__proto__属性
-函数和Object的__proto__指向自己的函数实现 protytpe指向自己的原型对象
+只有函数和Object同时具有prototype和__proto__属性<br>
+函数和Object的__proto__指向自己的函数实现（即构造函数） protytpe指向自己的原型对象<br>
+Object.__proto__指向null
+```
+Object.prototype.__proto__ // null
+```
 
 
 ## 原型继承
