@@ -6,7 +6,7 @@
 * [事件委托](#事件委托)
 * [事件循环](#事件循环)
 * [target和currentTarget区别](#target和currentTarget区别)
-* [prototype和__proto__的关系是什么](prototype和__proto__的关系是什么)
+* [prototype和__proto__的关系是什么](#prototype和__proto__的关系是什么)
 * [原型继承](#原型继承)
 * [继承](#继承)
 * [闭包](#闭包)
