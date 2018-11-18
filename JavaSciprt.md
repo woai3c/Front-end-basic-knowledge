@@ -6,6 +6,7 @@
 * [事件委托](#事件委托)
 * [事件循环](#事件循环)
 * [target和currentTarget区别](#target和currentTarget区别)
+* [prototype和__proto__的关系是什么](prototype和__proto__的关系是什么)
 * [原型继承](#原型继承)
 * [继承](#继承)
 * [闭包](#闭包)
@@ -86,6 +87,22 @@ document.querySelectorAll('li').forEach((e) => {
 返回触发事件的元素
 * event.currentTarget<br>
 返回绑定事件的元素
+
+
+## prototype和__proto__的关系是什么
+所有的对象拥有__proto__属性，它指向Object.prototype
+```
+Object.prototype.__proto__ // null
+let obj = {}
+obj.__proto__ === Object.prototype // true
+```
+函数具有prototype属性，指向它的原型对象，函数的prototype也是一个对象，所以func.protytpe.__proto__指向Object.prototype
+```
+function func() {}
+func.prototype.__proto__ === Object.prototype // true
+```
+只有函数和Object同时具有prototype和__proto__属性
+函数和Object的__proto__指向自己的函数实现 protytpe指向自己的原型对象
 
 
 ## 原型继承
