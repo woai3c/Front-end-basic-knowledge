@@ -5,6 +5,7 @@
 * [事件绑定的方式](#事件绑定的方式)
 * [事件委托](#事件委托)
 * [事件循环](#事件循环)
+* [事件模型](#事件模型)
 * [target和currentTarget区别](#target和currentTarget区别)
 * [prototype和__proto__的关系是什么](#prototype和__proto__的关系是什么)
 * [原型继承](#原型继承)
@@ -81,6 +82,43 @@ document.querySelectorAll('li').forEach((e) => {
 ## 事件循环
 事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。
 
+
+
+## 事件模型
+* DOM0<br>
+直接绑定
+```
+<input onclick="sayHi()"/>
+
+btn.onclick = function() {}
+btn.onclick = null
+```
+
+* DOM2<br>
+DOM2级事件可以冒泡和捕获
+通过addEventListener绑定
+通过removeEventListener解绑
+```
+// 绑定
+btn.addEventListener('click', sayHi)
+// 解绑
+btn.removeEventListener('click', sayHi)
+```
+
+* DOM3<br>
+DOM3具有更多事件类型
+DOM3级事件在DOM2级事件的基础上添加了更多的事件类型，全部类型如下：
+
+UI事件，当用户与页面上的元素交互时触发，如：load、scroll
+焦点事件，当元素获得或失去焦点时触发，如：blur、focus
+鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
+滚轮事件，当使用鼠标滚轮或类似设备时触发，如：mousewheel
+文本事件，当在文档中输入文本时触发，如：textInput
+键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress
+合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart
+变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
+
+https://www.jianshu.com/p/3acdf5f71d5b
 
 ## target和currentTarget区别
 * event.target<br>
