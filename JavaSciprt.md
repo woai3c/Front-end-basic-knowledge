@@ -108,7 +108,7 @@ btn.removeEventListener('click', sayHi)
 * DOM3<br>
 DOM3具有更多事件类型
 DOM3级事件在DOM2级事件的基础上添加了更多的事件类型，全部类型如下：
-
+```
 UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 焦点事件，当元素获得或失去焦点时触发，如：blur、focus
 鼠标事件，当用户通过鼠标在页面执行操作时触发如：dbclick、mouseup
@@ -117,6 +117,7 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 键盘事件，当用户通过键盘在页面上执行操作时触发，如：keydown、keypress
 合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart
 变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
+```
 
 https://www.jianshu.com/p/3acdf5f71d5b
 
