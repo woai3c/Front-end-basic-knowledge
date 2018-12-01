@@ -1,6 +1,6 @@
 * [RESTful](#RESTful)
 * [GETt和POST的区别](#GETt和POST的区别)
-* [Accept](#Accept)
+* [Accept和Content-Type](#Accept和Content-Type)
 
 ## RESTful
 REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
@@ -35,7 +35,7 @@ https://blog.csdn.net/jnshu_it/article/details/80203696
 * GET参数通过URL传递，POST放在Request body中。
 
 
-## Accept
+## Accept和Content-Type
 Accept 请求头用来告知客户端可以处理的内容类型，这种内容类型用MIME类型来表示。
 服务器使用 Content-Type 应答头通知客户端它的选择。
 ```
@@ -43,18 +43,20 @@ Accept: text/html
 Accept: image/*
 Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8
 ```
-示例
-```
-比如：Accept：text/xml（application/json）; 
-代表客户端希望接受的数据类型是xml（json ）类型 
-Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型。
+1.Accept属于请求头， Content-Type属于实体头。 
+Http报头分为通用报头，请求报头，响应报头和实体报头。 
+请求方的http报头结构：通用报头|请求报头|实体报头 
+响应方的http报头结构：通用报头|响应报头|实体报头
 
-比如：Content-Type：text/html（application/json） ; 
-代表发送端发送的数据格式是html（json）。 
-二者合起来，
+2.Accept代表发送端（客户端）希望接受的数据类型。 
+比如：Accept：text/xml; 
+代表客户端希望接受的数据类型是xml类型
 
+Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型。 
+比如：Content-Type：text/html; 
+代表发送端发送的数据格式是html。
+
+二者合起来， 
 Accept:text/xml； 
-Content-Type:text/html
-
+Content-Type:text/html 
 即代表希望接受的数据类型是xml格式，本次请求发送的数据的数据格式是html。
-```
