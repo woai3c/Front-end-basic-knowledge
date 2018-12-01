@@ -43,20 +43,20 @@ Accept: text/html
 Accept: image/*
 Accept: text/html, application/xhtml+xml, application/xml;q=0.9, */*;q=0.8
 ```
-1.Accept属于请求头， Content-Type属于实体头。 
-Http报头分为通用报头，请求报头，响应报头和实体报头。 
-请求方的http报头结构：通用报头|请求报头|实体报头 
-响应方的http报头结构：通用报头|响应报头|实体报头
+1.Accept属于请求头， Content-Type属于实体头。 <br>
+Http报头分为通用报头，请求报头，响应报头和实体报头。 <br>
+请求方的http报头结构：通用报头|请求报头|实体报头 <br>
+响应方的http报头结构：通用报头|响应报头|实体报头<br>
 
-2.Accept代表发送端（客户端）希望接受的数据类型。 
-比如：Accept：text/xml; 
-代表客户端希望接受的数据类型是xml类型
+2.Accept代表发送端（客户端）希望接受的数据类型。 <br>
+比如：Accept：text/xml; <br>
+代表客户端希望接受的数据类型是xml类型<br>
 
-Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型。 
-比如：Content-Type：text/html; 
-代表发送端发送的数据格式是html。
+Content-Type代表发送端（客户端|服务器）发送的实体数据的数据类型。 <br>
+比如：Content-Type：text/html; <br>
+代表发送端发送的数据格式是html。<br>
 
-二者合起来， 
-Accept:text/xml； 
-Content-Type:text/html 
-即代表希望接受的数据类型是xml格式，本次请求发送的数据的数据格式是html。
+二者合起来， <br>
+Accept:text/xml； <br>
+Content-Type:text/html <br>
+即代表希望接受的数据类型是xml格式，本次请求发送的数据的数据格式是html。<br>
