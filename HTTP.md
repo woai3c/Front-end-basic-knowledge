@@ -1,6 +1,7 @@
 * [RESTful](#RESTful)
 * [GETt和POST的区别](#GETt和POST的区别)
 * [Accept和Content-Type](#Accept和Content-Type)
+* [状态码](#状态码)
 
 ## RESTful
 REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
@@ -60,3 +61,13 @@ Content-Type代表发送端（客户端|服务器）发送的实体数据的数�
 Accept:text/xml； <br>
 Content-Type:text/html <br>
 即代表希望接受的数据类型是xml格式，本次请求发送的数据的数据格式是html。<br>
+
+## 状态码
+
+| 状态码 | 类别 | 描述 |
+| -- | -- | -- |
+| 1xx | Informational（信息状态码） | 接受请求正在处理 |
+| 2xx | Success（成功状态码） | 请求正常处理完毕 |
+| 3xx | Redirection（重定向状态码） | 需要附加操作已完成请求 |
+| 4xx | Client Error（客户端错误状态码） | 服务器无法处理请求 |
+| 5xx | Server Error（服务器错误状态码） | 服务器处理请求出错 |
