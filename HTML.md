@@ -3,6 +3,7 @@
 * [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
 * [什么是渐进式渲染（progressive rendering）](#什么是渐进式渲染progressive-rendering)
 * [viewport](#viewport)
+* [Ascii、GBK、UTF、Unicode](#AsciiGBKUTFUnicode)
 
 ## HTML5
 [HTML5 MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
@@ -68,3 +69,14 @@ maximum-scale	允许用户的最大缩放值，为一个数字，可以带小数
 height	设置layout viewport 的高度，这个属性对我们并不重要，很少使用
 
 user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
+
+## Ascii、GBK、UTF、Unicode
+Ascii（1个字节1个字符）
+GBK是国内的编码标准（汉字2个字节）
+Unicode是国际编码标准（统一2个字节表示一个字符）
+UTF是Unicode实现的另一个标准
+> unicode同样也不完美，这里就有两个的问题，一个是，如何才能区别unicode和ascii？
+由于”半角”英文符号只需要用到低8位，所以其高8位永远是0，因此这种大气的方案在保存英文文本时会多浪费一倍的空间
+unicode在很长一段时间内无法推广，直到互联网的出现，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。UTF-8就是在互联网上使用最广的一种unicode的实现方式，这是为传输而设计的编码，并使编码无国界，这样就可以显示全世界上所有文化的字符了。UTF-8最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度，当字符在ASCII码的范围时，就用一个字节表示，保留了ASCII字符一个字节的编码做为它的一部分，注意的是unicode一个中文字符占2个字节，而UTF-8一个中文字符占3个字节）。从unicode到utf-8并不是直接的对应，而是要过一些算法和规则来转换。
+
+https://www.zhihu.com/question/23374078/answer/69732605
