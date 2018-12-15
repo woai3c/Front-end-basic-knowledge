@@ -2,6 +2,7 @@
 * [GETt和POST的区别](#GETt和POST的区别)
 * [Accept和Content-Type](#Accept和Content-Type)
 * [状态码](#状态码)
+* [HTTP缓存](#HTTP缓存)
 
 ## RESTful
 REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
@@ -71,3 +72,19 @@ Content-Type:text/html <br>
 | 3xx | Redirection（重定向状态码） | 需要附加操作已完成请求 |
 | 4xx | Client Error（客户端错误状态码） | 服务器无法处理请求 |
 | 5xx | Server Error（服务器错误状态码） | 服务器处理请求出错 |
+
+## HTTP缓存
+### 本地缓存
+#### Expires
+Expires的值为服务端返回的到期时间，即下一次请求时，请求时间小于服务端返回的到期时间，直接使用缓存数据。
+不过Expires 是HTTP 1.0的东西，现在默认浏览器均默认使用HTTP 1.1，所以它的作用基本忽略。
+另一个问题是，到期时间是由服务端生成的，但是客户端时间可能跟服务端时间有误差，这就会导致缓存命中的误差。
+所以HTTP 1.1 的版本，使用Cache-Control替代。
+#### Cache-Control
+Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。
+* private: 客户端可以缓存
+* public: 客户端和代理服务器都可缓存
+* max-age=xxx: 缓存的内容将在 xxx 秒后失效
+* no-cache: 需要使用对比缓存来验证缓存数据
+* no-store: 所有内容都不会缓存，强制缓存，对比缓存都不会触发
+http://caibaojian.com/http-cache-code.html
