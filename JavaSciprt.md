@@ -237,6 +237,20 @@ let o2 = JSON.parse(JSON.stringify(o1))
 
 
 ## 数组去重
+ES5
+```
+function unique(arry) {
+    const temp = []
+    arry.forEach(e => {
+        if (!temp.includes(e)) {
+            temp.push(e)
+        }
+    })
+    
+    return temp
+}
+```
+ES6
 ```
 function unique (arr) {
    return Array.from(new Set(arr))
