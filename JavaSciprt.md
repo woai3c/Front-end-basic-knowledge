@@ -242,7 +242,7 @@ ES5
 function unique(arry) {
     const temp = []
     arry.forEach(e => {
-        if (!temp.includes(e)) {
+        if (temp.indexOf(e) == -1) {
             temp.push(e)
         }
     })
