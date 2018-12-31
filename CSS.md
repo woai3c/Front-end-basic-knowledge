@@ -1,4 +1,4 @@
-## 本文内容大部分引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
+## 本文内容部分引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
 
 * [CSS 选择器的优先级是如何计算的？](#css-选择器的优先级是如何计算的)
 * [重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？](#重置resettingcss-和-标准化normalizingcss-的区别是什么你会选择哪种方式为什么)
@@ -30,6 +30,7 @@
 * [什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。](#什么情况下用translate而不用绝对定位什么时候情况相反)
 * [行内元素、块级元素区别](#行内元素块级元素区别)
 * [一边固定宽度一边宽度自适应](#一边固定宽度一边宽度自适应)
+* [水平垂直居中的方式](#水平垂直居中的方式)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -472,3 +473,53 @@ div {
 }
 ```
 
+## 水平垂直居中的方式
+#### flex
+```
+// 父容器
+display: flex;
+justify-content: center;
+align-items: center;
+```
+
+#### position+transform
+```
+// 父容器
+position: relative;
+
+// 子容器
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+```
+#### table-cell
+```
+<div class="box">
+    <div class="content">
+        <div class="inner"></div>
+    </div>
+</div>
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+.box {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.inner {
+    background-color: #000;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+```
