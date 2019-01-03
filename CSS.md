@@ -481,7 +481,19 @@ display: flex;
 justify-content: center;
 align-items: center;
 ```
+#### position
+```
+// 父容器
+position: relative;
 
+// 子容器
+position:absolute;
+margin:auto;
+top:0;
+bottom:0;
+left:0;
+right:0;
+```
 #### position+transform
 ```
 // 父容器
