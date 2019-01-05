@@ -25,7 +25,7 @@
 * [浮点数精度](#浮点数精度)
 * [cookie、localStorage、sessionStorage区别](#cookielocalStoragesessionStorage区别)
 * [自执行函数?用于什么场景？好处?](#自执行函数用于什么场景好处)
-* [实现add 函数， 让add(a)(b) 和 add(a, b) 两种调用结果相同](#实现add函数让add(a)(b)和add(ab)两种调用结果相同)
+* [实现add 函数， 让add(a)(b) 和 add(a, b) 两种调用结果相同](#实现add函数让addab和addab两种调用结果相同)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
