@@ -27,6 +27,7 @@
 * [cookie、localStorage、sessionStorage区别](#cookielocalStoragesessionStorage区别)
 * [自执行函数?用于什么场景？好处?](#自执行函数用于什么场景好处)
 * [实现add函数,让add(a)(b)和add(a,b)两种调用结果相同](#实现add函数让addab和addab两种调用结果相同)
+* [js中万物皆对象你认为对么](#js中万物皆对象你认为对么)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -366,4 +367,12 @@ function add(a, b) {
     return a + b
 }
 ```
+#### [回到顶部](#JavaScript)
+
+## js中万物皆对象你认为对么
+我认为是对的
+在JS中有原生函数、基本数据类型，它们的原型最终还是对象。
+可以看看本文的原生函数
+
+
 #### [回到顶部](#JavaScript)
