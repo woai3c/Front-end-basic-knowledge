@@ -3,7 +3,7 @@
 * [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
 * [什么是渐进式渲染（progressive rendering）](#什么是渐进式渲染progressive-rendering)
 * [viewport](#viewport)
-* [Reflow和Repaint)(#Reflow和Repaint)
+* [Reflow和Repaint](#Reflow和Repaint)
 
 ## HTML5
 [HTML5 MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
