@@ -3,6 +3,7 @@
 * [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
 * [什么是渐进式渲染（progressive rendering）](#什么是渐进式渲染progressive-rendering)
 * [viewport](#viewport)
+* [Reflow和Repaint)(#Reflow和Repaint)
 
 ## HTML5
 [HTML5 MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
@@ -69,3 +70,25 @@ height	设置layout viewport 的高度，这个属性对我们并不重要，很
 
 user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
 
+## Reflow和Repaint
+#### Reflow
+当涉及到DOM节点的布局属性发生变化时，就会重新计算该属性，浏览器会重新描绘相应的元素，此过程叫Reflow（回流或重排）。
+#### Repaint
+当影响DOM元素可见性的属性发生变化 (如 color) 时, 浏览器会重新描绘相应的元素, 此过程称为Repaint（重绘）。因此重排必然会引起重绘。
+#### 引起Repaint和Reflow的一些操作
+* 调整窗口大小
+* 字体大小
+* 样式表变动
+* 元素内容变化，尤其是输入控件
+* CSS伪类激活，在用户交互过程中发生
+* DOM操作，DOM元素增删、修改
+* width, clientWidth, scrollTop等布局宽高的计算
+
+#### Repaint和Reflow是不可避免的，只能说对性能的影响减到最小，给出下面几条建议：
+* 避免逐条更改样式。建议集中修改样式，例如操作className。
+* 避免频繁操作DOM。创建一个documentFragment或div，在它上面应用所有DOM操作，最后添加到文档里。设置display:none的元素上操作，最后显示出来。
+* 避免频繁读取元素几何属性（例如scrollTop）。绝对定位具有复杂动画的元素。
+* 绝对定位使它脱离文档流，避免引起父元素及后续元素大量的回流
+
+https://harttle.land/2015/08/11/reflow-repaint.html
+http://www.blueidea.com/tech/web/2011/8365.asp
