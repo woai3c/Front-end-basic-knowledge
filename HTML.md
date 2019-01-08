@@ -1,13 +1,20 @@
-* [HTML5](#html5)
+# HTML
+
+* [HTML5语义化](#html5语义化)
 * [`cookie`、`sessionStorage`和`localStorage`的区别](#cookiesessionstorage和localstorage的区别)
 * [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
 * [什么是渐进式渲染（progressive rendering）](#什么是渐进式渲染progressive-rendering)
 * [viewport](#viewport)
 * [Reflow和Repaint](#Reflow和Repaint)
 
-## HTML5
-[HTML5 MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
-
+## HTML5语义化
+什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
+#### 好处
+* 易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。
+* 有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。
+* 方便其他设备解析，如盲人阅读器根据语义渲染网页
+* 有利于开发和维护，语义化更具可读性，代码更好维护，与CSS3关系更和谐。
+http://www.daqianduan.com/6549.html
 
 
 ## `cookie`、`sessionStorage`和`localStorage`的区别。
@@ -83,6 +90,7 @@ user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不�
 * CSS伪类激活，在用户交互过程中发生
 * DOM操作，DOM元素增删、修改
 * width, clientWidth, scrollTop等布局宽高的计算
+[回到顶部](#HTML)
 
 #### Repaint和Reflow是不可避免的，只能说对性能的影响减到最小，给出下面几条建议：
 * 避免逐条更改样式。建议集中修改样式，例如操作className。
@@ -92,3 +100,4 @@ user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不�
 
 https://harttle.land/2015/08/11/reflow-repaint.html<br>
 http://www.blueidea.com/tech/web/2011/8365.asp
+[回到顶部](#HTML)
