@@ -78,6 +78,8 @@ height	设置layout viewport 的高度，这个属性对我们并不重要，很
 
 user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
 
+[回到顶部](#HTML)
+
 ## Reflow和Repaint
 #### Reflow
 当涉及到DOM节点的布局属性发生变化时，就会重新计算该属性，浏览器会重新描绘相应的元素，此过程叫Reflow（回流或重排）。
@@ -91,8 +93,6 @@ user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不�
 * CSS伪类激活，在用户交互过程中发生
 * DOM操作，DOM元素增删、修改
 * width, clientWidth, scrollTop等布局宽高的计算
-
-[回到顶部](#HTML)
 
 #### Repaint和Reflow是不可避免的，只能说对性能的影响减到最小，给出下面几条建议：
 * 避免逐条更改样式。建议集中修改样式，例如操作className。
