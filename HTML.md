@@ -18,6 +18,8 @@
 http://www.daqianduan.com/6549.html
 
 
+
+
 ## `cookie`、`sessionStorage`和`localStorage`的区别。
 上面提到的技术名词，都是在客户端以键值对存储的存储机制，并且只能将值存储为字符串。
 
@@ -29,6 +31,8 @@ http://www.daqianduan.com/6549.html
 | 是否随着每个 HTTP 请求发送给服务器                 | 是，Cookies 会通过`Cookie`请求头，自动发送给服务器 | 否             | 否               |
 | 容量（每个域名）                                   | 4kb                                                | 5MB            | 5MB              |
 | 访问权限                                           | 任意窗口                                           | 任意窗口       | 当前页面窗口     |
+
+
 
 
 ## 为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？
@@ -56,6 +60,8 @@ http://www.daqianduan.com/6549.html
 * 异步加载 HTML 片段——当页面通过后台渲染时，把 HTML 拆分，通过异步请求，分块发送给浏览器。更多相关细节可以在[这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-rediscovering-progressive-html-rendering-with-marko/)找到。
 
 
+
+
 ## viewport
 Viewport ：字面意思为视图窗口，在移动web开发中使用。表示将设备浏览器宽度虚拟成一个特定的值（或计算得出），这样利于移动web站点跨设备显示效果基本一致。移动版的 Safari 浏览器最新引进了 viewport 这个 meta tag，让网页开发者来控制 viewport 的大小和缩放，其他手机浏览器也基本支持。
 
@@ -79,6 +85,8 @@ height	设置layout viewport 的高度，这个属性对我们并不重要，很
 user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
 
 [回到顶部](#HTML)
+
+
 
 ## Reflow和Repaint
 #### Reflow
