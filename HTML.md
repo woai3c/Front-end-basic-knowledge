@@ -14,6 +14,7 @@
 * 有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。
 * 方便其他设备解析，如盲人阅读器根据语义渲染网页
 * 有利于开发和维护，语义化更具可读性，代码更好维护，与CSS3关系更和谐。
+
 http://www.daqianduan.com/6549.html
 
 
@@ -90,6 +91,7 @@ user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不�
 * CSS伪类激活，在用户交互过程中发生
 * DOM操作，DOM元素增删、修改
 * width, clientWidth, scrollTop等布局宽高的计算
+
 [回到顶部](#HTML)
 
 #### Repaint和Reflow是不可避免的，只能说对性能的影响减到最小，给出下面几条建议：
@@ -100,4 +102,5 @@ user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不�
 
 https://harttle.land/2015/08/11/reflow-repaint.html<br>
 http://www.blueidea.com/tech/web/2011/8365.asp
+
 [回到顶部](#HTML)
