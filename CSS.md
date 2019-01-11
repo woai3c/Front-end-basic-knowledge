@@ -541,8 +541,10 @@ html, body {
 [回到顶部](#css)
 
 ### display:none、visibile:hidden、opacity:0的区别
-* display:none  隐藏对应的元素，脱离文档流，跟删除了一样，如果绑定了点击事件，点击不会触发。
-* visibility:hidden  隐藏对应的元素，但是在文档布局中仍保留原来的空间，如果绑定了点击事件，点击不会触发。
-* opacity: 0 隐藏对应的元素，但是在文档布局中仍保留原来的空间，如果绑定了点击事件，点击仍会触发事件。
+| |是否隐藏 |是否在文档中占用空间|是否会触发事件|
+|-|-|-|-|
+|display: none|是|否|否|
+|visibile: hidden|是|是|否|
+|opacity: 0|是|是|是|
 
 [回到顶部](#css)
