@@ -33,7 +33,7 @@
 * [行内元素、块级元素区别](#行内元素块级元素区别)
 * [一边固定宽度一边宽度自适应](#一边固定宽度一边宽度自适应)
 * [水平垂直居中的方式](#水平垂直居中的方式)
-* [display:none、visibile:hidden、opacity:0的区别](#display:nonevisibile:hiddenopacity:0的区别)
+* [display:none、visibile:hidden、opacity:0的区别](#displaynonevisibilehiddenopacity0的区别)
 
 ### CSS 选择器的优先级是如何计算的？
 
