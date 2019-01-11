@@ -34,7 +34,7 @@
 * [一边固定宽度一边宽度自适应](#一边固定宽度一边宽度自适应)
 * [水平垂直居中的方式](#水平垂直居中的方式)
 * [display:none、visibile:hidden、opacity:0的区别](#displaynonevisibilehiddenopacity0的区别)
-* [CSS中link和@import的区别是？](#css中link和@import的区别是)
+* [CSS中link和@import的区别](#css中link和import的区别)
 
 ### CSS 选择器的优先级是如何计算的？
 
