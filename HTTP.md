@@ -1,5 +1,5 @@
 * [RESTful](#RESTful)
-* [GETt和POST的区别](#GETt和POST的区别)
+* [GET和POST的区别](#GET和POST的区别)
 * [Accept和Content-Type](#Accept和Content-Type)
 * [状态码](#状态码)
 * [HTTP缓存](#HTTP缓存)
@@ -24,7 +24,7 @@ Delete方法的参数同post一样存放在消息体中,具有安全性，可发
 
 https://blog.csdn.net/jnshu_it/article/details/80203696
 
-## GETt和POST的区别
+## GET和POST的区别
 * GET产生一个TCP数据包；POST产生两个TCP数据包。
 * GET在浏览器回退时是无害的，而POST会再次提交请求。
 * GET产生的URL地址可以被Bookmark，而POST不可以。
