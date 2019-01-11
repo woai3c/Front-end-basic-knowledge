@@ -1,3 +1,5 @@
+#CSS
+
 ## 本文内容部分引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
 
 * [CSS 选择器的优先级是如何计算的？](#css-选择器的优先级是如何计算的)
@@ -440,13 +442,13 @@ TODO
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
 
 
-## 行内元素、块级元素区别
+### 行内元素、块级元素区别
 行内元素：和其他元素都在一行上，高度、行高及外边距和内边距都不可改变，文字图片的宽度不可改变，只能容纳文本或者其他行内元素；其中img是行元素
 
 块级元素：总是在新行上开始，高度、行高及外边距和内边距都可控制，可以容纳内敛元素和其他元素；行元素转换为块级元素方式：display：block；
 
 
-## 一边固定宽度一边宽度自适应
+### 一边固定宽度一边宽度自适应
 可以使用flex布局 复制下面的HTML和CSS代码 用浏览器打开可以看到效果
 ```
 <div class="wrap">
@@ -473,7 +475,7 @@ div {
 }
 ```
 
-## 水平垂直居中的方式
+### 水平垂直居中的方式
 #### flex
 ```
 // 父容器
@@ -535,3 +537,4 @@ html, body {
     height: 200px;
 }
 ```
+[回到顶部](#css)
