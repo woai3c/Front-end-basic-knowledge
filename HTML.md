@@ -71,19 +71,14 @@ Viewport ：字面意思为视图窗口，在移动web开发中使用。表示�
 
 为了显示更多的内容，大多数的浏览器会把自己的视窗视口扩大，简易的理解，就是让原本320像素的屏幕宽度能够容下980像素甚至更宽的内容（将网页等比例缩小）。
 
-Viewport属性值
+### Viewport属性值
 
-width	设置layout viewport 的宽度，为一个正整数，或字符串"width-device"
-
-initial-scale	设置页面的初始缩放值，为一个数字，可以带小数
-
-minimum-scale	允许用户的最小缩放值，为一个数字，可以带小数
-
-maximum-scale	允许用户的最大缩放值，为一个数字，可以带小数
-
-height	设置layout viewport 的高度，这个属性对我们并不重要，很少使用
-
-user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
+* width	设置layout viewport 的宽度，为一个正整数，或字符串"width-device"
+* initial-scale	设置页面的初始缩放值，为一个数字，可以带小数
+* minimum-scale	允许用户的最小缩放值，为一个数字，可以带小数
+* maximum-scale	允许用户的最大缩放值，为一个数字，可以带小数
+* height	设置layout viewport 的高度，这个属性对我们并不重要，很少使用
+* user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
 
 [回到顶部](#HTML)
 
