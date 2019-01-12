@@ -35,6 +35,7 @@
 * [水平垂直居中的方式](#水平垂直居中的方式)
 * [display:none、visibile:hidden、opacity:0的区别](#displaynonevisibilehiddenopacity0的区别)
 * [CSS中link和@import的区别](#css中link和import的区别)
+* [如何用css实现瀑布流布局](#如何用css实现瀑布流布局)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -555,5 +556,56 @@ html, body {
 * 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载
 * import只在IE5以上才能识别，而link是HTML标签，无兼容问题
 * link方式的样式的权重 高于@import的权重
+
+[回到顶部](#css)
+
+### 如何用css实现瀑布流布局
+利用column-count和break-inside这两个CSS3属性即可，复制如下代码即可察看效果
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+        }
+        .waterfall-container {
+            /*分几列*/
+            column-count: 2;
+            width: 100%;
+            /* 列间距 */
+            column-gap: 10px;
+        }
+
+        .waterfall-item {
+            break-inside: avoid;
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            background: #ddd;
+            column-gap: 0;
+            text-align: center;
+            color: #fff;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="waterfall-container">
+        <div class="waterfall-item" style="height: 100px">1</div>
+        <div class="waterfall-item" style="height: 300px">2</div>
+        <div class="waterfall-item" style="height: 400px">3</div>
+        <div class="waterfall-item" style="height: 100px">4</div>
+        <div class="waterfall-item" style="height: 300px">5</div>
+        <div class="waterfall-item" style="height: 600px">6</div>
+        <div class="waterfall-item" style="height: 400px">7</div>
+        <div class="waterfall-item" style="height: 300px">8</div>
+        <div class="waterfall-item" style="height: 700px">9</div>
+        <div class="waterfall-item" style="height: 100px">10</div>
+    </div>
+</body>
+</html>
+```
 
 [回到顶部](#css)
