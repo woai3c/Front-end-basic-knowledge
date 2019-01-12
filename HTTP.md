@@ -1,8 +1,11 @@
+# HTTP
+
 * [RESTful](#RESTful)
 * [GET和POST的区别](#GET和POST的区别)
 * [Accept和Content-Type](#Accept和Content-Type)
 * [状态码](#状态码)
 * [HTTP缓存](#HTTP缓存)
+* [如何处理不让别人盗用你的图片，访问你的服务器资源](#如何处理不让别人盗用你的图片访问你的服务器资源)
 
 ## RESTful
 REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
@@ -73,5 +76,13 @@ Content-Type:text/html <br>
 | 4xx | Client Error（客户端错误状态码） | 服务器无法处理请求 |
 | 5xx | Server Error（服务器错误状态码） | 服务器处理请求出错 |
 
+[回到顶部](#HTTP)
+
 ## HTTP缓存
 https://segmentfault.com/a/1190000010690320
+
+## 如何处理不让别人盗用你的图片，访问你的服务器资源
+* http header, 对refer做判断看来源是不是自己的网站，如果不是就拒绝
+* 通过session校验，如果不通过特定服务生成cookie和session就不能请求得到资源
+
+[回到顶部](#HTTP)
