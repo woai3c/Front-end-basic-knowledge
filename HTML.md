@@ -120,8 +120,8 @@ http://www.blueidea.com/tech/web/2011/8365.asp
 
 ## href和src区别
 * href <br>
-href指定网络资源的位置（超文本引用），从而在当前元素或者当前文档和由当前属性定义的需要的锚点或资源之间定义一个链接或者关系，在 link和a 等元素上使用。
+href标识超文本引用，用在link和a等元素上，href是引用和页面关联，是在当前元素和引用资源之间建立联系
 * src <br>
-src属性仅仅嵌入当前资源到当前文档元素定义的位置，是页面必不可少的一部分，是引入。在 img、script、iframe 等元素上使用。
+src表示引用资源，替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。
 
 [回到顶部](#HTML)
