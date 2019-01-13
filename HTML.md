@@ -7,6 +7,7 @@
 * [viewport](#viewport)
 * [Reflow和Repaint](#Reflow和Repaint)
 * [img中的alt和元素的title属性作用](#img中的alt和元素的title属性作用)
+* [href和src区别](#href和src区别)
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -114,5 +115,13 @@ http://www.blueidea.com/tech/web/2011/8365.asp
 如果无法显示图像，浏览器将显示alt指定的内容
 * 元素title属性<br>
 在鼠标移到元素上时显示title的内容
+
+[回到顶部](#HTML)
+
+## href和src区别
+* href
+href指定网络资源的位置（超文本引用），从而在当前元素或者当前文档和由当前属性定义的需要的锚点或资源之间定义一个链接或者关系，在 link和a 等元素上使用。
+* src
+src属性仅仅嵌入当前资源到当前文档元素定义的位置，是页面必不可少的一部分，是引入。在 img、script、iframe 等元素上使用。
 
 [回到顶部](#HTML)
