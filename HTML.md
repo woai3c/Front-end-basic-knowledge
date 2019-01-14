@@ -8,6 +8,7 @@
 * [Reflow和Repaint](#Reflow和Repaint)
 * [img中的alt和元素的title属性作用](#img中的alt和元素的title属性作用)
 * [href和src区别](#href和src区别)
+* [浏览器的渲染过程](#浏览器的渲染过程)
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -127,5 +128,16 @@ src表示引用资源，替换当前元素，用在img，script，iframe上，sr
 当浏览器解析到src ，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等也如此，类似于将所指向资源应用到当前内容。这也是为什么建议把 js 脚本放在底部而不是头部的原因。
 
 https://blog.csdn.net/lhjuejiang/article/details/80795081
+
+[回到顶部](#HTML)
+
+## 浏览器的渲染过程
+1. 解析HTML生成DOM树。
+2. 解析CSS生成CSSOM规则树。
+3. 将DOM树与CSSOM规则树合并在一起生成渲染树。
+4. 遍历渲染树开始布局，计算每个节点的位置大小信息。
+5. 将渲染树每个节点绘制到屏幕。
+
+https://baijiahao.baidu.com/s?id=1593097105869520145&wfr=spider&for=pc
 
 [回到顶部](#HTML)
