@@ -1,7 +1,7 @@
 # JavaScript
 
 * [同源策略](#同源策略)
-* [跨域资源共享CORS](#跨域资源共享)
+* [跨域](#跨域)
 * [JSONP](#JSONP)
 * [事件绑定的方式](#事件绑定的方式)
 * [事件委托](#事件委托)
@@ -34,7 +34,18 @@
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
 
 
-## 跨域资源共享
+## 跨域
+* 原因
+浏览器的同源策略导致了跨域
+* 作用
+用于隔离潜在恶意文件的重要安全机制
+* 解决
+1. jsonp ，允许 script 加载第三方资源
+2. 反向代理（nginx 服务内部配置 Access-Control-Allow-Origin *）
+3. cors 前后端协作设置请求头部，Access-Control-Allow-Origin 等头部信息
+4. iframe 嵌套通讯，postmessage
+
+https://zhuanlan.zhihu.com/p/41479807
 [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
 
