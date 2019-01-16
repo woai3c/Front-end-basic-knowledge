@@ -29,15 +29,16 @@
 * [实现add函数,让add(a)(b)和add(a,b)两种调用结果相同](#实现add函数让addab和addab两种调用结果相同)
 * [js中万物皆对象你认为对么](#js中万物皆对象你认为对么)
 * [多个页面之间如何进行通信](#多个页面之间如何进行通信)
+* [css动画和js动画的差异](#css动画和js动画的差异)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
 
 
 ## 跨域
-* 原因
+* 原因 <br>
 浏览器的同源策略导致了跨域
-* 作用
+* 作用 <br>
 用于隔离潜在恶意文件的重要安全机制
 * 解决
 1. jsonp ，允许 script 加载第三方资源
@@ -45,7 +46,7 @@
 3. cors 前后端协作设置请求头部，Access-Control-Allow-Origin 等头部信息
 4. iframe 嵌套通讯，postmessage
 
-https://zhuanlan.zhihu.com/p/41479807
+https://zhuanlan.zhihu.com/p/41479807 <br>
 [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
 
@@ -394,5 +395,14 @@ function add(a, b) {
 * cookie
 * web worker
 * localeStorage和sessionStorage
+
+#### [回到顶部](#JavaScript)
+
+## css动画和js动画的差异
+1. 代码复杂度，js 动画代码相对复杂一些
+2. 动画运行时，对动画的控制程度上，js 能够让动画，暂停，取消，终止，css动画不能添加事件
+3. 动画性能看，js 动画多了一个js 解析的过程，性能不如 css 动画好
+
+https://zhuanlan.zhihu.com/p/41479807
 
 #### [回到顶部](#JavaScript)
