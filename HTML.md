@@ -9,6 +9,7 @@
 * [img中的alt和元素的title属性作用](#img中的alt和元素的title属性作用)
 * [href和src区别](#href和src区别)
 * [浏览器的渲染过程](#浏览器的渲染过程)
+* [为何会出现浏览器兼容问题](#为何会出现浏览器兼容问题)
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -139,5 +140,29 @@ https://blog.csdn.net/lhjuejiang/article/details/80795081
 5. 将渲染树每个节点绘制到屏幕。
 
 https://baijiahao.baidu.com/s?id=1593097105869520145&wfr=spider&for=pc
+
+[回到顶部](#HTML)
+
+## 为何会出现浏览器兼容问题
+* 同一产品，版本越老 bug 越多
+* 同一产品，版本越新，功能越多
+* 不同产品，不同标准，不同实现方式
+### 处理兼容问题的思路
+1. 要不要做
+* 产品的角度（产品的受众、受众的浏览器比例、效果优先还是基本功能优先）
+* 成本的角度 (有无必要做某件事)
+
+2.做到什么程度
+* 让哪些浏览器支持哪些效果
+
+3..如何做
+* 根据兼容需求选择技术框架/库(jquery)
+* 根据兼容需求选择兼容工具(html5shiv.js、respond.js、css reset、normalize.css、Modernizr)
+* 条件注释、CSS Hack、js 能力检测做一些修补
+
+* 渐进增强(progressive enhancement): 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验
+* 优雅降级 (graceful degradation): 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
+
+https://github.com/jirengu/frontend-interview/issues/35
 
 [回到顶部](#HTML)
