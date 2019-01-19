@@ -13,6 +13,7 @@
 * [继承](#继承)
 * [闭包](#闭包)
 * [Ajax](#Ajax)
+* [Ajax和Fetch区别](#Ajax和Fetch区别)
 * [变量提升](#变量提升)
 * [对象深拷贝](#对象深拷贝)
 * [数组去重](#数组去重)
@@ -239,11 +240,23 @@ xmlhttp.onreadystatechange = () => {
 xmlhttp.open("GET", "/ajax/test.txt", true)
 xmlhttp.send()
 ```
+#### [回到顶部](#JavaScript)
+
+## Ajax和Fetch区别
+* ajax是使用XMLHttpRequest对象发起的，但是用起来很麻烦，所以ES6新规范就有了fetch，fetch发一个请求不用像ajax那样写一大堆代码。
+* 使用fetch无法取消一个请求，这是因为fetch基于Promise，而Promise无法做到这一点。
+* 在默认情况下，fetch不会接受或者发送cookies
+* fetch没有办法原生监测请求的进度，而XMLHttpRequest可以
+* fetch只对网络请求报错，对400，500都当做成功的请求，需要封装去处理
+* fetch由于是ES6规范，兼容性上比不上XMLHttpRequest
+
+#### [回到顶部](#JavaScript)
 
 ## 变量提升
 var会使变量提升，这意味着变量可以在声明之前使用。let和const不会使变量提升，提前使用会报错。
 变量提升（hoisting）是用于解释代码中变量声明行为的术语。使用var关键字声明或初始化的变量，会将声明语句“提升”到当前作用域的顶部。 但是，只有声明才会触发提升，赋值语句（如果有的话）将保持原样。
 
+#### [回到顶部](#JavaScript)
 
 ## 对象深拷贝
 ```
@@ -253,7 +266,7 @@ let o1 = {a:{
 }
 let o2 = JSON.parse(JSON.stringify(o1))
 ```
-
+#### [回到顶部](#JavaScript)
 
 ## 数组去重
 ES5
