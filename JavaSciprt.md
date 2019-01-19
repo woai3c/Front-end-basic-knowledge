@@ -215,7 +215,8 @@ function sayHi(name) {
 const test = sayHi('xiaoming')
 test() // Hi! xiaoming
 ```
-虽然sayHi函数已经执行完毕，但是其活动对象也不会被销毁，因为test函数仍然引用着sayHi函数中的变量name，这就是闭包。
+虽然sayHi函数已经执行完毕，但是其活动对象也不会被销毁，因为test函数仍然引用着sayHi函数中的变量name，这就是闭包。<br>
+但也因为闭包引用着另一个函数的变量，导致另一个函数已经不使用了也无法销毁，所以闭包使用过多，会占用较多的内存，这也是一个副作用。
 
 
 ## Ajax
