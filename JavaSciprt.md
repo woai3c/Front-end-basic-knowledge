@@ -266,6 +266,21 @@ let o1 = {a:{
 }
 let o2 = JSON.parse(JSON.stringify(o1))
 ```
+另一种方法
+```
+function deepCopy(s) {
+    const d = {}
+    for (let k in s) {
+        if (typeof s[k] == 'object') {
+            d[k] = deepCopy(s[k])
+        } else {
+            d[k] = s[k]
+        }
+    }
+
+    return d
+}
+```
 #### [回到顶部](#JavaScript)
 
 ## 数组去重
