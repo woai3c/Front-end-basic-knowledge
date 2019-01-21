@@ -1,4 +1,4 @@
-## 持续更新。。。 欢迎关注
+## 持续更新,欢迎关注
 
 * ### [JavaScript](https://github.com/woai3c/Front-end-basic-knowledge/blob/master/JavaSciprt.md)
 * ### [CSS](https://github.com/woai3c/Front-end-basic-knowledge/blob/master/CSS.md)
