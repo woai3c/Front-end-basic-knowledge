@@ -5,7 +5,7 @@
 * [对于生命周期的理解](#对于生命周期的理解)
 * [组件传值](#组件传值)
 * [vue数据绑定原理](#vue数据绑定原理)
-* [vue-router原理](#vuerouter原理)
+* [vue-router原理](#vue-router原理)
 * [vuex原理](#vuex原理)
 
 ## 什么是mvvm
