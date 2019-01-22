@@ -4,6 +4,7 @@
 * [Vue的优点是什么](#Vue的优点是什么)
 * [对于生命周期的理解](#对于生命周期的理解)
 * [组件传值](#组件传值)
+* [vue数据绑定原理](#vue数据绑定原理)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
@@ -91,5 +92,121 @@ Vue中的生命周期也是一样，对应了Vue实例从创建到结束之间�
 * 子组件与子组件之间不能直接传值，需要通过父组件来做间接传值，在这种情况下推荐使用vuex
 
 具体例子请看[官方文档](https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87-Prop-%E5%90%91%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE)
+
+#### [回到顶部](#vue)
+
+## vue数据绑定原理
+
+Vue的数据双向绑定都是依据Object.defineProperty()这一方法来做的<br>
+Object.defineProperty到底有什么作用呢？
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+```
+Object.defineProperty(obj, prop, descriptor)
+
+obj
+要在其上定义属性的对象。
+
+prop
+要定义或修改的属性的名称。
+
+descriptor
+将被定义或修改的属性描述符。
+```
+简单来说 这个方法可以定义一个对象某个属性的描述符
+
+我们需要用到的就是描述符当中的getter和setter
+```
+const obj = {a:1}
+obj.a // 1
+
+obj.a = 2 
+```
+像上面代码中的两个操作 读取和赋值 就是在访问obj.a的getter和setter<br>
+当我们输入obj.a时 就是在访问obj对象a属性的getter 当输入obj.a = 2 时就是在访问obj对象a属性的setter
+```
+Object.defineProperty(obj, 'a', {
+  get : function(){
+    return val
+  },
+  set : function(newValue){
+    val = newValue
+  },
+  enumerable : true,
+  configurable : true
+})
+```
+getter和setter都是一个函数 我们还可以这样做 例如
+```
+get: function() {
+  // 每次访问obj.a时都会执行这段代码
+  console.log('hello, 你在读取a的值')
+  return val
+}
+set: function(newValue) {
+  val = newValue
+  // 每次给obj.a赋值时都会执行这段代码
+  console.log('你设置了a的值')
+}
+```
+Vue的双向数据绑定就是根据上面的原理来实现的
+只要在读取值时收集观察者 在赋值时触发观察者更新函数 就可以实现数据变更 从而实现DOM重新渲染
+
+说到这可能还不是很明白 不要急 慢慢来 先看一下这段代码 复制放到HTML文件里自己运行一下
+然后打开网页 在控制台里输入data.user.name看看 会有惊喜 
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>动态数据绑定（一）</title>
+</head>
+<body>
+ <script>
+    var data = {
+        user: {
+            name: 'xiaoming',
+            age: 18,
+            occupation: 'frontend'
+        },
+        address: {
+            city: 'shaoguan'
+        }
+    }; 
+    function Observer(data) {
+        this.data = data;
+        this.walk(data);
+    }
+    Observer.prototype = {
+        walk: function(obj) {
+            var value,
+                key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    value = obj[key];
+                    if (typeof value === 'object') {
+                        new Observer(value);
+                    }
+                    this.convert(key, value); 
+                }   
+            }
+        },
+        convert: function(key, value) {
+            Object.defineProperty(this.data, key, {
+                get : function(){ 
+                    console.log("你访问了" + key);
+                    return value; 
+                },
+                set : function(newValue){ 
+                    value = newValue; 
+                    console.log('你设置了' + key + '=' + value);
+                }
+            });
+        }
+    }  
+    var example = new Observer(data);
+ </script>   
+</body>
+</html>
+```
 
 #### [回到顶部](#vue)
