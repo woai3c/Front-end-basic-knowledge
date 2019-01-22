@@ -10,6 +10,7 @@
 * [href和src区别](#href和src区别)
 * [浏览器的渲染过程](#浏览器的渲染过程)
 * [为何会出现浏览器兼容问题](#为何会出现浏览器兼容问题)
+* [`Doctype`有什么用](#Doctype有什么用）
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -164,5 +165,18 @@ https://baijiahao.baidu.com/s?id=1593097105869520145&wfr=spider&for=pc
 * 优雅降级 (graceful degradation): 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
 
 https://github.com/jirengu/frontend-interview/issues/35
+
+[回到顶部](#HTML)
+
+## `Doctype`有什么用
+doctype是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档。
+
+<!DOCTYPE>声明是用来指示web浏览器关于页面使用哪个HTML版本进行编写的指令。
+
+<!DOCTYPE>声明必须是HTML文档的第一行，位于html标签之前。
+
+
+浏览器本身分为两种模式，一种是标准模式，一种是怪异模式，浏览器通过doctype来区分这两种模式，doctype在html中的作用就是触发浏览器的标准模式，如果html中省略了doctype，浏览器就会进入到Quirks模式的怪异状态，在这种模式下，有些样式会和标准模式存在差异，而html标准和dom标准值规定了标准模式下的行为，没有对怪异模式做出规定，因此不同浏览器在怪异模式下的处理也是不同的，所以一定要在html开头使用doctype。
+
 
 [回到顶部](#HTML)
