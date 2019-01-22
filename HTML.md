@@ -10,7 +10,7 @@
 * [href和src区别](#href和src区别)
 * [浏览器的渲染过程](#浏览器的渲染过程)
 * [为何会出现浏览器兼容问题](#为何会出现浏览器兼容问题)
-* [`Doctype`有什么用](#Doctype有什么用）
+* [doctype有什么用](#doctype有什么用）
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -168,7 +168,7 @@ https://github.com/jirengu/frontend-interview/issues/35
 
 [回到顶部](#HTML)
 
-## `Doctype`有什么用
+## doctype有什么用
 doctype是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档。
 
 <!DOCTYPE>声明是用来指示web浏览器关于页面使用哪个HTML版本进行编写的指令。
