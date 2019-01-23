@@ -36,6 +36,7 @@
 * [display:none、visibile:hidden、opacity:0的区别](#displaynonevisibilehiddenopacity0的区别)
 * [CSS中link和@import的区别](#css中link和import的区别)
 * [如何用css实现瀑布流布局](#如何用css实现瀑布流布局)
+* [文本超出部分显示省略号](#文本超出部分显示省略号)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -608,4 +609,20 @@ html, body {
 </html>
 ```
 
+[回到顶部](#css)
+
+## 文本超出部分显示省略号
+#### 单行
+```
+overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+```
+#### 多行
+```
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3; // 最多显示几行
+overflow: hidden;
+```
 [回到顶部](#css)
