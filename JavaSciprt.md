@@ -441,9 +441,10 @@ str.replace(/^\s+|\s+$/g, '')
 str.trim()
 ```
 #### [回到顶部](#JavaScript)
+
+## 清除浮动的几种方式
 * 对父级设置适合CSS高度
 * 父级div定义 overflow:hidden
 * clear:both清除浮动
 
-## 清除浮动的几种方式
 #### [回到顶部](#JavaScript)
