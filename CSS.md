@@ -37,6 +37,7 @@
 * [CSS中link和@import的区别](#css中link和import的区别)
 * [如何用css实现瀑布流布局](#如何用css实现瀑布流布局)
 * [文本超出部分显示省略号](#文本超出部分显示省略号)
+* [利用伪元素画三角](#利用伪元素画三角)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -624,5 +625,21 @@ display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 3; // 最多显示几行
 overflow: hidden;
+```
+[回到顶部](#css)
+
+## 利用伪元素画三角
+```
+.info-tab {
+    position: relative;
+}
+.info-tab::after {
+    content: '';
+    border: 4px solid transparent;
+    border-top-color: #2c8ac2;
+    position: absolute;
+    top: 0;
+}
+
 ```
 [回到顶部](#css)
