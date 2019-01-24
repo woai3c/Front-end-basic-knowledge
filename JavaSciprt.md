@@ -32,6 +32,7 @@
 * [css动画和js动画的差异](#css动画和js动画的差异)
 * [请用js去除字符串空格](#请用js去除字符串空格)
 * [清除浮动的几种方式](#清除浮动的几种方式)
+* [new一个对象经历了什么](#new一个对象经历了什么)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -446,5 +447,28 @@ str.trim()
 * 对父级设置适合CSS高度
 * 父级div定义 overflow:hidden
 * clear:both清除浮动
+
+#### [回到顶部](#JavaScript)
+
+## new一个对象经历了什么
+```
+function Test(){}
+const test = new Test()
+```
+
+1. 创建一个新对象：
+```
+const obj = {}
+```
+2. 设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象
+```
+obj.constructor = Test
+obj.__proto__ = Test.prototype
+```
+3. 使用新对象调用函数，函数中的this被指向新实例对象：
+```
+Test.call(obj)
+```
+4. 将初始化完毕的新对象地址，保存到等号左边的变量中
 
 #### [回到顶部](#JavaScript)
