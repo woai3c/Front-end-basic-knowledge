@@ -465,7 +465,7 @@ const obj = {}
 obj.constructor = Test
 obj.__proto__ = Test.prototype
 ```
-3. 使用新对象调用函数，函数中的this被指向新实例对象：
+3. 使用新对象调用函数，函数中的this被指向新实例对象
 ```
 Test.call(obj)
 ```
