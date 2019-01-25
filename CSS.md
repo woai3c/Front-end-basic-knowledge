@@ -25,8 +25,7 @@
 * [`inline`和`inline-block`有什么区别？](#inline和inline-block有什么区别)
 * [`relative`、`fixed`、`absolute`和`static`四种定位有什么区别？](#relativefixedabsolute和static四种定位有什么区别)
 * [你使用过哪些现有的 CSS 框架？你是如何改进它们的？](#你使用过哪些现有的-css-框架你是如何改进它们的)
-* [你了解 CSS Flexbox 和 Grid 吗？](#你了解-css-flexbox-和-grid-吗)
-* [请解释在编写网站时，响应式与移动优先的区别。](#请解释在编写网站时响应式与移动优先的区别)
+* [你了解 CSS Flex 和 Grid 吗？](#你了解-css-flex-和-grid-吗)
 * [响应式设计与自适应设计有何不同？](#响应式设计与自适应设计有何不同)
 * [你有没有使用过视网膜分辨率的图形？当中使用什么技术？](#你有没有使用过视网膜分辨率的图形当中使用什么技术)
 * [什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。](#什么情况下用translate而不用绝对定位什么时候情况相反)
@@ -337,9 +336,6 @@ CSS 盒模型负责计算：
 
 * `none`, `block`, `inline`, `inline-block`, `table`, `table-row`, `table-cell`, `list-item`.
 
-TODO
-
-
 
 ### `inline`和`inline-block`有什么区别？
 
@@ -380,25 +376,34 @@ TODO
 
 
 
-### 你了解 CSS Flexbox 和 Grid 吗？
+### 你了解 CSS Flex 和 Grid 吗？
 
-了解。Flexbox 主要用于一维布局，而 Grid 则用于二维布局。
+Flex 主要用于一维布局，而 Grid 则用于二维布局。
+#### Flex
+flex容器中存在两条轴， 横轴和纵轴， 容器中的每个单元称为flex item。
 
-Flexbox 解决了 CSS 中的许多常见问题，例如容器中元素的垂直居中，粘性定位（sticky）的页脚等。Bootstrap 和 Bulma 基于 Flexbox，这是创建布局的推荐方式。我之前曾使用过 Flexbox，但在使用`flex-grow`时遇到了一些浏览器不兼容问题（Safari），我必须使用`inline-blocks`和手动计算百分比宽度，来重写我的代码，这种体验不是很好。
+在容器上可以设置6个属性：
+* flex-direction
+* flex-wrap
+* flex-flow
+* justify-content
+* align-items
+* align-content
+注意：当设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。
 
-Grid 创建基于栅格的布局，是迄今为止最直观的方法（最好是！），但目前浏览器支持并不广泛。
+#### Flex 项目属性
+有六种属性可运用在 item 项目上:
+1. order
+2. flex-basis
+3. flex-grow
+4. flex-shrink
+5. flex
+6. align-self
 
-###### 参考
+#### Grid
+CSS网格布局用于将页面分割成数个主要区域，或者用来定义组件内部元素间大小、位置和图层之间的关系。
 
-* https://philipwalton.github.io/solved-by-flexbox/
-
-
-
-### 请解释在编写网站时，响应式与移动优先的区别。
-
-TODO
-
-
+像表格一样，网格布局让我们能够按行或列来对齐元素。 但是，使用CSS网格可能还是比CSS表格更容易布局。 例如，网格容器的子元素可以自己定位，以便它们像CSS定位的元素一样，真正的有重叠和层次。
 
 ### 响应式设计与自适应设计有何不同？
 
