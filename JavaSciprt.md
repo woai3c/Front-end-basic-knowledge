@@ -34,6 +34,7 @@
 * [清除浮动的几种方式](#清除浮动的几种方式)
 * [new一个对象经历了什么](#new一个对象经历了什么)
 * [如何实现文件断点续传](#如何实现文件断点续传)
+* [bind、call、apply的区别](#bindcallapply的区别)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -504,4 +505,23 @@ file.slice(2000,3000);
 
 https://www.cnblogs.com/zhwl/p/3580776.html
 
+#### [回到顶部](#JavaScript)
+
+## bind、call、apply的区别
+call和apply其实是一样的，区别就在于传参时参数是一个一个传或者是以一个数组的方式来传。<br>
+call和apply都是在调用时生效，改变调用者的this指向。<br>
+```
+let name = 'Jack'
+const obj = {name: 'Tom'}
+function sayHi() {console.log('Hi! ' + this.name)}
+
+sayHi() // Hi! Jack
+sayHi.call(obj) // Hi! Tom
+
+```
+bind也是改变this指向，不过不是在调用时生效，而是返回一个新函数。
+```
+const newFunc = sayHi.bind(obj)
+newFunc() // Hi! Tom
+```
 #### [回到顶部](#JavaScript)
