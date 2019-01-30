@@ -6,6 +6,7 @@
 * [状态码](#状态码)
 * [HTTP缓存](#HTTP缓存)
 * [如何处理不让别人盗用你的图片，访问你的服务器资源](#如何处理不让别人盗用你的图片访问你的服务器资源)
+* [Http与Https的区别](#Http与Https的区别)
 
 ## RESTful
 REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
@@ -84,5 +85,17 @@ https://segmentfault.com/a/1190000010690320
 ## 如何处理不让别人盗用你的图片，访问你的服务器资源
 * http header, 对refer做判断看来源是不是自己的网站，如果不是就拒绝
 * 通过session校验，如果不通过特定服务生成cookie和session就不能请求得到资源
+
+[回到顶部](#HTTP)
+
+## Http与Https的区别
+* HTTP 的URL 以http:// 开头，而HTTPS 的URL 以https:// 开头
+* HTTP 是不安全的，而 HTTPS 是安全的
+* HTTP 标准端口是80 ，而 HTTPS 的标准端口是443
+* 在OSI 网络模型中，HTTP工作于应用层，而HTTPS 的安全传输机制工作在传输层
+* HTTP 无法加密，而HTTPS 对传输的数据进行加密
+* HTTP无需证书，而HTTPS 需要CA机构wosign的颁发的SSL证书
+
+https://zhuanlan.zhihu.com/p/33778904
 
 [回到顶部](#HTTP)
