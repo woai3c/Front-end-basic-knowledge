@@ -15,6 +15,7 @@
 * [Ajax](#Ajax)
 * [Ajax和Fetch区别](#Ajax和Fetch区别)
 * [变量提升](#变量提升)
+* [使用let、var和const创建变量有什么区别](#使用letvar和const创建变量有什么区别)
 * [对象深拷贝](#对象深拷贝)
 * [数组去重](#数组去重)
 * [数据类型](#数据类型)
@@ -259,6 +260,75 @@ xmlhttp.send()
 ## 变量提升
 var会使变量提升，这意味着变量可以在声明之前使用。let和const不会使变量提升，提前使用会报错。
 变量提升（hoisting）是用于解释代码中变量声明行为的术语。使用var关键字声明或初始化的变量，会将声明语句“提升”到当前作用域的顶部。 但是，只有声明才会触发提升，赋值语句（如果有的话）将保持原样。
+
+#### [回到顶部](#JavaScript)
+
+## 使用let、var和const创建变量有什么区别
+用var声明的变量的作用域是它当前的执行上下文，它可以是嵌套的函数，也可以是声明在任何函数外的变量。let和const是块级作用域，意味着它们只能在最近的一组花括号（function、if-else 代码块或 for 循环中）中访问。
+```
+function foo() {
+  // 所有变量在函数中都可访问
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+
+  console.log(bar); // bar
+  console.log(baz); // baz
+  console.log(qux); // qux
+}
+
+console.log(bar); // ReferenceError: bar is not defined
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+```
+if (true) {
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+}
+
+// 用 var 声明的变量在函数作用域上都可访问
+console.log(bar); // bar
+// let 和 const 定义的变量在它们被定义的语句块之外不可访问
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+var会使变量提升，这意味着变量可以在声明之前使用。let和const不会使变量提升，提前使用会报错。
+```
+console.log(foo); // undefined
+
+var foo = 'foo';
+
+console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
+
+let baz = 'baz';
+
+console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
+
+const bar = 'bar';
+```
+用var重复声明不会报错，但let和const会。
+```
+var foo = 'foo';
+var foo = 'bar';
+console.log(foo); // "bar"
+
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+```
+let和const的区别在于：let允许多次赋值，而const只允许一次。
+```
+// 这样不会报错。
+let foo = 'foo';
+foo = 'bar';
+
+// 这样会报错。
+const baz = 'baz';
+baz = 'qux';
+```
+
+https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E4%BD%BF%E7%94%A8letvar%E5%92%8Cconst%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB
 
 #### [回到顶部](#JavaScript)
 
