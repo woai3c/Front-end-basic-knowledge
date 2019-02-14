@@ -265,7 +265,7 @@ var会使变量提升，这意味着变量可以在声明之前使用。let和co
 
 ## 使用let、var和const创建变量有什么区别
 用var声明的变量的作用域是它当前的执行上下文，它可以是嵌套的函数，也可以是声明在任何函数外的变量。let和const是块级作用域，意味着它们只能在最近的一组花括号（function、if-else 代码块或 for 循环中）中访问。
-```
+```js
 function foo() {
   // 所有变量在函数中都可访问
   var bar = 'bar';
@@ -281,7 +281,8 @@ console.log(bar); // ReferenceError: bar is not defined
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
-```
+
+```js
 if (true) {
   var bar = 'bar';
   let baz = 'baz';
@@ -294,8 +295,10 @@ console.log(bar); // bar
 console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
+
 var会使变量提升，这意味着变量可以在声明之前使用。let和const不会使变量提升，提前使用会报错。
-```
+
+```js
 console.log(foo); // undefined
 
 var foo = 'foo';
@@ -308,8 +311,10 @@ console.log(bar); // ReferenceError: can't access lexical declaration 'bar' befo
 
 const bar = 'bar';
 ```
+
 用var重复声明不会报错，但let和const会。
-```
+
+```js
 var foo = 'foo';
 var foo = 'bar';
 console.log(foo); // "bar"
@@ -317,8 +322,10 @@ console.log(foo); // "bar"
 let baz = 'baz';
 let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
 ```
+
 let和const的区别在于：let允许多次赋值，而const只允许一次。
-```
+
+```js
 // 这样不会报错。
 let foo = 'foo';
 foo = 'bar';
