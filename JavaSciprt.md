@@ -13,7 +13,7 @@
 * [继承](#继承)
 * [闭包](#闭包)
 * [Ajax](#Ajax)
-* [使用 Ajax 的优缺点分别是什么](使用-Ajax-的优缺点分别是什么)
+* [使用Ajax的优缺点分别是什么](使用Ajax的优缺点分别是什么)
 * [Ajax和Fetch区别](#Ajax和Fetch区别)
 * [变量提升](#变量提升)
 * [使用let、var和const创建变量有什么区别](#使用letvar和const创建变量有什么区别)
@@ -249,7 +249,7 @@ xmlhttp.send()
 ```
 #### [回到顶部](#JavaScript)
 
-## 使用 Ajax 的优缺点分别是什么
+## 使用Ajax的优缺点分别是什么
 
 **优点**
 
@@ -264,6 +264,8 @@ xmlhttp.send()
 * 如果 JavaScript 已在浏览器中被禁用，则不起作用。
 * 有些网络爬虫不执行 JavaScript，也不会看到 JavaScript 加载的内容。
 * 基本上包括大部分 SPA 的缺点。
+
+https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md
 
 #### [回到顶部](#JavaScript)
 
