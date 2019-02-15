@@ -13,6 +13,7 @@
 * [继承](#继承)
 * [闭包](#闭包)
 * [Ajax](#Ajax)
+* [使用 Ajax 的优缺点分别是什么](使用-Ajax-的优缺点分别是什么)
 * [Ajax和Fetch区别](#Ajax和Fetch区别)
 * [变量提升](#变量提升)
 * [使用let、var和const创建变量有什么区别](#使用letvar和const创建变量有什么区别)
@@ -246,6 +247,24 @@ xmlhttp.onreadystatechange = () => {
 xmlhttp.open("GET", "/ajax/test.txt", true)
 xmlhttp.send()
 ```
+#### [回到顶部](#JavaScript)
+
+## 使用 Ajax 的优缺点分别是什么
+
+**优点**
+
+* 交互性更好。来自服务器的新内容可以动态更改，无需重新加载整个页面。
+* 减少与服务器的连接，因为脚本和样式只需要被请求一次。
+* 状态可以维护在一个页面上。JavaScript 变量和 DOM 状态将得到保持，因为主容器页面未被重新加载。
+* 基本上包括大部分 SPA 的优点。
+
+**缺点**
+
+* 动态网页很难收藏。
+* 如果 JavaScript 已在浏览器中被禁用，则不起作用。
+* 有些网络爬虫不执行 JavaScript，也不会看到 JavaScript 加载的内容。
+* 基本上包括大部分 SPA 的缺点。
+
 #### [回到顶部](#JavaScript)
 
 ## Ajax和Fetch区别
