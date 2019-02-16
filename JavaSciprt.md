@@ -37,6 +37,7 @@
 * [如何实现文件断点续传](#如何实现文件断点续传)
 * [bind、call、apply的区别](#bindcallapply的区别)
 * [请简述`JavaScript`中的`this`](#请简述JavaScript中的this)
+* [==和===的区别是什么](#==和===的区别是什么)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -631,5 +632,19 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 想获得更深入的解释，请查看[他在 Medium 上的文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
 
 https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E8%AF%B7%E7%AE%80%E8%BF%B0javascript%E4%B8%AD%E7%9A%84this
+
+#### [回到顶部](#JavaScript)
+
+## ==和===的区别是什么
+==是抽象相等运算符，而===是严格相等运算符。==运算符是在进行必要的类型转换后，再比较。===运算符不会进行类型转换，所以如果两个值不是相同的类型，会直接返回false。使用==时，可能发生一些特别的事情，例如：
+```js
+1 == '1'; // true
+1 == [1]; // true
+1 == true; // true
+0 == ''; // true
+0 == '0'; // true
+0 == false; // true
+```
+如果你对`==`和`===`的概念不是特别了解，建议大多数情况下使用`===`
 
 #### [回到顶部](#JavaScript)
