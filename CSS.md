@@ -37,7 +37,6 @@
 * [如何用css实现瀑布流布局](#如何用css实现瀑布流布局)
 * [文本超出部分显示省略号](#文本超出部分显示省略号)
 * [利用伪元素画三角](#利用伪元素画三角)
-* [尽量使用translate而不是改变top/left进行动画](#尽量使用translate而不是改变topleft进行动画)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -649,11 +648,4 @@ overflow: hidden;
 }
 
 ```
-[回到顶部](#css)
-
-
-## 尽量使用translate而不是改变top/left进行动画
-
-https://www.cnblogs.com/accordion/p/4593576.html
-
 [回到顶部](#css)
