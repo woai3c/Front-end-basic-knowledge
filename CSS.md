@@ -37,6 +37,7 @@
 * [如何用css实现瀑布流布局](#如何用css实现瀑布流布局)
 * [文本超出部分显示省略号](#文本超出部分显示省略号)
 * [利用伪元素画三角](#利用伪元素画三角)
+* [已知父级盒子的宽高，子级img宽高未知，想让img铺满父级盒子且图片不能变形](#已知父级盒子的宽高子级img宽高未知想让img铺满父级盒子且图片不能变形)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -648,4 +649,23 @@ overflow: hidden;
 }
 
 ```
+[回到顶部](#css)
+
+## 已知父级盒子的宽高，子级img宽高未知，想让img铺满父级盒子且图片不能变形
+需要用到`css`的`object-fit`属性
+```css
+div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+}
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+```
+
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/object-fit)
+
 [回到顶部](#css)
