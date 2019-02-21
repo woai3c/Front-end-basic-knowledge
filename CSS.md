@@ -657,7 +657,6 @@ overflow: hidden;
 div {
     width: 200px;
     height: 200px;
-    border: 1px solid red;
 }
 img {
     object-fit: cover;
