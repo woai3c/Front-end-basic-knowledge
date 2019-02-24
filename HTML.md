@@ -11,7 +11,7 @@
 * [浏览器的渲染过程](#浏览器的渲染过程)
 * [为何会出现浏览器兼容问题](#为何会出现浏览器兼容问题)
 * [doctype有什么用](#doctype有什么用)
-* [行级标签和块级标签有哪些](#行级标签和块级标签有哪些)
+* [行内元素和块级元素有哪些](#行内元素和块级元素有哪些)
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -182,13 +182,17 @@ doctype是一种标准通用标记语言的文档类型声明，目的是告诉�
 
 [回到顶部](#HTML)
 
-## 行级标签和块级标签有哪些
-### 行级标签
-只占内容宽度大小、高度、行高，内边距和外边距是可以部分可以改变的<br>
+## 行内元素和块级元素有哪些
+### 行内元素
+一个行内元素只占据它对应标签的边框所包含的空间<br>
+一般情况下，行内元素只能包含数据和其他行内元素
 ```
-a,b,strong,span,img,label,button,input,select,textarea
+b, big, i, small, tt
+abbr, acronym, cite, code, dfn, em, kbd, strong, samp, var
+a, bdo, br, img, map, object, q, script, span, sub, sup
+button, input, label, select, textarea
 ```
-### 块级标签
+### 块级元素
 占据一整行，高度、行高、内边距和外边距都可以改变，可以容纳块级标签和其他行内标签<br>
 ```
 header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
