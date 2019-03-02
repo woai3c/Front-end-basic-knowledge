@@ -39,6 +39,7 @@
 * [利用伪元素画三角](#利用伪元素画三角)
 * [已知父级盒子的宽高，子级img宽高未知，想让img铺满父级盒子且图片不能变形](#已知父级盒子的宽高子级img宽高未知想让img铺满父级盒子且图片不能变形)
 * [iframe的作用](#iframe的作用)
+* [css hack是什么](#css-hack是什么)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -681,5 +682,17 @@ iframe是用来在网页中插入第三方页面，早期的页面使用iframe�
 1. iframe的创建比一般的DOM元素慢了1-2个数量级
 2. iframe标签会阻塞页面的的加载，如果页面的onload事件不能及时触发，会让用户觉得网页加载很慢，用户体验不好，在Safari和Chrome中可以通过js动态设置iframe的src属性来避免阻塞。
 3. iframe对于SEO不友好，替换方案一般就是动态语言的Incude机制和ajax动态填充内容等。
+
+[回到顶部](#css)
+
+## css hack是什么
+由于不同的浏览器，比如Internet Explorer 6,Internet Explorer 7,Mozilla Firefox等，对CSS的解析认识不一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。
+
+这个时候我们就需要针对不同的浏览器去写不同的CSS，让它能够同时兼容不同的浏览器，能在不同的浏览器中也能得到我们想要的页面效果。
+
+这个针对不同的浏览器写不同的CSS code的过程，就叫CSS hack,也叫写CSS hack。
+
+具体请看：<br>
+http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 
 [回到顶部](#css)
