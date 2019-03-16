@@ -152,12 +152,15 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 
 https://www.jianshu.com/p/3acdf5f71d5b
 
+#### [回到顶部](#JavaScript)
+
 ## target和currentTarget区别
 * event.target<br>
 返回触发事件的元素
 * event.currentTarget<br>
 返回绑定事件的元素
 
+#### [回到顶部](#JavaScript)
 
 ## prototype和__proto__的关系是什么
 所有的对象都拥有__proto__属性，它指向Object.prototype（Object是一个原生函数，所有的对象都是Object的实例）
@@ -178,10 +181,11 @@ Object.prototype.__proto__指向null
 Object.prototype.__proto__ // null
 ```
 
-
+#### [回到顶部](#JavaScript)
 ## 原型继承
 所有的JS对象都有一个prototype属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
+#### [回到顶部](#JavaScript)
 
 ## 继承
 JS高程第3版 第6章 继承
@@ -215,6 +219,7 @@ SubType.prototype.sayAge = function() {
 }
 ```
 
+#### [回到顶部](#JavaScript)
 
 ## 闭包
 闭包是指有权访问另一个函数作用域中的变量的函数。
@@ -229,7 +234,33 @@ test() // Hi! xiaoming
 ```
 虽然sayHi函数已经执行完毕，但是其活动对象也不会被销毁，因为test函数仍然引用着sayHi函数中的变量name，这就是闭包。<br>
 但也因为闭包引用着另一个函数的变量，导致另一个函数已经不使用了也无法销毁，所以闭包使用过多，会占用较多的内存，这也是一个副作用。
+#### [回到顶部](#JavaScript)
 
+## 有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行3次，再次执行无效，如何实现
+这个题目是考察闭包的使用
+```js
+function sayHi() {
+    console.log('hi')
+}
+
+function threeTimes(fn) {
+    let times = 0
+    return () => {
+        if (times++ < 3) {
+            fn()
+        }
+    }
+}
+
+const newFn = threeTimes(sayHi)
+newFn()
+newFn()
+newFn()
+newFn()
+newFn() // 后面两次执行都无任何反应
+```
+通过闭包变量 `times` 来控制函数的执行
+#### [回到顶部](#JavaScript)
 
 ## Ajax
 Ajax(asynchronous JavaScript and XML)是使用客户端上的许多 Web 技术，创建异步 Web 应用的一种 Web 开发技术。借助 Ajax，Web 应用可以异步（在后台）向服务器发送数据和从服务器检索数据，而不会干扰现有页面的显示和行为。通过将数据交换层与表示层分离，Ajax 允许网页和扩展 Web 应用程序动态更改内容，而无需重新加载整个页面。实际上，现在通常将 JSON 替换为 XML，因为 JavaScript 对 JSON 有原生支持优势。<br>
@@ -686,30 +717,4 @@ https://www.jianshu.com/p/5d82bba9e1a1
 具体请看：<br>
 https://blog.csdn.net/jacoox/article/details/80719456
 
-#### [回到顶部](#JavaScript)
-
-## 有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行3次，再次执行无效，如何实现
-这个题目是考察闭包的使用
-```js
-function sayHi() {
-    console.log('hi')
-}
-
-function threeTimes(fn) {
-    let times = 0
-    return () => {
-        if (times++ < 3) {
-            fn()
-        }
-    }
-}
-
-const newFn = threeTimes(sayHi)
-newFn()
-newFn()
-newFn()
-newFn()
-newFn() // 后面两次执行都无任何反应
-```
-通过闭包变量 `times` 来控制函数的执行
 #### [回到顶部](#JavaScript)
