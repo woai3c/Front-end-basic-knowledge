@@ -12,6 +12,7 @@
 * [原型继承](#原型继承)
 * [继承](#继承)
 * [闭包](#闭包)
+* [有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行3次，再次执行无效，如何实现](#有一个函数参数是一个函数返回值也是一个函数返回的函数功能和入参的函数相似但这个函数只能执行3次再次执行无效如何实现)
 * [Ajax](#Ajax)
 * [使用Ajax的优缺点分别是什么](#使用Ajax的优缺点分别是什么)
 * [Ajax和Fetch区别](#Ajax和Fetch区别)
@@ -685,4 +686,30 @@ https://www.jianshu.com/p/5d82bba9e1a1
 具体请看：<br>
 https://blog.csdn.net/jacoox/article/details/80719456
 
+#### [回到顶部](#JavaScript)
+
+## 有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行3次，再次执行无效，如何实现
+这个题目是考察闭包的使用
+```js
+function sayHi() {
+    console.log('hi')
+}
+
+function threeTimes(fn) {
+    let times = 0
+    return () => {
+        if (times++ < 3) {
+            fn()
+        }
+    }
+}
+
+const newFn = threeTimes(sayHi)
+newFn()
+newFn()
+newFn()
+newFn()
+newFn() // 后面两次执行都无任何反应
+```
+通过闭包变量 `times` 来控制函数的执行
 #### [回到顶部](#JavaScript)
