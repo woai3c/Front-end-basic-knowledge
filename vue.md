@@ -9,6 +9,7 @@
 * [vuex原理](#vuex原理)
 * [v-if和v-show的区别](#v-if和v-show的区别)
 * [vue怎么实现页面的权限控制](#vue怎么实现页面的权限控制)
+* [keep-alive有什么作用](#keep-alive)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
@@ -247,5 +248,11 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 
 ## vue怎么实现页面的权限控制
 利用 `vue-router` 的 `beforeEach` 事件，可以在跳转页面前判断用户的权限（利用 cookie 或 token），是否能够进入此页面，如果不能则提示错误或重定向到其他页面，在后台管理系统中这种场景经常能遇到。
+
+#### [回到顶部](#vue)
+
+## keep-alive有什么作用
+在 `Vue` 中，每次切换组件时，都会重新渲染。如果有多个组件切换，又想让它们保持原来的状态，避免重新渲染，这个时候就可以使用 `keep-alive`。
+`keep-alive` 可以使被包含的组件保留状态，或避免重新渲染。
 
 #### [回到顶部](#vue)
