@@ -9,7 +9,7 @@
 * [vuex原理](#vuex原理)
 * [v-if和v-show的区别](#v-if和v-show的区别)
 * [vue怎么实现页面的权限控制](#vue怎么实现页面的权限控制)
-* [keep-alive有什么作用](#keep-alive)
+* [keep-alive有什么作用](#keepalive)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
