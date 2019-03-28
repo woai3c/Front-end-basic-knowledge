@@ -775,7 +775,39 @@ history.pushState(stateObj, "page 2", "bar.html");
 #### [回到顶部](#JavaScript)
 
 ## 如何判断数组与对象
+判断数组
+```js
+Array.isArray([]) // true
+Array.isArray({}) // false
+
+typeof [] // "object"
+typeof {} // "object"
+
+const obj = {}
+const arry = []
+obj.constructor // ƒ Object() { [native code] }
+arry.constructor // ƒ Array() { [native code] }
+```
 #### [回到顶部](#JavaScript)
 
 ## 格式化金钱，每千分位加逗号
+```js
+function format(str) {
+    let s = ''
+    let count = 0
+    for (let i = str.length - 1; i >= 0; i--) {
+        s = str[i] + s
+        count++
+        if (count % 3 == 0 && i != 0) {
+            s = ',' + s
+        }
+    }
+    return s
+}
+```
+```js
+function format(str) {
+    return str.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+}
+```
 #### [回到顶部](#JavaScript)
