@@ -775,7 +775,6 @@ history.pushState(stateObj, "page 2", "bar.html");
 #### [回到顶部](#JavaScript)
 
 ## 如何判断数组与对象
-判断数组
 ```js
 Array.isArray([]) // true
 Array.isArray({}) // false
