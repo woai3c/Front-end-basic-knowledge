@@ -529,10 +529,10 @@ Array.isArray({}) // false
 typeof [] // "object"
 typeof {} // "object"
 
-const obj = {}
-const arry = []
-obj.constructor // ƒ Object() { [native code] }
-arry.constructor // ƒ Array() { [native code] }
+Object.prototype == [].__proto__ // false
+Object.prototype == {}.__proto__ // true
+Array.prototype == [].__proto__ // true
+Array.prototype == {}.__proto__ // false
 ```
 #### [回到顶部](#JavaScript)
 
