@@ -12,7 +12,7 @@
 * [doctype有什么用](#doctype有什么用)
 * [行内元素和块级元素有哪些](#行内元素和块级元素有哪些)
 * [iframe框架有那些优缺点](#iframe框架有那些优缺点)
-* [label有什么作用](#label有什么作用)
+* [label标签有什么作用](#label标签有什么作用)
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -200,12 +200,11 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 [回到顶部](#HTML)
 
-## label有什么作用
+## label标签有什么作用
 `label` 标签通常是写在表单内，它关联一个控件，使用 `label` 可以实现点击文字选取对应的控件。
 ```html
 <input type="checkbox" id="test">
 <label for="test" >test</label>
 ```
-
 
 [回到顶部](#HTML)
