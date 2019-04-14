@@ -716,7 +716,11 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 [回到顶部](#css)
 
 ## 去除inline-block元素间间距的方法
-移除空格、使用margin负值、使用font-size:0、letter-spacing、word-spacing
+* 移除空格
+* 使用margin负值
+* 使用font-size:0
+* letter-spacing
+* word-spacing
 
 更详细的介绍请看:[去除inline-block元素间间距的N种方法](https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/)
 
