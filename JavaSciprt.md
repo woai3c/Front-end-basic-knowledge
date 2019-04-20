@@ -8,6 +8,7 @@
 * [事件委托](#事件委托)
 * [事件循环](#事件循环)
 * [事件模型](#事件模型)
+* [如何自定义事件](#如何自定义事件)
 * [target和currentTarget区别](#target和currentTarget区别)
 * [prototype和__proto__的关系是什么](#prototype和__proto__的关系是什么)
 * [原型继承](#原型继承)
@@ -169,6 +170,16 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 ```
 
 https://www.jianshu.com/p/3acdf5f71d5b
+
+#### [回到顶部](#JavaScript)
+
+## 如何自定义事件
+1. 原生提供了3个方法实现自定义事件
+2. createEvent，设置事件类型，是 html 事件还是 鼠标事件
+3. initEvent 初始化事件，事件名称，是否允许冒泡，是否阻止自定义事件
+4. dispatchEvent 触发事件
+
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Creating_and_triggering_events)
 
 #### [回到顶部](#JavaScript)
 
