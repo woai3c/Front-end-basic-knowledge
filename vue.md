@@ -267,7 +267,7 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 #### [回到顶部](#vue)
 
 ## $route和$router的区别
-$route是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name等路由信息参数。
+`$route` 是路由信息对象，包括`path`，`params`，`hash`，`query`，`fullPath`，`matched`，`name` 等路由信息参数。
 
-而$router是“路由实例”对象包括了路由的跳转方法，钩子函数等
+而 `$router 是路由实例对象，包括了路由的跳转方法，钩子函数等
 #### [回到顶部](#vue)
