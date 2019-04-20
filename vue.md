@@ -11,6 +11,7 @@
 * [vue怎么实现页面的权限控制](#vue怎么实现页面的权限控制)
 * [keep-alive有什么作用](#keep-alive有什么作用)
 * [计算属性有什么作用](#计算属性有什么作用)
+* [$route和$router的区别](#$route和$router的区别)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
@@ -263,4 +264,10 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 当其依赖的属性的值发生变化的时，计算属性会重新计算。反之则使用缓存中的属性值。<br>
 计算属性和vue中的其它数据一样，都是响应式的，只不过它必须依赖某一个数据实现，并且只有它依赖的数据的值改变了，它才会更新。
 
+#### [回到顶部](#vue)
+
+## $route和$router的区别
+$route是“路由信息对象”，包括path，params，hash，query，fullPath，matched，name等路由信息参数。
+
+而$router是“路由实例”对象包括了路由的跳转方法，钩子函数等
 #### [回到顶部](#vue)
