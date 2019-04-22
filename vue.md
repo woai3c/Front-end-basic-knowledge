@@ -12,6 +12,7 @@
 * [keep-alive有什么作用](#keep-alive有什么作用)
 * [计算属性有什么作用](#计算属性有什么作用)
 * [$route和$router的区别](#route和router的区别)
+* [watch的作用是什么](#watch的作用是什么)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
@@ -270,4 +271,9 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 `$route` 是路由信息对象，包括`path`，`params`，`hash`，`query`，`fullPath`，`matched`，`name` 等路由信息参数。
 
 而 `$router` 是路由实例对象，包括了路由的跳转方法，钩子函数等
+#### [回到顶部](#vue)
+
+## watch的作用是什么
+`watch` 主要作用是监听某个数据值的变化。和计算属性相比除了没有缓存，作用是一样的。
+借助 `watch` 还可以做一些特别的事情，例如监听页面路由，当页面跳转时，我们可以做相应的权限控制，拒绝没有权限的用户访问页面。
 #### [回到顶部](#vue)
