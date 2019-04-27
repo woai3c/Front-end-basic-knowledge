@@ -14,6 +14,7 @@
 * [iframe框架有那些优缺点](#iframe框架有那些优缺点)
 * [label标签有什么作用](#label标签有什么作用)
 * [HTML5的form如何关闭自动完成功能](#HTML5的form如何关闭自动完成功能)
+* [DOM和BOM有什么区别](#DOM和BOM有什么区别)
 
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
@@ -215,5 +216,22 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 将不想要自动完成的 `form` 或 `input` 设置为 `autocomplete=off`
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion)
+
+[回到顶部](#HTML)
+
+## DOM和BOM有什么区别
+* DOM
+Document Object Model，文档对象模型
+
+DOM 是为了操作文档出现的 API，document 是其的一个对象
+
+DOM和文档有关，这里的文档指的是网页，也就是html文档。DOM和浏览器无关，他关注的是网页本身的内容。
+
+* BOM
+Browser Object Model，浏览器对象模型
+
+BOM 是为了操作浏览器出现的 API，window 是其的一个对象
+
+window 对象既为 javascript 访问浏览器提供API，同时在 ECMAScript 中充当 Global 对象
 
 [回到顶部](#HTML)
