@@ -221,6 +221,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 
 ## DOM和BOM有什么区别
 * DOM
+
 Document Object Model，文档对象模型
 
 DOM 是为了操作文档出现的 API，document 是其的一个对象
@@ -228,6 +229,7 @@ DOM 是为了操作文档出现的 API，document 是其的一个对象
 DOM和文档有关，这里的文档指的是网页，也就是html文档。DOM和浏览器无关，他关注的是网页本身的内容。
 
 * BOM
+
 Browser Object Model，浏览器对象模型
 
 BOM 是为了操作浏览器出现的 API，window 是其的一个对象
