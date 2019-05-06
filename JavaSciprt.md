@@ -47,6 +47,7 @@
 * [如何做到修改url参数，页面不刷新](#如何做到修改url参数页面不刷新)
 * [格式化金钱，每千分位加逗号](#格式化金钱每千分位加逗号)
 * [请用js去除字符串空格](#请用js去除字符串空格)
+* [创建对象有几种方法](#创建对象有几种方法)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -828,5 +829,24 @@ str.replace(/\s/g, '')
 str.replace(/^\s+|\s+$/g, '')
 // 原生方法
 str.trim()
+```
+#### [回到顶部](#JavaScript)
+
+## 创建对象有几种方法
+* 字面量
+```js
+const obj = {a: 1}
+```
+* 构造函数
+```js
+function Obj(val) {
+    this.a = val
+}
+
+const obj = new Obj(1)
+```
+* Object.create
+```js
+const obj = Object.create({a: 1})
 ```
 #### [回到顶部](#JavaScript)
