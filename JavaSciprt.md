@@ -193,10 +193,13 @@ https://www.jianshu.com/p/3acdf5f71d5b
 #### [回到顶部](#JavaScript)
 
 ## prototype和__proto__的关系是什么
-所有的对象都拥有__proto__属性，它指向Object.prototype（Object是一个原生函数，所有的对象都是Object的实例）
+所有的对象都拥有__proto__属性，它指向对象构造函数的prototype属性
 ```
 let obj = {}
 obj.__proto__ === Object.prototype // true
+
+function Test(){}
+test.__proto__ == Test.prototype // true
 ```
 
 所有的函数都同时拥有__proto__和protytpe属性
