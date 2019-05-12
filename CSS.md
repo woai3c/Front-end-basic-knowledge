@@ -43,6 +43,7 @@
 * [过渡与动画的区别是什么](#过渡与动画的区别是什么)
 * [什么是外边距合并](#什么是外边距合并)
 * [去除inline-block元素间间距的方法](#去除inline-block元素间间距的方法)
+* [为什么要初始化CSS样式](#为什么要初始化CSS样式)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -723,5 +724,11 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 * word-spacing
 
 更详细的介绍请看:[去除inline-block元素间间距的N种方法](https://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/)
+
+[回到顶部](#css)
+
+## 为什么要初始化CSS样式
+* 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对 CSS 初始化往往会出现浏览器之间的页面显示差异。
+* 去掉标签的默认样式如：margin,padding，其他浏览器默认解析字体大小，字体设置。
 
 [回到顶部](#css)
