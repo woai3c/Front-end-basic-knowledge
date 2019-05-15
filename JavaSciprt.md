@@ -864,9 +864,9 @@ const obj = Object.create({a: 1})
 
 `undefined` 不是一个有效的JSON，而 `null` 是
 
-`undefined` 的类型(typeof)是undefined
+`undefined` 的类型(typeof)是 `undefined`
 
-`null` 的类型(typeof)是object
+`null` 的类型(typeof)是 `object`
 
 Javascript将未赋值的变量默认值设为 `undefined`
 
