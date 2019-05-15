@@ -48,6 +48,7 @@
 * [格式化金钱，每千分位加逗号](#格式化金钱每千分位加逗号)
 * [请用js去除字符串空格](#请用js去除字符串空格)
 * [创建对象有几种方法](#创建对象有几种方法)
+* [null和undefined的区别](#null和undefined的区别)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -852,4 +853,23 @@ const obj = new Obj(1)
 ```js
 const obj = Object.create({a: 1})
 ```
+#### [回到顶部](#JavaScript)
+
+## null和undefined的区别
+null 		表示一个对象是“没有值”的值，也就是值为“空”
+
+undefined 	表示一个变量声明了没有初始化(赋值)
+
+undefined和null在if语句中，都会被自动转为false
+
+undefined不是一个有效的JSON，而null是
+
+undefined的类型(typeof)是undefined
+
+null的类型(typeof)是object
+
+Javascript将未赋值的变量默认值设为undefined
+
+Javascript从来不会将变量设为null。它是用来让程序员表明某个用var声明的变量时没有值的
+	
 #### [回到顶部](#JavaScript)
