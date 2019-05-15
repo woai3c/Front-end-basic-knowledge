@@ -856,20 +856,20 @@ const obj = Object.create({a: 1})
 #### [回到顶部](#JavaScript)
 
 ## null和undefined的区别
-null 		表示一个对象是“没有值”的值，也就是值为“空”
+`null` 表示一个对象是“没有值”的值，也就是值为“空”
 
-undefined 	表示一个变量声明了没有初始化(赋值)
+`undefined` 表示一个变量声明了没有初始化(赋值)
 
-undefined和null在if语句中，都会被自动转为false
+`undefined` 和 `null` 在if语句中，都会被自动转为false
 
-undefined不是一个有效的JSON，而null是
+`undefined` 不是一个有效的JSON，而 `null` 是
 
-undefined的类型(typeof)是undefined
+`undefined` 的类型(typeof)是undefined
 
-null的类型(typeof)是object
+`null` 的类型(typeof)是object
 
-Javascript将未赋值的变量默认值设为undefined
+Javascript将未赋值的变量默认值设为 `undefined`
 
-Javascript从来不会将变量设为null。它是用来让程序员表明某个用var声明的变量时没有值的
+Javascript从来不会将变量设为 `null`。 它是用来让程序员表明某个用var声明的变量时没有值的
 	
 #### [回到顶部](#JavaScript)
