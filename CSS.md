@@ -627,13 +627,13 @@ html, body {
 
 ## 文本超出部分显示省略号
 #### 单行
-```
+```css
 overflow: hidden;
-text-overflow:ellipsis;
+text-overflow: ellipsis;
 white-space: nowrap;
 ```
 #### 多行
-```
+```css
 display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 3; // 最多显示几行
