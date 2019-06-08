@@ -281,7 +281,7 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 #### [回到顶部](#vue)
 
 ## vue-loader是什么？使用它的用途有哪些？
-vue-loader是解析 .vue 文件的一个加载器，跟 template/js/style转换成 js 模块。
+vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转换成 js 模块。
 
-用途：js可以写es6、style样式可以scss或less；template可以加jade等。
+用途：js 可以写 es6、style 样式可以 scss 或 less；template 可以加 jade 等。
 #### [回到顶部](#vue)
