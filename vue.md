@@ -13,6 +13,7 @@
 * [计算属性有什么作用](#计算属性有什么作用)
 * [$route和$router的区别](#route和router的区别)
 * [watch的作用是什么](#watch的作用是什么)
+* [vue-loader是什么？使用它的用途有哪些？](vue-loader是什么使用它的用途有哪些)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
@@ -277,4 +278,10 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 `watch` 主要作用是监听某个数据值的变化。和计算属性相比除了没有缓存，作用是一样的。
 
 借助 `watch` 还可以做一些特别的事情，例如监听页面路由，当页面跳转时，我们可以做相应的权限控制，拒绝没有权限的用户访问页面。
+#### [回到顶部](#vue)
+
+## vue-loader是什么？使用它的用途有哪些？
+vue-loader是解析 .vue 文件的一个加载器，跟 template/js/style转换成 js 模块。
+
+用途：js可以写es6、style样式可以scss或less；template可以加jade等。
 #### [回到顶部](#vue)
