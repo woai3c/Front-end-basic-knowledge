@@ -13,7 +13,7 @@
 * [计算属性有什么作用](#计算属性有什么作用)
 * [$route和$router的区别](#route和router的区别)
 * [watch的作用是什么](#watch的作用是什么)
-* [vue-loader是什么？使用它的用途有哪些？](vue-loader是什么使用它的用途有哪些)
+* [vue-loader是什么？使用它的用途有哪些？](#vue-loader是什么使用它的用途有哪些)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
