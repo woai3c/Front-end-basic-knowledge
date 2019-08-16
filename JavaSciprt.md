@@ -49,6 +49,7 @@
 * [请用js去除字符串空格](#请用js去除字符串空格)
 * [创建对象有几种方法](#创建对象有几种方法)
 * [null和undefined的区别](#null和undefined的区别)
+* [反转数组](#反转数组)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -872,4 +873,36 @@ Javascript将未赋值的变量默认值设为 `undefined`
 
 Javascript从来不会将变量设为 `null`。 它是用来让程序员表明某个用var声明的变量时没有值的
 	
+#### [回到顶部](#JavaScript)
+
+## 反转数组
+#### 要求
+**input**: I am a student 
+
+**output**: student a am I 
+
+输入是数组 输出也是数组
+
+不允许用 `split` `splice` `reverse`
+```js
+function reverseWords(arry) {
+	const str = arry.join(' ')
+	const result = []
+	let word = ''
+	for (let i = 0, len = str.length; i < len; i++) {
+		if (str[i] != ' ') {
+			word += str[i]
+		} else {
+			result.unshift(word)
+			word = ''
+		}
+	}
+
+	result.unshift(word)
+	return result
+}
+
+console.log(reverseWords(['I', 'am', 'a', 'student']))
+// ["student", "a", "am", "I"]
+```
 #### [回到顶部](#JavaScript)
