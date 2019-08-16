@@ -885,20 +885,20 @@ Javascript从来不会将变量设为 `null`。 它是用来让程序员表明�
 #### 解法一
 ```js
 function reverseWords(arry) {
-	const str = arry.join(' ')
-	const result = []
-	let word = ''
-	for (let i = 0, len = str.length; i < len; i++) {
-		if (str[i] != ' ') {
-			word += str[i]
-		} else {
-			result.unshift(word)
-			word = ''
-		}
+    const str = arry.join(' ')
+    const result = []
+    let word = ''
+    for (let i = 0, len = str.length; i < len; i++) {
+	if (str[i] != ' ') {
+	    word += str[i]
+	} else {
+	    result.unshift(word)
+	    word = ''
 	}
+    }
 
-	result.unshift(word)
-	return result
+    result.unshift(word)
+    return result
 }
 
 console.log(reverseWords(['I', 'am', 'a', 'student']))
@@ -907,13 +907,13 @@ console.log(reverseWords(['I', 'am', 'a', 'student']))
 #### 解法二
 ```js
 function reverseWords(arry) {
-	const result = []
+    const result = []
     const distance = arry.length - 1
     for (let i = distance; i >= 0; i--) {
         result[distance - i] = arry[i]
     }
 
-	return result
+    return result
 }
 ```
 
