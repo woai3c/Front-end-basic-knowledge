@@ -877,13 +877,11 @@ Javascript从来不会将变量设为 `null`。 它是用来让程序员表明�
 
 ## 反转数组
 #### 要求
-**input**: I am a student 
+**input**: I am a student <br>
+**output**: student a am I <br>
+输入是数组 输出也是数组<br>
+不允许用 `split` `splice` `reverse`<br>
 
-**output**: student a am I 
-
-输入是数组 输出也是数组
-
-不允许用 `split` `splice` `reverse`
 ```js
 function reverseWords(arry) {
 	const str = arry.join(' ')
@@ -904,5 +902,17 @@ function reverseWords(arry) {
 
 console.log(reverseWords(['I', 'am', 'a', 'student']))
 // ["student", "a", "am", "I"]
+```
+
+```js
+function reverseWords(arry) {
+	const result = []
+    const distance = arry.length - 1
+    for (let i = distance; i >= 0; i--) {
+        result[distance - i] = arry[i]
+    }
+
+	return result
+}
 ```
 #### [回到顶部](#JavaScript)
