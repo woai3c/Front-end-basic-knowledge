@@ -884,7 +884,7 @@ Javascript从来不会将变量设为 `null`。 它是用来让程序员表明�
 
 #### 解法一
 ```js
-function reverseWords(arry) {
+function reverseArry(arry) {
     const str = arry.join(' ')
     const result = []
     let word = ''
@@ -901,12 +901,12 @@ function reverseWords(arry) {
     return result
 }
 
-console.log(reverseWords(['I', 'am', 'a', 'student']))
+console.log(reverseArry(['I', 'am', 'a', 'student']))
 // ["student", "a", "am", "I"]
 ```
 #### 解法二
 ```js
-function reverseWords(arry) {
+function reverseArry(arry) {
     const result = []
     const distance = arry.length - 1
     for (let i = distance; i >= 0; i--) {
