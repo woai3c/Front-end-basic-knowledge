@@ -14,6 +14,8 @@
 * [$route和$router的区别](#route和router的区别)
 * [watch的作用是什么](#watch的作用是什么)
 * [vue-loader是什么？使用它的用途有哪些？](#vue-loader是什么使用它的用途有哪些)
+* [假设定义了一个数组a=[1,2,3]，相应的，页面上显示的值为1,2,3，现设a[0]=5，页面上的值会变成5,2,3吗？为什么？](#假设定义了一个数组a=[1,2,3]，相应的，页面上显示的值为1,2,3，现设a[0]=5，页面上的值会变成5,2,3吗？为什么？)
+
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
@@ -284,4 +286,19 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 vue-loader 是解析 .vue 文件的一个加载器，将 template/js/style 转换成 js 模块。
 
 用途：js 可以写 es6、style 样式可以 scss 或 less；template 可以加 jade 等。
+#### [回到顶部](#vue)
+
+## 假设定义了一个数组a=[1,2,3]，相应的，页面上显示的值为1,2,3，现设a[0]=5，页面上的值会变成5,2,3吗？为什么？
+不会
+
+因为 Vue 是使用 `Object.defineProperty` 来监听数值变化的，而直接修改数组的值的这种操作无法监听。
+
+例如：`vm.items[indexOfItem] = newValue` 这种操作是无法监听的。
+
+如果需要直接修改数组元素的值，可以使用 `Vue.set`
+```js
+Vue.set(vm.items, indexOfItem, newValue)
+```
+
+[数组更新检测](https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B)
 #### [回到顶部](#vue)
