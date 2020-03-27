@@ -194,24 +194,30 @@ https://www.jianshu.com/p/3acdf5f71d5b
 
 #### [回到顶部](#JavaScript)
 
-## prototype和__proto__的关系是什么
-所有的对象都拥有__proto__属性，它指向对象构造函数的prototype属性
+## prototype 和 __proto__ 的关系是什么
+每个实例对象都有一个私有属性 __proto__ ，它指向对象构造函数的 prototype 属性；但是 Object.create(null) 创建的对象除外，它没有 __proto__，
+也没有 prototype。
 ```
-let obj = {}
+const obj = {}
 obj.__proto__ === Object.prototype // true
 
 function Test(){}
 test.__proto__ == Test.prototype // true
+
+const obj2 = Object.create(null)
+obj2.__proto__ // undefined
+obj2.prototype // undefined
 ```
 
-所有的函数都同时拥有__proto__和protytpe属性
-函数的__proto__指向自己的函数实现 函数的protytpe是一个对象 所以函数的prototype也有__proto__属性 指向Object.prototype
+所有的函数都同时拥有 __proto__ 和 protytpe 属性。
+
+函数的 __proto__ 指向自己的函数实现，而 protytpe 是一个对象， 所以函数的 prototype 也有 __proto__ 属性，指向 Object.prototype。
 ```
 function func() {}
 func.prototype.__proto__ === Object.prototype // true
 ```
 
-Object.prototype.__proto__指向null
+Object.prototype.__proto__ 指向 null
 ```
 Object.prototype.__proto__ // null
 ```
@@ -492,9 +498,9 @@ ES5
 ```
 function unique(arry) {
     const temp = []
-    arry.forEach(e => {
-        if (temp.indexOf(e) == -1) {
-            temp.push(e)
+    arry.forEach(function(item) {
+        if (temp.indexOf(item) == -1) {
+            temp.push(item)
         }
     })
     
@@ -503,8 +509,8 @@ function unique(arry) {
 ```
 ES6
 ```
-function unique (arr) {
-   return Array.from(new Set(arr))
+function unique(arry) {
+   return Array.from(new Set(arry))
 }
 ```
 
