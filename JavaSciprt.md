@@ -194,7 +194,7 @@ https://www.jianshu.com/p/3acdf5f71d5b
 
 #### [回到顶部](#JavaScript)
 
-## prototype 和 __proto__ 的关系是什么
+## prototype和__proto__的关系是什么
 每个实例对象都有一个私有属性 __proto__ ，它指向对象构造函数的 prototype 属性；但是 Object.create(null) 创建的对象除外，它没有 __proto__，
 也没有 prototype。
 ```
