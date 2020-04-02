@@ -50,6 +50,7 @@
 * [创建对象有几种方法](#创建对象有几种方法)
 * [null和undefined的区别](#null和undefined的区别)
 * [反转数组](#反转数组)
+* [将金额12345转成中文金额表示](#将金额12345转成中文金额表示)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -922,4 +923,44 @@ function reverseArry(arry) {
 }
 ```
 
+#### [回到顶部](#JavaScript)
+
+## 将金额12345转成中文金额表示
+#### 要求
+```js
+12345 => 一万两千三百四十五
+10086 => 一万零八十六
+```
+单位支持到亿
+
+#### 实现
+```js
+function numToString(num) {
+    if (num > 999999999) throw '超过金额上限，最大单位为亿'
+    const unitMap = ['', '十', '百', '千', '万', '十', '百', '千', '亿']
+    const stringMap = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九']
+    const n = num + ''
+    const len = n.length
+    let lastIndex = len - 1
+    let result = ''
+    for (let i = 0; i < len; i++) {
+        if (i > 0 && n[i] == '0') {
+            if (n[i - 1] != '0') result += '零'
+        } else {
+            result += stringMap[n[i]] + unitMap[lastIndex]
+        }
+
+        lastIndex--
+    }
+    
+    lastIndex = result.length - 1
+    if (result[lastIndex] == '零') return result.slice(0, lastIndex)
+    return result
+}
+
+console.log(numToString(12345)) // 一万二千三百四十五
+console.log(numToString(10086)) // 一万零八十六
+console.log(numToString(100010001)) // 一亿零一万零一
+console.log(numToString(100000000)) // 一亿
+```
 #### [回到顶部](#JavaScript)
