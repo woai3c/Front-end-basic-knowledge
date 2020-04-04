@@ -40,7 +40,7 @@
 * [如何确定this指向](#如何确定this指向)
 * [==和===的区别是什么](#和的区别是什么)
 * [箭头函数和普通函数有什么区别](#箭头函数和普通函数有什么区别)
-* [首屏时间、白屏时间](#首屏时间白屏时间)
+* [白屏时间](#白屏时间)
 * [当你在浏览器输入一个地址后发生了什么](#当你在浏览器输入一个地址后发生了什么)
 * [页面大量图片，如何优化加载，优化用户体验](#页面大量图片如何优化加载优化用户体验)
 * [js网络请求性能优化之防抖与节流](#js网络请求性能优化之防抖与节流)
@@ -741,20 +741,20 @@ ES6 中的箭头函数并不会使用四条标准的绑定规则，而是根据�
 
 #### [回到顶部](#JavaScript)
 
-## 首屏时间、白屏时间
-Performance 接口可以获取到当前页面中与性能相关的信息。<br>
-该类型的对象可以通过调用只读属性 Window.performance 来获得。<br>
-白屏时间：
+## 白屏时间
+白屏时间是指浏览器从输入网址地址，到浏览器开始显示内容的时间。
+
+Performance 接口可以获取到当前页面中与性能相关的信息,该类型的对象可以通过调用只读属性 Window.performance 来获得。
+
+performance.timing.navigationStart: PerformanceTiming.navigationStart 是一个返回代表一个时刻的 unsigned long long 型只读属性，为紧接着在相同的浏览环境下卸载前一个文档结束之时的 Unix毫秒时间戳。如果没有上一个文档，则它的值相当于 PerformanceTiming.fetchStart。
+
+所以将以下脚本放在 `</head>` 前面就能获取白屏时间。
 ```
-performance.timing.responseStart - performance.timing.navigationStart
+<script>
+	new Date() - performance.timing.navigationStart
+</script>
 ```
-首屏时间
-```
-window.onload = () => {
-    new Date() - performance.timing.responseStart
-}
-```
-https://developer.mozilla.org/zh-CN/docs/Web/API/Performance
+
 
 ## 当你在浏览器输入一个地址后发生了什么
 https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?utm_medium=social&utm_source=wechat_session&from=timeline&isappinstalled=0
