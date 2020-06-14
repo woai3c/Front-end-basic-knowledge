@@ -1,5 +1,4 @@
-# 前端开发面试题
-## 持续更新,欢迎关注
+# 前端知识点、面试题
 有问题欢迎提[issues](https://github.com/woai3c/Front-end-basic-knowledge/issues)
 * ### [JavaScript](https://github.com/woai3c/Front-end-basic-knowledge/blob/master/JavaSciprt.md)
 * ### [CSS](https://github.com/woai3c/Front-end-basic-knowledge/blob/master/CSS.md)
@@ -9,8 +8,4 @@
 * ### [其他](https://github.com/woai3c/Front-end-basic-knowledge/blob/master/%E5%85%B6%E4%BB%96.md)
 * ### [Vue](https://github.com/woai3c/Front-end-basic-knowledge/blob/master/vue.md)
 
-<br>
-
 ### [更多技术文章](https://github.com/woai3c/Front-end-articles)
-
-### 如果对你有帮助，请给个Star
