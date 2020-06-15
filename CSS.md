@@ -735,6 +735,7 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 [回到顶部](#css)
 
 ## 利用html css 编写样式，div垂直body居中、div内的text垂直居中，div高度等于body宽度的一半
+`padding-top/bottom` 和 `margin-top/bottom` 都是相对于父元素的宽度来计算的。
 ```html
 <!DOCTYPE html>
 <html>
