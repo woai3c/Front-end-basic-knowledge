@@ -44,6 +44,7 @@
 * [什么是外边距合并](#什么是外边距合并)
 * [去除inline-block元素间间距的方法](#去除inline-block元素间间距的方法)
 * [为什么要初始化CSS样式](#为什么要初始化CSS样式)
+* [利用html css 编写样式，div垂直body居中、div内的text垂直居中，div高度等于body宽度的一半](#利用html-css-编写样式div垂直body居中div内的text垂直居中div高度等于body宽度的一半)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -731,4 +732,49 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 * 因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对 CSS 初始化往往会出现浏览器之间的页面显示差异。
 * 去掉标签的默认样式如：margin,padding，其他浏览器默认解析字体大小，字体设置。
 
+[回到顶部](#css)
+
+## 利用html css 编写样式，div垂直body居中、div内的text垂直居中，div高度等于body宽度的一半
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        body,
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        div {
+            width: 100%;
+            height: 0;
+            padding-bottom: 50%;
+            position: relative;
+            background: #ddd;
+        }
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p class="text">
+            这里是文本信息
+        </p>
+    </div>
+</body>
+</html>
+```
 [回到顶部](#css)
