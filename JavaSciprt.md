@@ -849,7 +849,31 @@ https://www.jianshu.com/p/5d82bba9e1a1
 * 区别<br>
 在发生持续触发事件时，防抖设置事件延迟并在空闲时间去触发事件，而节流则是隔一定的时间触发一次。
 
-具体请看：<br>
+一个简单的防抖示例
+```js
+let timer
+input.on('input', () => {
+    clearTimeout(timer)
+    // 停止输入 500 毫秒后开始搜索
+    timer = setTimeout(() => {
+	// 搜索
+    }, 500)
+})
+```
+一个简单的节流示例
+```js
+let isClick = false
+button.on('click', () => {
+    if (isClick) return
+    isClick = true
+    // 其他代码。。。
+    // 每 10 秒只允许点击一次
+    setTimeout(() => {
+	isClick = false
+    }, 10000)
+})
+```
+
 https://blog.csdn.net/jacoox/article/details/80719456
 
 #### [回到顶部](#JavaScript)
