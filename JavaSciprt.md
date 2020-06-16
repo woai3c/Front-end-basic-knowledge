@@ -37,6 +37,7 @@
 * [如何实现文件断点续传](#如何实现文件断点续传)
 * [new一个对象经历了什么](#new一个对象经历了什么)
 * [bind、call、apply的区别](#bindcallapply的区别)
+* [实现 bind 函数](#实现-bind-函数)
 * [请简述JavaScript中的this](#请简述JavaScript中的this)
 * [如何确定this指向](#如何确定this指向)
 * [==和===的区别是什么](#和的区别是什么)
@@ -738,6 +739,20 @@ bind也是改变this指向，不过不是在调用时生效，而是返回一个
 const newFunc = sayHi.bind(obj)
 newFunc() // Hi! Tom
 ```
+#### [回到顶部](#JavaScript)
+
+## 实现 bind 函数
+先看一下原生 [bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 的用法，再实现：
+```js
+Function.prototype.bind = function(context, ...extra) {
+    const self = this
+    // 这里不能用箭头函数，防止绑定函数为构造函数
+    return function(...arg) {
+        return self.call(context, ...extra.concat(arg))
+    }
+}
+```
+
 #### [回到顶部](#JavaScript)
 
 ## 请简述`JavaScript`中的`this`。
