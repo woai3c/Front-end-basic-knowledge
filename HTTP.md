@@ -9,7 +9,7 @@
 * [Http与Https的区别](#Http与Https的区别)
 * [什么是Http协议无状态协议?怎么解决Http协议无状态协议?](#什么是Http协议无状态协议怎么解决Http协议无状态协议)
 * [常用的HTTP方法有哪些](#常用的HTTP方法有哪些)
-* [一次完整的HTTP请求所经历的7个步骤](#一次完整的HTTP请求所经历的7个步骤)
+* [HTTPS 握手机制](#HTTPS-握手机制)
 
 ## RESTful
 REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
@@ -32,7 +32,6 @@ Delete方法的参数同post一样存放在消息体中,具有安全性，可发
 https://blog.csdn.net/jnshu_it/article/details/80203696
 
 ## GET和POST的区别
-* GET产生一个TCP数据包；POST产生两个TCP数据包。
 * GET在浏览器回退时是无害的，而POST会再次提交请求。
 * GET产生的URL地址可以被Bookmark，而POST不可以。
 * GET请求会被浏览器主动cache，而POST不会，除非手动设置。
@@ -41,8 +40,6 @@ https://blog.csdn.net/jnshu_it/article/details/80203696
 * GET请求在URL中传送的参数是有长度限制的，而POST么有。
 * 对参数的数据类型，GET只接受ASCII字符，而POST没有限制。
 * GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。
-* GET参数通过URL传递，POST放在Request body中。
-
 
 ## Accept和Content-Type
 Accept 请求头用来告知客户端可以处理的内容类型，这种内容类型用MIME类型来表示。
@@ -119,59 +116,15 @@ https://zhuanlan.zhihu.com/p/33778904
 * POST：用于传输信息给服务器，主要功能与Get方法类似，但一般推荐POST方式。
 * PUT：传输文件，报文主体包含文件内容，保存到对应URL位置。
 * HEAD：获取报文首部，与GET方法类似，只是不返回报文主体，一般用于验证URL是否有效。
-* DELET：删除文件，与PUT方法相反，删除对应URL位置的文件。OPTIONS：查询相应URL支持的HTTP方法。
+* DELET：删除文件，与PUT方法相反，删除对应URL位置的文件。
+* OPTIONS：查询相应URL支持的HTTP方法。
 
 [回到顶部](#HTTP)
 
-## 一次完整的HTTP请求所经历的7个步骤
-HTTP通信机制是在一次完整的HTTP通信过程中，Web浏览器与Web服务器之间将完成下列7个步骤：
+## HTTPS 握手机制
 
-* 建立TCP连接
-
-在HTTP工作开始之前，Web浏览器首先要通过网络与Web服务器建立连接，该连接是通过TCP来完成的，该协议与IP协议共同构建 Internet，即著名的TCP/IP协议族，因此Internet又被称作是TCP/IP网络。HTTP是比TCP更高层次的应用层协议，根据规则， 只有低层协议建立之后才能，才能进行更层协议的连接，因此，首先要建立TCP连接，一般TCP连接的端口号是80。
-
-* Web浏览器向Web服务器发送请求行
-
-一旦建立了TCP连接，Web浏览器就会向Web服务器发送请求命令。例如：GET /sample/hello.jsp HTTP/1.1。
-
-
-* Web浏览器发送请求头
-
-浏览器发送其请求命令之后，还要以头信息的形式向Web服务器发送一些别的信息，之后浏览器发送了一空白行来通知服务器，它已经结束了该头信息的发送。
-
-
-
-* Web服务器应答
-
-客户机向服务器发出请求后，服务器会客户机回送应答， HTTP/1.1 200 OK ，应答的第一部分是协议的版本号和应答状态码。
-
-
-
-* Web服务器发送应答头
-
-正如客户端会随同请求发送关于自身的信息一样，服务器也会随同应答向用户发送关于它自己的数据及被请求的文档。
-
-
-
-* Web服务器向浏览器发送数据
-
-Web服务器向浏览器发送头信息后，它会发送一个空白行来表示头信息的发送到此为结束，接着，它就以Content-Type应答头信息所描述的格式发送用户所请求的实际数据。
-
-
-
-* Web服务器关闭TCP连接
-
-一般情况下，一旦Web服务器向浏览器发送了请求数据，它就要关闭TCP连接，然后如果浏览器或者服务器在其头信息加入了这行代码：
-
-
-```
-Connection:keep-alive
-```
-TCP连接在发送后将仍然保持打开状态，于是，浏览器可以继续通过相同的连接发送请求。保持连接节省了为每个请求建立新连接所需的时间，还节约了网络带宽。
-
-建立TCP连接->发送请求行->发送请求头->（到达服务器）发送状态行->发送响应头->发送响应数据->断TCP连接
-
-
-https://juejin.im/post/5a8102e0f265da4e710f5910
+* [HTTPs入门, 图解SSL从回车到握手](https://zhuanlan.zhihu.com/p/25587986)
+* [SSL/TLS协议运行机制的概述](https://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
+* [SSL/TLS 握手过程详解](https://www.jianshu.com/p/7158568e4867)
 
 [回到顶部](#HTTP)
