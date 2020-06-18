@@ -877,7 +877,7 @@ button.on('click', () => {
 
 来个困难点的，根据图片要求实现节流函数
 
-![](../imgs/throttle.webp)
+![](./imgs/throttle.png)
 
 实现
 ```js
