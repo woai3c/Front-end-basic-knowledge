@@ -53,6 +53,7 @@
 * [null和undefined的区别](#null和undefined的区别)
 * [反转数组](#反转数组)
 * [将金额12345转成中文金额表示](#将金额12345转成中文金额表示)
+* [异步求和](#异步求和)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1017,7 +1018,7 @@ function reverseArry(arry) {
 #### [回到顶部](#JavaScript)
 
 ## 将金额12345转成中文金额表示
-#### 要求
+### 要求
 ```js
 12345 => 一万两千三百四十五
 10086 => 一万零八十六
@@ -1026,7 +1027,7 @@ function reverseArry(arry) {
 ```
 单位支持到亿
 
-#### 实现
+### 实现
 ```js
 function numToString(num) {
     if (num > 999999999) throw '超过金额上限，最大单位为亿'
@@ -1055,5 +1056,63 @@ console.log(numToString(12345)) // 一万二千三百四十五
 console.log(numToString(10086)) // 一万零八十六
 console.log(numToString(100010001)) // 一亿零一万零一
 console.log(numToString(100000000)) // 一亿
+```
+#### [回到顶部](#JavaScript)
+
+## 异步求和
+### 要求
+提供一个异步 `add` 方法如下，需要实现一个 `await sum(...args)` 函数：
+```js
+function asyncAdd(a, b, callback) {
+    setTimeout(function() {
+	callback(null, a + b)
+    }, 1000)
+}
+```
+### 实现
+```js
+function sum(...args) {
+    let start = 0
+    let result = 0
+    let count = 0 // 用于计算开启了多少个 Promise
+
+    function _sum(resolve) {
+	count++
+	new Promise((r, j) => {
+	    let a = args[start++]
+	    let b = args[start++]
+	    a = a !== undefined? a : 0
+	    b = b !== undefined? b : 0 // 如果访问的元素超出了数组范围，则转为 0
+	    asyncAdd(a, b, (context, sum) => {
+		r(sum)
+	    })
+
+	    if (start < args.length) {
+		_sum(resolve)
+	    }
+	})
+	.then(sum => {
+	    result += sum
+	    count--
+	    if (count == 0) resolve(result) // 所有的 Promise 执行完毕，返回结果
+	})
+    }
+
+    return new Promise((resolve, reject) => {
+	if (!args || !args.length) return resolve(0)
+	if (args.length == 1) return resolve(args[0])
+	_sum(resolve)
+    })
+}
+```
+### 测试
+```js
+sum(1,2,3,4,5,6,7,8,9,10,11).then(sum => console.log(sum)) // 66
+// or
+async function test() {
+    console.log(await sum(1,2,3,4,5,6,7,8,9,10,11))
+}
+
+test() // 66
 ```
 #### [回到顶部](#JavaScript)
