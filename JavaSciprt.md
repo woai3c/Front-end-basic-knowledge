@@ -875,6 +875,60 @@ button.on('click', () => {
 })
 ```
 
+来个困难点的，根据图片要求实现节流函数
+
+![](../imgs/throttle.webp)
+
+实现
+```js
+const throttle = (function(delay) {
+    let waitForCallFunc
+    let canCall = true
+    return function throttle(callback) {
+        if (!canCall) {
+            if (callback) waitForCallFunc = callback
+            return
+        }
+
+        callback()
+        canCall = false
+        setTimeout(() => {
+            canCall = true
+            if (waitForCallFunc) {
+                throttle(waitForCallFunc)
+                waitForCallFunc = null
+            }
+        }, delay)
+    }
+})(1000)
+
+throttle(() => console.log(1))
+
+setTimeout(() => {
+    throttle(() => console.log(2))
+}, 500)
+
+setTimeout(() => {
+    throttle(() => console.log(3))
+}, 700)
+
+setTimeout(() => {
+    throttle(() => console.log(4))
+}, 1200)
+
+setTimeout(() => {
+    throttle(() => console.log(5))
+}, 1400)
+
+setTimeout(() => {
+    throttle(() => console.log(6))
+}, 1600)
+
+setTimeout(() => {
+    throttle(() => console.log(7))
+}, 2500)
+```
+
 https://blog.csdn.net/jacoox/article/details/80719456
 
 #### [回到顶部](#JavaScript)
