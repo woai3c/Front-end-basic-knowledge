@@ -398,21 +398,15 @@ console.log(curry(add, 1, 2)) // 3
 Ajax(asynchronous JavaScript and XML)是使用客户端上的许多 Web 技术，创建异步 Web 应用的一种 Web 开发技术。借助 Ajax，Web 应用可以异步（在后台）向服务器发送数据和从服务器检索数据，而不会干扰现有页面的显示和行为。通过将数据交换层与表示层分离，Ajax 允许网页和扩展 Web 应用程序动态更改内容，而无需重新加载整个页面。实际上，现在通常将 JSON 替换为 XML，因为 JavaScript 对 JSON 有原生支持优势。<br>
 XMLHttpRequest API 经常用于异步通信。此外还有最近流行的fetch API。
 ```js
-let xmlhttp
-if (window.XMLHttpRequest) {
-	//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-	xmlhttp = new XMLHttpRequest()
-} else {
-	// IE6, IE5 浏览器执行代码
-	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP")
+const xhr = new XMLHttpRequest()
+xhr.onload = (res) => {
+    if (xhr.status == 200) {
+        console.log(xhr.response)
+    }
 }
-xmlhttp.onreadystatechange = () => {
-	if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-		document.getElementById("myDiv").innerHTML = xmlhttp.responseText
-	}
-}
-xmlhttp.open("GET", "/ajax/test.txt", true)
-xmlhttp.send()
+
+xhr.open('get', 'https://api.github.com/')
+xhr.send()
 ```
 #### [回到顶部](#JavaScript)
 
