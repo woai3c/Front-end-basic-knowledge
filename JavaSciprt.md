@@ -92,17 +92,17 @@ PC 时代为了突破浏览器的域名并发限制。有了域名发散。<br>
 
 ## 事件绑定的方式
 * 嵌入dom
-```
+```js
 <button onclick="func()">按钮</button>
 ```
 
 * 直接绑定
-```
+```js
 btn.onclick = function(){}
 ```
 
 * 事件监听
-```
+```js
 btn.addEventListener('click',function(){})
 ```
 
@@ -111,7 +111,7 @@ btn.addEventListener('click',function(){})
 ## 事件委托
 事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。所有用到按钮的事件（多数鼠标事件和键盘事件）都适合采用事件委托技术，
 使用事件委托可以节省内存。
-```
+```js
 <ul>
   <li>苹果</li>
   <li>香蕉</li>
@@ -144,7 +144,7 @@ document.querySelectorAll('li').forEach((e) => {
 ## 事件模型
 * DOM0<br>
 直接绑定
-```
+```js
 <input onclick="sayHi()"/>
 
 btn.onclick = function() {}
@@ -155,7 +155,7 @@ btn.onclick = null
 DOM2级事件可以冒泡和捕获
 通过addEventListener绑定
 通过removeEventListener解绑
-```
+```js
 // 绑定
 btn.addEventListener('click', sayHi)
 // 解绑
@@ -200,7 +200,7 @@ https://www.jianshu.com/p/3acdf5f71d5b
 
 ## prototype和__proto__的关系是什么
 每个实例对象都有一个私有属性 `__proto__`，它指向对象构造函数的 `prototype` 属性；但是 `Object.create(null)` 创建的对象除外，它没有 `__proto__` 属性，也没有 `prototype` 属性。
-```
+```js
 const obj = {}
 obj.__proto__ === Object.prototype // true
 
@@ -215,13 +215,13 @@ obj2.prototype // undefined
 所有的函数都同时拥有 `__proto__` 和 `protytpe` 属性。
 
 函数的 `__proto__` 指向自己的函数实现，而 `protytpe` 是一个对象， 所以函数的 `prototype` 也有 `__proto__` 属性，指向 `Object.prototype`。
-```
+```js
 function func() {}
 func.prototype.__proto__ === Object.prototype // true
 ```
 
 `Object.prototype.__proto__` 指向 null
-```
+```js
 Object.prototype.__proto__ // null
 ```
 
@@ -235,7 +235,7 @@ Object.prototype.__proto__ // null
 ## 继承
 JS高程第3版 第6章 继承
 寄生组合式继承
-```
+```js
 function SuperType(name) {
     this.name = name
     this.colors = ['red']
@@ -268,7 +268,7 @@ SubType.prototype.sayAge = function() {
 
 ## 闭包
 闭包是指有权访问另一个函数作用域中的变量的函数。
-```
+```js
 function sayHi(name) {
     return () => {
        console.log(`Hi! ${name}`)
@@ -359,7 +359,7 @@ newFn() // 后面两次执行都无任何反应
 #### [回到顶部](#JavaScript)
 
 ## 实现add函数,让add(a)(b)和add(a,b)两种调用结果相同
-```
+```js
 function add(a, b) {
     if (b === undefined) {
         return function(x) {
@@ -375,7 +375,7 @@ function add(a, b) {
 ## Ajax
 Ajax(asynchronous JavaScript and XML)是使用客户端上的许多 Web 技术，创建异步 Web 应用的一种 Web 开发技术。借助 Ajax，Web 应用可以异步（在后台）向服务器发送数据和从服务器检索数据，而不会干扰现有页面的显示和行为。通过将数据交换层与表示层分离，Ajax 允许网页和扩展 Web 应用程序动态更改内容，而无需重新加载整个页面。实际上，现在通常将 JSON 替换为 XML，因为 JavaScript 对 JSON 有原生支持优势。<br>
 XMLHttpRequest API 经常用于异步通信。此外还有最近流行的fetch API。
-```
+```js
 let xmlhttp
 if (window.XMLHttpRequest) {
 	//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
@@ -523,33 +523,111 @@ console.log(o1.a) // 3
 #### [回到顶部](#JavaScript)
 
 ## 怎么实现对象深拷贝
-```
+这种方法有缺陷，详情请看[关于JSON.parse(JSON.stringify(obj))实现深拷贝应该注意的坑](https://www.jianshu.com/p/b084dfaad501)
+```js
 let o1 = {a:{
     b:1
   }
 }
 let o2 = JSON.parse(JSON.stringify(o1))
 ```
-另一种方法
-```
-function deepCopy(s) {
-    const d = {}
-    for (let k in s) {
-        if (typeof s[k] == 'object') {
-            d[k] = deepCopy(s[k])
-        } else {
-            d[k] = s[k]
+基础版
+```js
+function deepCopy(target) {
+    if (typeof target == 'object') {
+        const result = Array.isArray(target)? [] : {}
+        for (const key in target) {
+            if (typeof target[key] == 'object') {
+                result[key] = deepCopy(target[key])
+            } else {
+                result[key] = target[key]
+            }
         }
-    }
 
-    return d
+        return result
+    } else if (typeof target == 'function') {
+        return eval('(' + test.toString() + ')')
+    } else {
+        return target
+    }
 }
 ```
+完整版
+```js
+const mapTag = '[object Map]'
+const setTag = '[object Set]'
+const arrayTag = '[object Array]'
+const objectTag = '[object Object]'
+const symbolTag = '[object Symbol]'
+
+function deepCopy(origin, map = new WeakMap()) {
+    if (!origin || !isObject(origin)) return origin
+    if (typeof origin == 'function') {
+        return eval('(' + origin.toString() + ')')
+    }
+
+    const objType = getObjType(origin)
+    const result = createObj(origin, objType)
+
+    // 防止循环引用，不会遍历已经在 map 中的对象，因为在上一层正在遍历
+    if (map.get(origin)) {
+        return map.get(origin)
+    }
+    
+    map.set(origin, result)
+    
+    // set
+    if (objType == setTag) {
+        for (const value of set) {
+            result.add(value)
+        }
+
+        return result
+    }
+
+    // map
+    if (objType == mapTag) {
+        for (const [key, value] of origin) {
+            result.set(key, value)
+        }
+
+        return result
+    }
+
+    // 对象或数组
+    if (objType == objectTag || objType == arrayTag) {
+        for (const key in origin) {
+            result[key] = deepCopy(origin[key], map)
+        }
+
+        return result
+    }
+
+    return result
+}
+
+function getObjType(obj) {
+    return Object.prototype.toString.call(obj)
+}
+
+function createObj(obj, type) {
+    if (type == objectTag) return {}
+    if (type == arrayTag) return []
+    if (type == symbolTag) return Object(Symbol.prototype.valueOf.call(obj))
+    
+    return new obj.constructor(obj)
+}
+
+function isObject(origin) {
+    return typeof origin == 'object' || typeof origin == 'function'
+}
+```
+[如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1)
 #### [回到顶部](#JavaScript)
 
 ## 数组去重
 ES5
-```
+```js
 function unique(arry) {
     const temp = []
     arry.forEach(function(item) {
@@ -562,7 +640,7 @@ function unique(arry) {
 }
 ```
 ES6
-```
+```js
 function unique(arry) {
    return Array.from(new Set(arry))
 }
@@ -681,13 +759,13 @@ https://zhuanlan.zhihu.com/p/41479807
 有了HTML5 的 File api之后切割文件比想想的要简单的多的多。
 
 只要用slice 方法就可以了
-```
+```js
 var packet = file.slice(start, end);
 ```
 参数start是开始切片的位置，end是切片结束的位置 单位都是字节。通过控制start和end 就可以是实现文件的分块
 
 如
-```
+```js
 file.slice(0,1000);
 file.slice(1000,2000);
 file.slice(2000,3000);
@@ -701,22 +779,22 @@ https://www.cnblogs.com/zhwl/p/3580776.html
 #### [回到顶部](#JavaScript)
 
 ## new一个对象经历了什么
-```
+```js
 function Test(){}
 const test = new Test()
 ```
 
 1. 创建一个新对象：
-```
+```js
 const obj = {}
 ```
 2. 设置新对象的constructor属性为构造函数的名称，设置新对象的__proto__属性指向构造函数的prototype对象
-```
+```js
 obj.constructor = Test
 obj.__proto__ = Test.prototype
 ```
 3. 使用新对象调用函数，函数中的this被指向新实例对象
-```
+```js
 Test.call(obj)
 ```
 4. 将初始化完毕的新对象地址，保存到等号左边的变量中
@@ -726,7 +804,7 @@ Test.call(obj)
 ## bind、call、apply的区别
 call和apply其实是一样的，区别就在于传参时参数是一个一个传或者是以一个数组的方式来传。<br>
 call和apply都是在调用时生效，改变调用者的this指向。<br>
-```
+```js
 let name = 'Jack'
 const obj = {name: 'Tom'}
 function sayHi() {console.log('Hi! ' + this.name)}
@@ -736,7 +814,7 @@ sayHi.call(obj) // Hi! Tom
 
 ```
 bind也是改变this指向，不过不是在调用时生效，而是返回一个新函数。
-```
+```js
 const newFunc = sayHi.bind(obj)
 newFunc() // Hi! Tom
 ```
