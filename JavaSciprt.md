@@ -359,6 +359,8 @@ newFn() // 后面两次执行都无任何反应
 #### [回到顶部](#JavaScript)
 
 ## 实现add函数,让add(a)(b)和add(a,b)两种调用结果相同
+
+### 实现1
 ```js
 function add(a, b) {
     if (b === undefined) {
@@ -370,6 +372,26 @@ function add(a, b) {
     return a + b
 }
 ```
+### 实现2——柯里化
+```js
+function curry(fn, ...args1) {
+    if (fn.length == args1.length) {
+        return fn(...args1)
+    }
+
+    return function(...args2) {
+        return curry(fn, ...args1, ...args2)
+    }
+}
+
+function add(a, b) {
+    return a + b
+}
+
+console.log(curry(add, 1)(2)) // 3
+console.log(curry(add, 1, 2)) // 3
+```
+
 #### [回到顶部](#JavaScript)
 
 ## Ajax
