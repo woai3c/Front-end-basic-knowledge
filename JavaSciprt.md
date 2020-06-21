@@ -37,7 +37,7 @@
 * [如何实现文件断点续传](#如何实现文件断点续传)
 * [new一个对象经历了什么](#new一个对象经历了什么)
 * [bind、call、apply的区别](#bindcallapply的区别)
-* [实现 bind 函数](#实现-bind-函数)
+* [实现 bind call apply 函数](#实现-bind-call-apply-函数)
 * [请简述JavaScript中的this](#请简述JavaScript中的this)
 * [如何确定this指向](#如何确定this指向)
 * [==和===的区别是什么](#和的区别是什么)
@@ -836,8 +836,8 @@ newFunc() // Hi! Tom
 ```
 #### [回到顶部](#JavaScript)
 
-## 实现 bind 函数
-先看一下原生 [bind](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) 的用法，再实现：
+## 实现 bind call apply 函数
+### bind
 ```js
 Function.prototype.bind = function(context, ...extra) {
     const self = this
@@ -847,7 +847,53 @@ Function.prototype.bind = function(context, ...extra) {
     }
 }
 ```
+### call
+```js
+Function.prototype.call = function(context, ...args) {
+    if (context === null || context === undefined) {
+        context = window
+    } else if (!context || context.toString() != '[object Object]') {
+        context = {}
+    }
 
+    let key = Math.random()
+    while (context[key]) {
+        key = Math.random()
+    }
+
+    context[key] = this
+    const result = context[key](...args)
+    delete context[key]
+    return result
+}
+```
+### apply
+```js
+Function.prototype.apply = function(context, args) {
+    if (args !== undefined && !Array.isArray(args)) throw '参数必须为数组'
+    if (context === null || context === undefined) {
+        context = window
+    } else if (!context || context.toString() != '[object Object]') {
+        context = {}
+    }
+
+    let key = Math.random()
+    while (context[key]) {
+        key = Math.random()
+    }
+
+    context[key] = this
+    let result
+    if (args === undefined) {
+        const result = context[key]()
+    } else {
+        const result = context[key](...args)
+    }
+
+    delete context[key]
+    return result
+}
+```
 #### [回到顶部](#JavaScript)
 
 ## 请简述`JavaScript`中的`this`。
