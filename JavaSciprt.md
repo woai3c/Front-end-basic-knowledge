@@ -54,6 +54,7 @@
 * [反转数组](#反转数组)
 * [将金额12345转成中文金额表示](#将金额12345转成中文金额表示)
 * [异步求和](#异步求和)
+* [a~z 有 26个字母，按照 1~26 编码，现在给定一个数字字符串，输出所有可能的解码结果，如：输入 1234，输出 ['awd', 'abcd', 'lcd']](#az-有-26个字母-按照-126-编码现在给定一个数字字符串输出所有可能的解码结果如输入-1234输出-awd-abcd-lcd)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1308,5 +1309,34 @@ async function test() {
 }
 
 test() // 66
+```
+#### [回到顶部](#JavaScript)
+
+## a~z 有 26个字母，按照 1~26 编码，现在给定一个数字字符串，输出所有可能的解码结果，如：输入 1234，输出 ['awd', 'abcd', 'lcd']
+```js
+const map = [0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+function getDecodes(num) {
+    if (!num) return []
+    num += ''
+    const result = []
+    _getDecodes(num, 0, [], result)
+    return result
+}
+
+function _getDecodes(num, start, path, result) {
+    if (start == num.length) return result.push([...path])
+    let c = num[start++]
+    path.push(map[c])
+    _getDecodes(num, start, path, result)
+    path.pop()
+    
+    if (start == num.length) return
+    c += num[start]
+
+    if (c > 26) return
+    path.push(map[c])
+    _getDecodes(num, start + 1, path, result)
+    path.pop()
+}
 ```
 #### [回到顶部](#JavaScript)
