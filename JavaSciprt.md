@@ -54,6 +54,7 @@
 * [反转数组](#反转数组)
 * [将金额12345转成中文金额表示](#将金额12345转成中文金额表示)
 * [异步求和](#异步求和)
+* [异步求和升级版](#异步求和异步求和升级版)
 * [数字集转换成字母集](#数字集转换成字母集)
 
 ## 同源策略
@@ -1310,6 +1311,86 @@ async function test() {
 
 test() // 66
 ```
+#### [回到顶部](#JavaScript)
+
+## 异步求和升级版
+### 要求
+假设有一台本地机器，无法做加减乘除运算，因此无法执行 a + b、a+ = 1 这样的 JS 代码，然后我们提供一个服务器端的 HTTP API，可以传两个数字类型的参数，响应结果是这两个参数的和，这个 HTTP API 的 JS SDK（在本地机器上运行）的使用方法如下：
+```js
+asyncAdd(3, 5, (err, result) => {
+  console.log(result); // 8
+});
+```
+模拟实现：
+```js
+function asyncAdd(a, b, cb) {
+  setTimeout(() => {
+    cb(null, a + b);
+  }, Math.floor(Math.random()*100))
+}
+```
+现在要求在本地机器上实现一个 sum 函数，支持以下用法：
+```js
+(async () => {
+  const result1 = await sum(1, 4, 6, 9, 1, 4);
+  const result2 = await sum(3, 4, 9, 2, 5, 3, 2, 1, 7);
+  const result3 = await sum(1, 6, 0, 5);
+  console.log([result1, result2, result3]); // [25, 36, 12]
+})();
+```
+要求 sum 能在最短的时间里返回以上结果
+
+### 实现
+```js
+function asyncAdd(a, b, cb) {
+  setTimeout(() => {
+    cb(null, a + b);
+  }, Math.floor(Math.random()*100))
+}
+
+function sum(...args) {
+    let result = 0
+
+    function _sum(resolve) {
+        new Promise((r, j) => {
+            let a = args.pop()
+            let b = args.pop()
+            a = a !== undefined? a : 0
+            b = b !== undefined? b : 0 // 如果访问的元素超出了数组范围，则转为 0
+            asyncAdd(a, b, (err, sum) => {
+                if (err) j(err)
+                r(sum)
+            })
+
+            if (args.length) {
+                _sum(resolve)
+            }
+        })
+        .then(sum => {
+            result += sum
+            if (args.length <= 0) {
+                setTimeout(() => {
+                    resolve(result)
+                }, 100)
+            }
+        })
+    }
+
+    return new Promise((resolve, reject) => {
+        if (!args || !args.length) resolve(0)
+        if (args.length == 1) resolve(args[0])
+        _sum(resolve)
+    })
+}
+
+(async () => {
+  const result1 = await sum(1, 4, 6, 9, 1, 4);
+  const result2 = await sum(3, 4, 9, 2, 5, 3, 2, 1, 7);
+  const result3 = await sum(1, 6, 0, 5);
+  console.log([result1, result2, result3]); // [25, 36, 12]
+})()
+```
+
 #### [回到顶部](#JavaScript)
 
 ## 数字集转换成字母集
