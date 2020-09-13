@@ -56,6 +56,7 @@
 * [异步求和](#异步求和)
 * [异步求和升级版](#异步求和升级版)
 * [数字集转换成字母集](#数字集转换成字母集)
+* [CommonJS，ES module 是什么，有什么区别？](#commonjses-module-是什么有什么区别)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1422,4 +1423,24 @@ function _getDecodes(num, start, path, result) {
     path.pop()
 }
 ```
+#### [回到顶部](#JavaScript)
+
+## CommonJS，ES module 是什么，有什么区别？
+它们都是一种模块规范，例如 Node 使用的就是 CommonJS 规范。ES module 则是语言标准上的模块规范。
+
+区别：
+1. CommonJS 模块使用 `require()` 和 `module.exports`，ES6 模块使用 `import`和 `export`。
+2. CommonJS 模块输出的是一个值的浅拷贝，ES6 模块输出的是值的引用。
+3. CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
+4. CommonJS 模块的 `require()` 是同步加载模块，ES6 模块的 `import` 命令是异步加载，有一个独立的模块依赖的解析阶段。
+5. ES6 模块之中，顶层的 this 指向 undefined；CommonJS 模块的顶层 this 指向当前模块，
+6. 对于循环加载的处理方法不同
+
+第 3 个差异是因为 CommonJS 加载的是一个对象（即 `module.exports` 属性），该对象只有在脚本运行完才会生成。
+
+而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。
+
+参考资料：
+* [Module 的加载实现](https://es6.ruanyifeng.com/#docs/module-loader)
+
 #### [回到顶部](#JavaScript)
