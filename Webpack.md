@@ -3,6 +3,7 @@
 * [webpack 的 runtime 和 manifest 代码有什么用](#webpack-的-runtime-和-manifest-代码有什么用)
 * [怎么写一个 plugin 和 loader](#怎么写一个-plugin-和-loader)
 * [webpack 能做哪些性能优化](#webpack-能做哪些性能优化)
+* [webpack 热更新原理](#webpack-热更新原理)
 
 ## webpack 和 rollup 的区别
 webpack 优点：
@@ -47,11 +48,35 @@ manifest：记录了在打包过程中，各个模块之间的信息及关联关
 
 #### [回到顶部](#webpack)
 
+## webpack-热更新原理
+HMR 即 Hot Module Replacement是指当你对代码修改并保存后，webpack将会对代码进行重新打包，并将改动的模块发送到浏览器端。
+
+浏览器用新的模块替换掉旧的模块，去实现局部更新页面而非整体刷新页面。
+
+![](https://user-gold-cdn.xitu.io/2019/9/2/16cf203824359397?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+如上图所示，右侧Server端使用webpack-dev-server去启动本地服务，内部实现主要使用了webpack、express、websocket。
+
+- 使用express启动本地服务，当浏览器访问资源时对此做响应。
+- 服务端和客户端使用websocket实现长连接
+- webpack监听源文件的变化，即当开发者保存文件时触发webpack的重新编译。
+  - 每次编译都会生成hash值、已改动模块的json文件、已改动模块代码的js文件
+  - 编译完成后通过socket向客户端推送当前编译的hash戳
+- 客户端的websocket监听到有文件改动推送过来的hash戳，会和上一次对比
+  - 一致则走缓存
+  - 不一致则通过ajax和jsonp向服务端获取最新资源
+- 使用内存文件系统去替换有修改的内容实现局部刷新
+
+
+参考资料：
+* [搞懂webpack热更新原理](https://juejin.im/post/6844903933157048333)
+
+#### [回到顶部](#webpack)
+
 ## 其他参考资料
 
 * [code-splitting 代码切割](https://github.com/youngwind/blog/issues/100)
 * [loader 机制](https://github.com/youngwind/blog/issues/101)
 * [Webpack 源码解析](https://github.com/lihongxun945/diving-into-webpack)
-* [搞懂webpack热更新原理](https://juejin.im/post/6844903933157048333)
 * [webpack模块化原理-Code Splitting](https://segmentfault.com/a/1190000011435407)
 * [webpack模块化原理-ES module](https://segmentfault.com/a/1190000010955254)
