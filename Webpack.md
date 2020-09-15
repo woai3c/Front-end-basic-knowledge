@@ -4,6 +4,7 @@
 * [怎么写一个 plugin 和 loader](#怎么写一个-plugin-和-loader)
 * [webpack 能做哪些性能优化](#webpack-能做哪些性能优化)
 * [webpack 热更新原理](#webpack-热更新原理)
+* [webpack 模块加载原理](#webpack-模块加载原理)
 
 ## webpack 和 rollup 的区别
 webpack 优点：
@@ -73,6 +74,10 @@ HMR 即 Hot Module Replacement是指当你对代码修改并保存后，webpack�
 
 #### [回到顶部](#webpack)
 
+## webpack 模块加载原理
+
+#### [回到顶部](#webpack)
+[深入了解 webpack 模块加载原理](https://github.com/woai3c/Front-end-articles/issues/7)
 ## 其他参考资料
 
 * [code-splitting 代码切割](https://github.com/youngwind/blog/issues/100)
