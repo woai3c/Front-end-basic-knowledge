@@ -78,10 +78,10 @@ HMR 即 Hot Module Replacement是指当你对代码修改并保存后，webpack�
 
 #### [回到顶部](#webpack)
 [深入了解 webpack 模块加载原理](https://github.com/woai3c/Front-end-articles/issues/7)
+
+
 ## 其他参考资料
 
 * [code-splitting 代码切割](https://github.com/youngwind/blog/issues/100)
 * [loader 机制](https://github.com/youngwind/blog/issues/101)
 * [Webpack 源码解析](https://github.com/lihongxun945/diving-into-webpack)
-* [webpack模块化原理-Code Splitting](https://segmentfault.com/a/1190000011435407)
-* [webpack模块化原理-ES module](https://segmentfault.com/a/1190000010955254)
