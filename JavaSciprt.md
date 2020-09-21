@@ -1507,6 +1507,10 @@ window.onload = () => {
 ### prefetch
 `prefetch` 和 `preload` 不同，使用 `prefetch` 属性指定的资源将在浏览器空闲时间下下载。
 
-至少空闲时间是如何确定，如果获取，目前还没有相关 API。
+在资源的请求头如果发现有下面这个属性，就代表它是通过 `prefetch` 加载的：
+
+`purpose: prefetch`
+
+另外，空闲时间是如何确定、如何获取的，目前还没有相关 API。
 
 #### [回到顶部](#JavaScript)
