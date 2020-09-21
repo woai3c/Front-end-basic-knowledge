@@ -57,6 +57,7 @@
 * [异步求和升级版](#异步求和升级版)
 * [数字集转换成字母集](#数字集转换成字母集)
 * [CommonJS，ES module 是什么，有什么区别？](#commonjses-module-是什么有什么区别)
+* [preload和prefetch](#preload和prefetch)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1442,5 +1443,70 @@ function _getDecodes(num, start, path, result) {
 
 参考资料：
 * [Module 的加载实现](https://es6.ruanyifeng.com/#docs/module-loader)
+
+#### [回到顶部](#JavaScript)
+
+## preload和prefetch
+### preload
+`preload` 是 `<link>` 标签 `rel` 属性的属性值，同时需要配合 `as` 属性使用。
+
+`as` 指定将要预加载的内容的类型，使得浏览器能够：
+1. 更精确地优化资源加载优先级。
+2. 匹配未来的加载需求，在适当的情况下，重复利用同一资源。
+3. 为资源应用正确的内容安全策略。
+4. 为资源设置正确的 Accept 请求头。
+
+看一下这个示例：
+```html
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" as="script">
+```
+这种做法将把 `<link>` 标签塞入一个预加载器中。
+
+这个预加载器在不阻塞页面 onload 事件的情况下，去加载资源。
+
+我们可以通过以下两个示例来作一个对比：
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.time('load')
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/2.1.10/chart/bar.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+<script>
+window.onload = () => {
+    console.timeEnd('load') // load: 1449.759033203125ms
+}
+</script>
+</body>
+</html>
+```
+上面这个示例从加载到触发 onload 事件需要大概 1400 ms 的时间。再看一下使用 preload 预加载的时间：
+```html
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" as="script">
+<link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/echarts/2.1.10/chart/bar.js" as="script">
+<link rel="preload" href="https://unpkg.com/element-ui/lib/index.js" as="script">
+<link rel="preload" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" as="style">
+
+window.onload = () => {
+    console.timeEnd('load') // load: 10.8818359375ms
+}
+```
+用 preload 来加载资源，只需要 10 ms 就触发了 onload 事件。
+
+说明同样是下载文件，使用 preload 不会阻塞 onload 事件。
+
+### prefetch
+`prefetch` 和 `preload` 不同，使用 `prefetch` 属性指定的资源将在浏览器空闲时间下下载。
+
+至少空闲时间是如何确定，如果获取，目前还没有相关 API。
 
 #### [回到顶部](#JavaScript)
