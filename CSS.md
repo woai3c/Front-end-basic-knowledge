@@ -45,6 +45,7 @@
 * [去除inline-block元素间间距的方法](#去除inline-block元素间间距的方法)
 * [为什么要初始化CSS样式](#为什么要初始化CSS样式)
 * [利用html css 编写样式，div垂直body居中、div内的text垂直居中，div高度等于body宽度的一半](#利用html-css-编写样式div垂直body居中div内的text垂直居中div高度等于body宽度的一半)
+* [行内格式化上下文 IFC）](#行内格式化上下文-IFC)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -778,4 +779,12 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 </body>
 </html>
 ```
+[回到顶部](#css)
+
+## 行内格式化上下文 IFC
+行内格式化上下文是一个网页的渲染结果的一部分。其中，各行内框（inline boxes）一个接一个地排列，其排列顺序根据书写模式（writing-mode）的设置来决定：
+
+* 对于水平书写模式，各个框从左边开始水平地排列
+* 对于垂直书写模式，各个框从顶部开始水平地排列
+
 [回到顶部](#css)
