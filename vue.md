@@ -29,7 +29,7 @@ View 和 Model 之间的同步工作完全是自动的，无需人为干涉（�
 
 一个MVVM框架和jQuery操作DOM相比有什么区别？
 我们先看用jQuery实现的修改两个DOM节点的例子：
-```
+```html
 <!-- HTML -->
 <p>Hello, <span id="name">Bart</span>!</p>
 <p>You are <span id="age">12</span>.</p>
@@ -39,7 +39,7 @@ Hello, Bart!
 You are 12.
 ```
 用jQuery修改name和age节点的内容：
-```
+```js
 var name = 'Homer';
 var age = 51;
 
@@ -48,7 +48,7 @@ $('#age').text(age);
 ```
 
 如果我们使用MVVM框架来实现同样的功能，我们首先并不关心DOM的结构，而是关心数据如何存储。最简单的数据存储方式是使用JavaScript对象：
-```
+```js
 var person = {
     name: 'Bart',
     age: 12
@@ -57,7 +57,7 @@ var person = {
 我们把变量person看作Model，把HTML某些DOM节点看作View，并假定它们之间被关联起来了。
 
 要把显示的name从Bart改为Homer，把显示的age从12改为51，我们并不操作DOM，而是直接修改JavaScript对象：
-```
+```js
 person.name = 'Homer';
 person.age = 51;
 ```
@@ -125,7 +125,7 @@ descriptor
 简单来说 这个方法可以定义一个对象某个属性的描述符
 
 我们需要用到的就是描述符当中的getter和setter
-```
+```js
 const obj = {a:1}
 obj.a // 1
 
@@ -133,7 +133,7 @@ obj.a = 2
 ```
 像上面代码中的两个操作 读取和赋值 就是在访问obj.a的getter和setter<br>
 当我们输入obj.a时 就是在访问obj对象a属性的getter 当输入obj.a = 2 时就是在访问obj对象a属性的setter
-```
+```js
 Object.defineProperty(obj, 'a', {
   get : function(){
     return val
@@ -146,7 +146,7 @@ Object.defineProperty(obj, 'a', {
 })
 ```
 getter和setter都是一个函数 我们还可以这样做 例如
-```
+```js
 get: function() {
   // 每次访问obj.a时都会执行这段代码
   console.log('hello, 你在读取a的值')
@@ -163,7 +163,7 @@ Vue的双向数据绑定就是根据上面的原理来实现的
 
 说到这可能还不是很明白 不要急 慢慢来 先看一下这段代码 复制放到HTML文件里自己运行一下
 然后打开网页 在控制台里输入data.user.name看看 会有惊喜 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -263,8 +263,10 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 #### [回到顶部](#vue)
 
 ## 计算属性有什么作用
-先来看一下计算属性的定义：<br>
-当其依赖的属性的值发生变化的时，计算属性会重新计算。反之则使用缓存中的属性值。<br>
+先来看一下计算属性的定义：
+
+当其依赖的属性的值发生变化的时，计算属性会重新计算。反之则使用缓存中的属性值。
+
 计算属性和vue中的其它数据一样，都是响应式的，只不过它必须依赖某一个数据实现，并且只有它依赖的数据的值改变了，它才会更新。
 
 #### [回到顶部](#vue)
@@ -276,9 +278,33 @@ https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 #### [回到顶部](#vue)
 
 ## watch的作用是什么
-`watch` 主要作用是监听某个数据值的变化。和计算属性相比除了没有缓存，作用是一样的。
+`watch` 主要作用是监听某个数据值的变化，它和计算属性很相似。
 
 借助 `watch` 还可以做一些特别的事情，例如监听页面路由，当页面跳转时，我们可以做相应的权限控制，拒绝没有权限的用户访问页面。
+
+`watch` 与计算属性的区别有两个：一是计算属性依赖其他属性和有缓存，它没有；二是 `watch` 可以进行异步操作。
+
+为什么计算属性不能进行异步操作？因为计算属性必须将计算后的值 `return` 回去，如果在计算属性中使用异步操作，那会返回一个 `undefined`：
+```js
+computed: {
+    test() {
+        let value
+        setTimeout(() => value = 10)
+        return value
+    }
+}
+```
+就像上述代码，还没等异步操作完成就已经执行 `return value` 了。
+
+如果把 `test()` 改成 `async test()` 再结合 `await` 来进行异步操作呢？
+```js
+async test() {
+    let value = 1
+    value = await new Promise(r => r(10))
+    return value
+}
+```
+也不行，因为 `async()` 返回的是一个 `Promise`。
 #### [回到顶部](#vue)
 
 ## vue-loader是什么？使用它的用途有哪些？
