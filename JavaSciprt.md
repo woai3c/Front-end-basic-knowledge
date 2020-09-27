@@ -58,6 +58,7 @@
 * [数字集转换成字母集](#数字集转换成字母集)
 * [CommonJS，ES module 是什么，有什么区别？](#commonjses-module-是什么有什么区别)
 * [preload和prefetch](#preload和prefetch)
+* [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1513,5 +1514,12 @@ purpose: prefetch
 ```
 
 另外，空闲时间是如何确定、如何获取的，目前还没有相关 API。
+
+#### [回到顶部](#JavaScript)
+
+## websocket 鉴权、多人连接、心跳机制
+* [WebSocket 的鉴权授权方案](http://www.moye.me/2017/02/10/websocket-authentication-and-authorization/)
+* [WebSocket学习（一）——基于socket.io实现简单多人聊天室](https://segmentfault.com/a/1190000011538416)
+* [理解WebSocket心跳及重连机制（五）](https://www.cnblogs.com/tugenhua0707/p/8648044.html)
 
 #### [回到顶部](#JavaScript)
