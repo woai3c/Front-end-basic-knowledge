@@ -803,6 +803,7 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 * display 为 inline-block、table-cells、flex
 * overflow 除了 visible 以外的值 (hidden、auto、scroll)
 
+参考资料：
 * [margin合并和塌陷的问题](https://www.jianshu.com/p/3b499982bcb0)
 * [10 分钟理解 BFC 原理](https://zhuanlan.zhihu.com/p/25321647)
 
