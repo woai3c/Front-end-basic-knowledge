@@ -46,6 +46,8 @@
 * [为什么要初始化CSS样式](#为什么要初始化CSS样式)
 * [利用html css 编写样式，div垂直body居中、div内的text垂直居中，div高度等于body宽度的一半](#利用html-css-编写样式div垂直body居中div内的text垂直居中div高度等于body宽度的一半)
 * [行内格式化上下文 IFC）](#行内格式化上下文-IFC)
+* [margin 塌陷](#margin-塌陷)
+* [css 动画优化 GPU 合成层](#css-动画优化-GPU-合成层)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -786,5 +788,27 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 
 * 对于水平书写模式，各个框从左边开始水平地排列
 * 对于垂直书写模式，各个框从顶部开始水平地排列
+
+[回到顶部](#css)
+
+## margin 塌陷
+父子嵌套元素在垂直方向的 margin, 父子元素是结合在一起的, 他们两个的 margin 会取其中最大的值。
+
+### 解决方法——触发 BFC
+只要元素满足下面任一条件即可触发 BFC 特性：
+
+* body 根元素
+* 浮动元素：float 除 none 以外的值
+* 绝对定位元素：position (absolute、fixed)
+* display 为 inline-block、table-cells、flex
+* overflow 除了 visible 以外的值 (hidden、auto、scroll)
+
+* [margin合并和塌陷的问题](https://www.jianshu.com/p/3b499982bcb0)
+* [10 分钟理解 BFC 原理](https://zhuanlan.zhihu.com/p/25321647)
+
+[回到顶部](#css)
+
+## css 动画优化 GPU 合成层
+[一篇文章说清浏览器解析和CSS（GPU）动画优化](https://segmentfault.com/a/1190000008015671)
 
 [回到顶部](#css)
