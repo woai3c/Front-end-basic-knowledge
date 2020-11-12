@@ -650,8 +650,8 @@ function deepCopy(origin, map = new WeakMap()) {
     
     // set
     if (objType == setTag) {
-        for (const value of set) {
-            result.add(deepCopy(value, mp))
+        for (const value of origin) {
+            result.add(deepCopy(value, map))
         }
 
         return result
@@ -660,7 +660,7 @@ function deepCopy(origin, map = new WeakMap()) {
     // map
     if (objType == mapTag) {
         for (const [key, value] of origin) {
-            result.set(key, deepCopy(value, mp))
+            result.set(key, deepCopy(value, map))
         }
 
         return result
