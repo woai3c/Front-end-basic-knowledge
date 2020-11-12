@@ -239,6 +239,7 @@ const obj = {}
 obj.__proto__ === Object.prototype // true
 
 function Test(){}
+const test = new Test()
 test.__proto__ == Test.prototype // true
 
 const obj2 = Object.create(null)
@@ -409,6 +410,7 @@ function add(a, b) {
 ### 实现2——柯里化
 ```js
 function curry(fn, ...args1) {
+    // length 是函数对象的一个属性值，指该函数有多少个必须要传入的参数，即形参的个数。
     if (fn.length == args1.length) {
         return fn(...args1)
     }
