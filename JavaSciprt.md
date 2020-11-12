@@ -1415,7 +1415,7 @@ function sum(...args) {
             result.push(val)
             setTimeout(() => {
                 if (args.length <= 0) {
-                    return resolve(sum(...result))
+                    resolve(sum(...result))
                 }
             }, 100)
         })
