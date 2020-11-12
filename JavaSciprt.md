@@ -61,7 +61,19 @@
 * [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
 
 ## 同源策略
-同源策略可防止 JavaScript 发起跨域请求。源被定义为 URI、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
+同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
+
+下表给出了与 URL http://store.company.com/dir/page.html 的源进行对比的示例:
+|URL|	结果|	原因|
+|-|-|-|
+|http://store.company.com/dir2/other.html|	同源	|只有路径不同|
+|http://store.company.com/dir/inner/another.html	|同源	|只有路径不同|
+|https://store.company.com/secure.html|	失败	|协议不同|
+|http://store.company.com:81/dir/etc.html|	失败	|端口不同 ( http:// 默认端口是80)|
+|http://news.company.com/dir/other.html|	失败	|主机不同|
+
+参考资料：
+* [浏览器的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
 
 #### [回到顶部](#JavaScript)
 
@@ -76,22 +88,24 @@
 3. cors 前后端协作设置请求头部，Access-Control-Allow-Origin 等头部信息
 4. iframe 嵌套通讯，postmessage
 
-https://zhuanlan.zhihu.com/p/41479807 <br>
-[跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
+参考资料：
+* [新鲜出炉的8月前端面试题](https://zhuanlan.zhihu.com/p/41479807)
+* [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
 #### [回到顶部](#JavaScript)
 
 ## JSONP
-这是我认为写得比较通俗易懂的一篇文章 直接转载过来<br>
-https://blog.csdn.net/hansexploration/article/details/80314948
+这是我认为写得比较通俗易懂的一篇文章[jsonp原理详解——终于搞清楚jsonp是啥了](https://blog.csdn.net/hansexploration/article/details/80314948)。
 
 #### [回到顶部](#JavaScript)
 
 ## 域名收敛
-PC 时代为了突破浏览器的域名并发限制。有了域名发散。<br>
-浏览器有并发限制，是为了防止DDOS攻击。<br>
-域名收敛：就是将静态资源放在一个域名下。减少DNS解析的开销。<br>
-域名发散：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。<br>
+PC 时代为了突破浏览器的域名并发限制，有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。
+
+**域名收敛**：就是将静态资源放在一个域名下。减少DNS解析的开销。
+
+**域名发散**：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。
+
 域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。
 #### [回到顶部](#JavaScript)
 
@@ -147,7 +161,8 @@ document.querySelectorAll('li').forEach((e) => {
 #### [回到顶部](#JavaScript)
 
 ## 事件模型
-* DOM0<br>
+### DOM0
+
 直接绑定
 ```js
 <input onclick="sayHi()"/>
@@ -156,10 +171,10 @@ btn.onclick = function() {}
 btn.onclick = null
 ```
 
-* DOM2<br>
-DOM2级事件可以冒泡和捕获
-通过addEventListener绑定
-通过removeEventListener解绑
+### DOM2
+* DOM2级事件可以冒泡和捕获
+* 通过addEventListener绑定
+* 通过removeEventListener解绑
 ```js
 // 绑定
 btn.addEventListener('click', sayHi)
@@ -167,9 +182,9 @@ btn.addEventListener('click', sayHi)
 btn.removeEventListener('click', sayHi)
 ```
 
-* DOM3<br>
-DOM3具有更多事件类型
-DOM3级事件在DOM2级事件的基础上添加了更多的事件类型，全部类型如下：
+### DOM3
+* DOM3具有更多事件类型
+* DOM3级事件在DOM2级事件的基础上添加了更多的事件类型，全部类型如下：
 ```
 UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 焦点事件，当元素获得或失去焦点时触发，如：blur、focus
@@ -180,8 +195,8 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 合成事件，当为IME（输入法编辑器）输入字符时触发，如：compositionstart
 变动事件，当底层DOM结构发生变化时触发，如：DOMsubtreeModified
 ```
-
-https://www.jianshu.com/p/3acdf5f71d5b
+参考资料：
+* [dom0、dom2、dom3事件](https://www.jianshu.com/p/3acdf5f71d5b)
 
 #### [回到顶部](#JavaScript)
 
