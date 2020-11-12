@@ -1232,20 +1232,12 @@ Javascript从来不会将变量设为 `null`。 它是用来让程序员表明�
 
 #### 解法一
 ```js
-function reverseArry(arry) {
-    const str = arry.join(' ')
+function reverseArry(arr) {
     const result = []
-    let word = ''
-    for (let i = 0, len = str.length; i < len; i++) {
-	if (str[i] != ' ') {
-	    word += str[i]
-	} else {
-	    result.unshift(word)
-	    word = ''
-	}
+    while (arr.length) {
+        result.push(arr.pop())
     }
-
-    result.unshift(word)
+    
     return result
 }
 
