@@ -1389,51 +1389,50 @@ function asyncAdd(a, b, cb) {
 ### 实现
 ```js
 function asyncAdd(a, b, cb) {
-  setTimeout(() => {
-    cb(null, a + b);
-  }, Math.floor(Math.random()*100))
+    setTimeout(() => {
+        cb(null, a + b);
+    }, Math.floor(Math.random()*100))
 }
 
 function sum(...args) {
-    let result = 0
-
-    function _sum(resolve) {
+    const result = []
+    function _sum(resolve, reject) {
         new Promise((r, j) => {
             let a = args.pop()
             let b = args.pop()
             a = a !== undefined? a : 0
             b = b !== undefined? b : 0 // 如果访问的元素超出了数组范围，则转为 0
-            asyncAdd(a, b, (err, sum) => {
+            asyncAdd(a, b, (err, res) => {
                 if (err) j(err)
-                r(sum)
+                r(res)
             })
 
             if (args.length) {
-                _sum(resolve)
+                _sum(resolve, reject)
             }
         })
-        .then(sum => {
-            result += sum
-            if (args.length <= 0) {
-                setTimeout(() => {
-                    resolve(result)
-                }, 100)
-            }
+        .then(val => {
+            result.push(val)
+            setTimeout(() => {
+                if (args.length <= 0) {
+                    return resolve(sum(...result))
+                }
+            }, 100)
         })
     }
 
     return new Promise((resolve, reject) => {
         if (!args || !args.length) resolve(0)
         if (args.length == 1) resolve(args[0])
-        _sum(resolve)
+        _sum(resolve, reject)
     })
 }
 
 (async () => {
-  const result1 = await sum(1, 4, 6, 9, 1, 4);
-  const result2 = await sum(3, 4, 9, 2, 5, 3, 2, 1, 7);
-  const result3 = await sum(1, 6, 0, 5);
-  console.log([result1, result2, result3]); // [25, 36, 12]
+    const result1 = await sum(1, 4, 6, 9, 1, 4)
+    const result2 = await sum(3, 4, 9, 2, 5, 3, 2, 1, 7)
+    const result3 = await sum(1, 6, 0, 5)
+    console.log([result1, result2, result3]) // [25, 36, 12]
 })()
 ```
 
