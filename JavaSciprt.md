@@ -186,10 +186,39 @@ https://www.jianshu.com/p/3acdf5f71d5b
 #### [回到顶部](#JavaScript)
 
 ## 如何自定义事件
+### 新模式
+```js
+const div = document.createElement('div') // 不创建元素，直接用 window 对象也可以
+const event = new Event('build')
+
+div.addEventListener('build', function(e) {
+    console.log(111)
+})
+
+div.dispatchEvent(event)
+```
+### 过时的模式
 1. 原生提供了3个方法实现自定义事件
-2. createEvent，设置事件类型，是 html 事件还是 鼠标事件
-3. initEvent 初始化事件，事件名称，是否允许冒泡，是否阻止自定义事件
-4. dispatchEvent 触发事件
+2. `document.createEvent('Event')` 创建事件
+3. `initEvent` 初始化事件
+4. `dispatchEvent` 触发事件
+
+```js
+const events = {}
+
+function registerEvent(name) {
+    const event = document.createEvent('Event')
+    event.initEvent(name, true, true) // 事件名称，是否允许冒泡，该事件的默认动作是否可以被取消
+    events[name] = event
+}
+
+function triggerEvent(name) {
+    window.dispatchEvent(events[name])
+}
+
+registerEvent('resize') // 注册 resize 事件
+triggerEvent('resize') // 触发 resize 事件
+```
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Creating_and_triggering_events)
 
