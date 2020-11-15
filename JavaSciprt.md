@@ -58,6 +58,7 @@
 * [数字集转换成字母集](#数字集转换成字母集)
 * [CommonJS，ES module 是什么，有什么区别？](#commonjses-module-是什么有什么区别)
 * [preload和prefetch](#preload和prefetch)
+* [preload 和 defer 的区别](#preload-和-defer-的区别)
 * [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
 
 ## 同源策略
@@ -1556,6 +1557,20 @@ purpose: prefetch
 ```
 
 另外，空闲时间是如何确定、如何获取的，目前还没有相关 API。
+
+#### [回到顶部](#JavaScript)
+
+## preload 和 defer 的区别
+preload 下载的资源只有在遇到同样的 script 标签时，才会执行对应的脚本。例如下面预加载的 `vue.js`：
+```html
+<link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+```
+只有在遇到下面的标签时，才会执行加载的 `vue.js`：
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
+
+defer 则是异步下载资源，在所有元素解析完成后，触发 DOMContentLoaded 事件前执行。
 
 #### [回到顶部](#JavaScript)
 
