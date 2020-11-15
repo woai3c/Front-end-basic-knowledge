@@ -59,7 +59,7 @@
 * [CommonJS，ES module 是什么，有什么区别？](#commonjses-module-是什么有什么区别)
 * [preload和prefetch](#preload和prefetch)
 * [preload 和 defer 的区别](#preload-和-defer-的区别)
-* [window.onload 和 DOMContentLoaded 的区别](#window.onload-和-DOMContentLoaded-的区别)
+* [window.onload 和 DOMContentLoaded 的区别](#windowonload-和-DOMContentLoaded-的区别)
 * [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
 
 ## 同源策略
