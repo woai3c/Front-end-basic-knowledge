@@ -59,6 +59,7 @@
 * [CommonJS，ES module 是什么，有什么区别？](#commonjses-module-是什么有什么区别)
 * [preload和prefetch](#preload和prefetch)
 * [preload 和 defer 的区别](#preload-和-defer-的区别)
+* [window.onload 和 DOMContentLoaded 的区别](window.onload-和-DOMContentLoaded-的区别)
 * [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
 
 ## 同源策略
@@ -1561,6 +1562,8 @@ purpose: prefetch
 #### [回到顶部](#JavaScript)
 
 ## preload 和 defer 的区别
+preload 和 defer 的相同点是异步下载。那它们的不同点是什么呢？
+
 preload 下载的资源只有在遇到同样的 script 标签时，才会执行对应的脚本。例如下面预加载的 `vue.js`：
 ```html
 <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
@@ -1574,6 +1577,15 @@ defer 则是异步下载资源，在所有元素解析完成后，触发 DOMCont
 
 #### [回到顶部](#JavaScript)
 
+## window.onload 和 DOMContentLoaded 的区别
+当整个页面及所有依赖资源如样式表和图片都已完成加载时，将触发load事件。
+
+它与 DOMContentLoaded不同，当纯HTML被完全加载以及解析时，DOMContentLoaded 事件会被触发，而不必等待样式表，图片或者子框架完成加载。
+
+* [load](https://developer.mozilla.org/zh-CN/docs/Web/Events/load)
+* [DOMContentLoaded 事件](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/DOMContentLoaded_event)
+
+#### [回到顶部](#JavaScript)
 ## websocket 鉴权、多人连接、心跳机制
 * [WebSocket 的鉴权授权方案](http://www.moye.me/2017/02/10/websocket-authentication-and-authorization/)
 * [WebSocket学习（一）——基于socket.io实现简单多人聊天室](https://segmentfault.com/a/1190000011538416)
