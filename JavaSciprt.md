@@ -62,6 +62,7 @@
 * [window.onload 和 DOMContentLoaded 的区别](#windowonload-和-DOMContentLoaded-的区别)
 * [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
 * [Object 与 Map 的区别](#Object-与-Map-的区别)
+* [为什么 WeakMap 和 WeakSet 的键只能使用对象？](#为什么-WeakMap-和-WeakSet-的键只能使用对象)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1629,4 +1630,29 @@ Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但�
 参考资料：
 * [JavaScript高级程序设计（第4版）](https://book.douban.com/subject/35175321/?from=tag)
 * [js能够保证object属性的输出顺序吗？](http://jartto.wang/2016/10/25/does-js-guarantee-object-property-order/)
+#### [回到顶部](#JavaScript)
+
+## 为什么 WeakMap 和 WeakSet 的键只能使用对象？
+>是为了保证只有通过键对象的引用来取得值。
+```js
+const m = new WeakMap()
+m.set({}, 100) // 由于 {} 没有在其他地方引用，所以在垃圾回收时，这个值也会被回收。
+
+const a = {}
+m.set(a, 100) // 如果使用这种方式，则不会被回收。因为 {} 有 a 变量在引用它。
+
+a = null // 将 a 置为空后，m 里的值 100 在垃圾回收时将会被回收。
+```
+>如果允许原始值，那就没办法区分初始化时使用的字符串字面量和初始化之后使用的一个相等的字符串了。
+
+所以这句话的意思很明确：
+```js
+const a = {} // 在创建对象时，分配了一块内存，并把这块内存的地址传给 a 
+m.set(a, 100) // 执行 set 操作时，实际上是将 a 指向的内存地址和 100 关联起来
+
+const a = 'abc' // 由于基本数据类型在传递时，传递的是值，而不是引用。
+m.set(a, 100) // 所以执行 set 操作时，实际上是将新的 'abc' 和 100 关联起来，而不是原来 a 变量指向的那个。
+```
+参考资料：
+* [JavaScript高级程序设计（第4版）](https://book.douban.com/subject/35175321/?from=tag)
 #### [回到顶部](#JavaScript)
