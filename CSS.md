@@ -1,6 +1,6 @@
 # CSS
 
-## 本文内容部分引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/css-questions.md)
+## 本文内容部分引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/)
 
 * [CSS 选择器的优先级是如何计算的？](#css-选择器的优先级是如何计算的)
 * [重置（resetting）CSS 和 标准化（normalizing）CSS 的区别是什么？你会选择哪种方式，为什么？](#重置resettingcss-和-标准化normalizingcss-的区别是什么你会选择哪种方式为什么)
