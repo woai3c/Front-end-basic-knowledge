@@ -585,9 +585,6 @@ foo = 'bar';
 const baz = 'baz';
 baz = 'qux';
 ```
-
-https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E4%BD%BF%E7%94%A8letvar%E5%92%8Cconst%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB
-
 #### [回到顶部](#JavaScript)
 
 ## 对象浅拷贝和深拷贝有什么区别
@@ -754,10 +751,10 @@ function unique(arry) {
 * Symbol
 
 原始值 "I am a string" 并不是一个对象，它只是一个字面量，并且是一个不可变的值。
-如果要在这个字面量上执行一些操作，比如获取长度、访问其中某个字符等，那需要将其
-转换为 String 对象。
-幸好，在必要时语言会自动把字符串字面量转换成一个 String 对象，也就是说你并不需要
-显式创建一个对象。
+
+如果要在这个字面量上执行一些操作，比如获取长度、访问其中某个字符等，那需要将其转换为 String 对象。
+
+幸好，在必要时语言会自动把字符串字面量转换成一个 String 对象，也就是说你并不需要显式创建一个对象。
 #### [回到顶部](#JavaScript)
 
 ## 如何判断数组与对象
@@ -776,12 +773,13 @@ Array.prototype == {}.__proto__ // false
 #### [回到顶部](#JavaScript)
 
 ## 自动分号
-有时 JavaScript 会自动为代码行补上缺失的分号，即自动分号插入（Automatic SemicolonInsertion，ASI）。<br>
-因为如果缺失了必要的 ; ，代码将无法运行，语言的容错性也会降低。ASI 能让我们忽略那些不必要的 ; 。<br>
-请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。<br>
-如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分
-号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会
-这样做。
+有时 JavaScript 会自动为代码行补上缺失的分号，即自动分号插入（Automatic SemicolonInsertion，ASI）。
+
+因为如果缺失了必要的 ; ，代码将无法运行，语言的容错性也会降低。ASI 能让我们忽略那些不必要的 `;` 。
+
+请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。
+
+如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会这样做。
 #### [回到顶部](#JavaScript)
 
 ## 浮点数精度
@@ -802,14 +800,21 @@ https://www.css88.com/archives/7340
 #### [回到顶部](#JavaScript)
 
 ## 自执行函数?用于什么场景？好处?
-自执行函数:1、声明一个匿名函数2、马上调用这个匿名函数。<br>
-作用：创建一个独立的作用域。<br>
+#### 自执行函数:
+1. 声明一个匿名函数
+2. 马上调用这个匿名函数。
+
+作用：创建一个独立的作用域。
 
 
-好处：防止变量弥散到全局，以免各种js库冲突。隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理<br>
+#### 好处
+* 防止变量弥散到全局，以免各种js库冲突。
+* 隔离作用域避免污染，或者截断作用域链，避免闭包造成引用变量无法释放。
+* 利用立即执行特性，返回需要的业务函数或对象，避免每次通过条件判断来处理。
 
 
-场景：一般用于框架、插件等场景
+#### 场景
+一般用于框架、插件等场景
 
 #### [回到顶部](#JavaScript)
 
@@ -858,7 +863,8 @@ file.slice(2000,3000);
 在把文件切成片之后，接下来要做的事情就是把这些碎片传到服务器上。
 如果中间掉线了，下次再传的时候就得先从服务器获取上一次上传文件的位置，然后以这个位置开始上传接下来的文件内容。
 
-https://www.cnblogs.com/zhwl/p/3580776.html
+参考资料：
+* [HTML5 File api 实现断点续传](https://www.cnblogs.com/zhwl/p/3580776.html)
 
 #### [回到顶部](#JavaScript)
 
@@ -975,9 +981,7 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 1. 如果符合上述多个规则，则较高的规则（1 号最高，4 号最低）将决定`this`的值。
 1. 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，`this`被设置为它被创建时的上下文。
 
-想获得更深入的解释，请查看[他在 Medium 上的文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
-
-https://github.com/yangshun/front-end-interview-handbook/blob/master/Translations/Chinese/questions/javascript-questions.md#%E8%AF%B7%E7%AE%80%E8%BF%B0javascript%E4%B8%AD%E7%9A%84this
+想获得更深入的解释，请查看[这篇文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
 
 #### [回到顶部](#JavaScript)
 
@@ -991,7 +995,8 @@ https://github.com/yangshun/front-end-interview-handbook/blob/master/Translation
 一定要注意，有些调用可能在无意中使用默认绑定规则。如果想“更安全”地忽略 this 绑定，你可以使用一个 DMZ 对象，比如 ø = Object.create(null) ，以保护全局对象。<br>
 ES6 中的箭头函数并不会使用四条标准的绑定规则，而是根据当前的词法作用域来决定this ，具体来说，箭头函数会继承外层函数调用的 this 绑定（无论 this 绑定到什么）。这其实和 ES6 之前代码中的 self = this 机制一样
 
-参考：《你不知道的JavaScript》
+参考资料：
+* [你不知道的JavaScript](https://book.douban.com/subject/26351021/)
 #### [回到顶部](#JavaScript)
 
 ## ==和===的区别是什么
@@ -1020,9 +1025,9 @@ ES6 中的箭头函数并不会使用四条标准的绑定规则，而是根据�
 ## 白屏时间
 白屏时间是指浏览器从输入网址，到浏览器开始显示内容的时间。
 
-Performance 接口可以获取到当前页面中与性能相关的信息,该类型的对象可以通过调用只读属性 Window.performance 来获得。
+Performance 接口可以获取到当前页面中与性能相关的信息,该类型的对象可以通过调用只读属性 `Window.performance` 来获得。
 
-performance.timing.navigationStart: PerformanceTiming.navigationStart 是一个返回代表一个时刻的 unsigned long long 型只读属性，为紧接着在相同的浏览环境下卸载前一个文档结束之时的 Unix毫秒时间戳。如果没有上一个文档，则它的值相当于 PerformanceTiming.fetchStart。
+`performance.timing.navigationStart` 是一个返回代表一个时刻的 unsigned long long 型只读属性，为紧接着在相同的浏览环境下卸载前一个文档结束之时的 Unix 毫秒时间戳。如果没有上一个文档，则它的值相当于 PerformanceTiming.fetchStart。
 
 所以将以下脚本放在 `</head>` 前面就能获取白屏时间。
 ```
@@ -1031,9 +1036,11 @@ performance.timing.navigationStart: PerformanceTiming.navigationStart 是一个�
 </script>
 ```
 
+参考资料：
+* [PerformanceTiming.navigationStart](https://developer.mozilla.org/zh-CN/docs/Web/API/PerformanceTiming/navigationStart)
 
 ## 当你在浏览器输入一个地址后发生了什么
-https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?utm_medium=social&utm_source=wechat_session&from=timeline&isappinstalled=0
+[当···时发生了什么？](https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?utm_medium=social&utm_source=wechat_session&from=timeline&isappinstalled=0)
 
 #### [回到顶部](#JavaScript)
 
@@ -1044,18 +1051,16 @@ https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?u
 4. 如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。
 5. 如果图片展示区域小于图片的真实大小，应在服务器端根据业务需要先进行图片压缩，图片压缩后大小与展示一致。
 
-https://www.jianshu.com/p/5d82bba9e1a1
-
 #### [回到顶部](#JavaScript)
 
 ## js网络请求性能优化之防抖与节流
-* 防抖(debounce)<br>
+#### 防抖(debounce)
 在函数需要频繁触发时，只有当有足够空闲的时间时，才执行一次。就好像在百度搜索时，每次输入之后都有联想词弹出，这个控制联想词的方法就不可能是输入框内容一改变就触发的，他一定是当你结束输入一段时间之后才会触发。
 
-* 节流(thorttle)<br>
+#### 节流(thorttle)
 预定一个函数只有在大于等于执行周期时才执行，周期内调用不执行。就好像你在淘宝抢购某一件限量热卖商品时，你不断点刷新点购买，可是总有一段时间你点上是没有效果，这里就用到了节流，就是怕点的太快导致系统出现bug。
 
-* 区别<br>
+#### 区别
 在发生持续触发事件时，防抖设置事件延迟并在空闲时间去触发事件，而节流则是隔一定的时间触发一次。
 
 一个简单的防抖示例
@@ -1136,8 +1141,8 @@ setTimeout(() => {
     throttle(() => console.log(7))
 }, 2500)
 ```
-
-https://blog.csdn.net/jacoox/article/details/80719456
+参考资料：
+* [js网络请求性能优化之防抖与节流](https://blog.csdn.net/jacoox/article/details/80719456)
 
 #### [回到顶部](#JavaScript)
 
@@ -1160,6 +1165,8 @@ history.pushState(stateObj, "page 2", "bar.html");
 
 * URL — 该参数定义了新的历史URL记录。注意，调用 `pushState()` 后浏览器并不会立即加载这个 URL，但可能会在稍后某些情况下加载这个 URL，比如在用户重新打开浏览器时。新URL不必须为绝对路径。如果新URL是相对路径，那么它将被作为相对于当前 URL 处理。新 URL 必须与当前URL同源，否则 `pushState()` 会抛出一个异常。该参数是可选的，缺省为当前 URL。
 
+参考资料：
+* [History API](https://developer.mozilla.org/zh-CN/docs/Web/API/History_API)
 #### [回到顶部](#JavaScript)
 
 ## 格式化金钱，每千分位加逗号
