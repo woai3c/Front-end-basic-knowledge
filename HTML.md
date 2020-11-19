@@ -227,12 +227,10 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 ## HTML5的form如何关闭自动完成功能
 将不想要自动完成的 `form` 或 `input` 设置为 `autocomplete=off`
 
-[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Securing_your_site/Turning_off_form_autocompletion)
-
 [回到顶部](#HTML)
 
 ## DOM和BOM有什么区别
-* DOM
+### DOM
 
 Document Object Model，文档对象模型
 
@@ -240,7 +238,7 @@ DOM 是为了操作文档出现的 API，document 是其的一个对象
 
 DOM和文档有关，这里的文档指的是网页，也就是html文档。DOM和浏览器无关，他关注的是网页本身的内容。
 
-* BOM
+### BOM
 
 Browser Object Model，浏览器对象模型
 
