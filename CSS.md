@@ -29,7 +29,6 @@
 * [响应式设计与自适应设计有何不同？](#响应式设计与自适应设计有何不同)
 * [你有没有使用过视网膜分辨率的图形？当中使用什么技术？](#你有没有使用过视网膜分辨率的图形当中使用什么技术)
 * [什么情况下，用`translate()`而不用绝对定位？什么时候，情况相反。](#什么情况下用translate而不用绝对定位什么时候情况相反)
-* [行内元素、块级元素区别](#行内元素块级元素区别)
 * [一边固定宽度一边宽度自适应](#一边固定宽度一边宽度自适应)
 * [水平垂直居中的方式](#水平垂直居中的方式)
 * [display:none、visibile:hidden、opacity:0的区别](#displaynonevisibilehiddenopacity0的区别)
@@ -462,13 +461,6 @@ CSS网格布局用于将页面分割成数个主要区域，或者用来定义�
 * https://neal.codes/blog/front-end-interview-css-questions
 * https://quizlet.com/28293152/front-end-interview-questions-css-flash-cards/
 * http://peterdoes.it/2015/12/03/a-personal-exercise-front-end-job-interview-questions-and-my-answers-all/
-
-
-### 行内元素、块级元素区别
-行内元素：和其他元素都在一行上，高度、行高及外边距和内边距都不可改变（边距上下方向不可改变，左右方向可以改变），文字图片的宽度不可改变，只能容纳文本或者其他行内元素；其中img是行元素
-
-块级元素：总是在新行上开始，高度、行高及外边距和内边距都可控制，可以容纳内敛元素和其他元素；行元素转换为块级元素方式：display：block；
-
 
 ### 一边固定宽度一边宽度自适应
 可以使用flex布局 复制下面的HTML和CSS代码 用浏览器打开可以看到效果
