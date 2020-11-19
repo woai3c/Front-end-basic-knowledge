@@ -11,6 +11,7 @@
 * [为何会出现浏览器兼容问题](#为何会出现浏览器兼容问题)
 * [doctype有什么用](#doctype有什么用)
 * [行内元素和块级元素有哪些](#行内元素和块级元素有哪些)
+* [行内元素、块级元素区别](#行内元素块级元素区别)
 * [iframe框架有那些优缺点](#iframe框架有那些优缺点)
 * [label标签有什么作用](#label标签有什么作用)
 * [HTML5的form如何关闭自动完成功能](#HTML5的form如何关闭自动完成功能)
@@ -24,21 +25,17 @@
 * 方便其他设备解析，如盲人阅读器根据语义渲染网页
 * 有利于开发和维护，语义化更具可读性，代码更好维护，与CSS3关系更和谐。
 
-http://www.daqianduan.com/6549.html
-
-
 ## 为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？
 
 **把`<link>`放在`<head>`中**
 
-把`<link>`标签放在`<head></head>`之间是规范要求的内容。此外，这种做法可以让页面逐步呈现，提高了用户体验。将样式表放在文档底部附近，会使许多浏览器（包括 Internet Explorer）不能逐步呈现页面。一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容。
+这种做法可以让页面逐步呈现，提高了用户体验。将样式表放在文档底部附近，会使许多浏览器（包括 Internet Explorer）不能逐步呈现页面。一些浏览器会阻止渲染，以避免在页面样式发生变化时，重新绘制页面中的元素。这种做法可以防止呈现给用户空白的页面或没有样式的内容。
 
 **把`<script>`标签恰好放在`</body>`之前**
 
 脚本在下载和执行期间会阻止 HTML 解析。把`<script>`标签放在底部，保证 HTML 首先完成解析，将页面尽早呈现给用户。
 
-例外情况是当你的脚本里包含`document.write()`时。但是现在，`document.write()`不推荐使用。同时，将`<script>`标签放在底部，意味着浏览器不能开始下载脚本，直到整个文档（document）被解析。也许，对此比较好的做法是，`<script>`使用`defer`属性，放在`<head>`中。
-
+如果一定要放在 `<head>` 中，可以让 `<script>` 标签使用 `defer` 属性。
 
 ## 什么是渐进式渲染（progressive rendering）？
 渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
@@ -95,8 +92,10 @@ Viewport ：字面意思为视图窗口，在移动web开发中使用。表示�
 * 避免频繁读取元素几何属性（例如scrollTop）。绝对定位具有复杂动画的元素。
 * 绝对定位使它脱离文档流，避免引起父元素及后续元素大量的回流
 
-https://harttle.land/2015/08/11/reflow-repaint.html<br>
-http://www.blueidea.com/tech/web/2011/8365.asp
+参考资料：
+* [减少页面重排与重绘（Reflow & Repaint）](https://harttle.land/2015/08/11/reflow-repaint.html)
+* [页面重构应注意的repaint和reflow](http://www.blueidea.com/tech/web/2011/8365.asp)
+
 
 [回到顶部](#HTML)
 
@@ -116,7 +115,8 @@ href标识超文本引用，用在link和a等元素上，href是引用和页面�
 src表示引用资源，替换当前元素，用在img，script，iframe上，src是页面内容不可缺少的一部分。<br>
 当浏览器解析到src ，会暂停其他资源的下载和处理（图片不会暂停其他资源下载和处理），直到将该资源加载、编译、执行完毕，图片和框架等也如此，类似于将所指向资源应用到当前内容。这也是为什么建议把 js 脚本放在底部而不是头部的原因。
 
-https://blog.csdn.net/lhjuejiang/article/details/80795081
+参考资料：
+* [前端面试题-url、href、src](https://zhuanlan.zhihu.com/p/35571428)
 
 [回到顶部](#HTML)
 
@@ -125,9 +125,8 @@ https://blog.csdn.net/lhjuejiang/article/details/80795081
 2. 解析CSS生成CSSOM规则树。
 3. 将DOM树与CSSOM规则树合并在一起生成渲染树。
 4. 遍历渲染树开始布局，计算每个节点的位置大小信息。
-5. 将渲染树每个节点绘制到屏幕。
-
-https://baijiahao.baidu.com/s?id=1593097105869520145&wfr=spider&for=pc
+5. 调用 GPU 绘制，合成图层。
+6. 将渲染树每个节点绘制到屏幕。
 
 [回到顶部](#HTML)
 
@@ -151,7 +150,8 @@ https://baijiahao.baidu.com/s?id=1593097105869520145&wfr=spider&for=pc
 * 渐进增强(progressive enhancement): 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验
 * 优雅降级 (graceful degradation): 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。
 
-https://github.com/jirengu/frontend-interview/issues/35
+参考资料：
+* [为何会出现浏览器兼容性问题？如何解决？](https://github.com/jirengu/frontend-interview/issues/35)
 
 [回到顶部](#HTML)
 
@@ -162,8 +162,13 @@ doctype是一种标准通用标记语言的文档类型声明，目的是告诉�
 
 <!DOCTYPE>声明必须是HTML文档的第一行，位于html标签之前。
 
+浏览器本身分为两种模式，一种是标准模式，一种是怪异模式。
 
-浏览器本身分为两种模式，一种是标准模式，一种是怪异模式，浏览器通过doctype来区分这两种模式，doctype在html中的作用就是触发浏览器的标准模式，如果html中省略了doctype，浏览器就会进入到Quirks模式的怪异状态，在这种模式下，有些样式会和标准模式存在差异，而html标准和dom标准值规定了标准模式下的行为，没有对怪异模式做出规定，因此不同浏览器在怪异模式下的处理也是不同的，所以一定要在html开头使用doctype。
+浏览器通过doctype来区分这两种模式，doctype在html中的作用就是触发浏览器的标准模式，如果html中省略了doctype，浏览器就会进入到Quirks模式的怪异状态。
+
+在这种模式下，有些样式会和标准模式存在差异。
+
+而html标准和dom标准值规定了标准模式下的行为，没有对怪异模式做出规定，因此不同浏览器在怪异模式下的处理也是不同的，所以一定要在html开头使用doctype。
 
 
 [回到顶部](#HTML)
@@ -183,6 +188,13 @@ button, input, label, select, textarea
 ```
 header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 ```
+
+[回到顶部](#HTML)
+
+## 行内元素、块级元素区别
+行内元素：和其他元素都在一行上，高度、行高及外边距和内边距都不可改变（边距上下方向不可改变，左右方向可以改变），文字图片的宽度不可改变，只能容纳文本或者其他行内元素；其中img是行元素
+
+块级元素：总是在新行上开始，高度、行高及外边距和内边距都可控制，可以容纳内敛元素和其他元素；行元素转换为块级元素方式：display：block；
 
 [回到顶部](#HTML)
 
