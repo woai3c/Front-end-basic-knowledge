@@ -252,32 +252,43 @@ triggerEvent('resize') // 触发 resize 事件
 #### [回到顶部](#JavaScript)
 
 ## prototype和__proto__的关系是什么
-每个实例对象都有一个私有属性 `__proto__`，它指向对象构造函数的 `prototype` 属性；但是 `Object.create(null)` 创建的对象除外，它没有 `__proto__` 属性，也没有 `prototype` 属性。
+**先说结论：**
+1. `prototype` 用于访问函数的原型对象。
+2. `__proto__` 用于访问对象实例的原型对象（或者使用 `Object.getPrototypeOf()`）。
 ```js
-const obj = {}
-obj.__proto__ === Object.prototype // true
-
-function Test(){}
+function Test() {}
 const test = new Test()
 test.__proto__ == Test.prototype // true
-
-const obj2 = Object.create(null)
-obj2.__proto__ // undefined
-obj2.prototype // undefined
 ```
+也就是说，函数拥有 `prototype` 属性，对象实例拥有 `__proto__` 属性，它们都是用来访问原型对象的。
 
-所有的函数都同时拥有 `__proto__` 和 `protytpe` 属性。
+函数有点特别，它不仅是个函数，还是个对象。所以它也有 `__proto__` 属性。
 
-函数的 `__proto__` 指向自己的函数实现，而 `protytpe` 是一个对象， 所以函数的 `prototype` 也有 `__proto__` 属性，指向 `Object.prototype`。
+**为什么会这样呢**？因为函数是内置构造函数 `Function` 的实例：
 ```js
-function func() {}
-func.prototype.__proto__ === Object.prototype // true
+const test = new Function('function Test(){}')
+test.__proto__ == Function.prototype // true
 ```
+所以函数能通过 `__proto__` 访问它的原型对象。
 
-`Object.prototype.__proto__` 指向 null
+由于 `prototype` 是一个对象，所以它也可以通过 `__proto__` 访问它的原型对象。对象的原型对象，那自然是 `Object.prototype` 了。
 ```js
-Object.prototype.__proto__ // null
+function Test() {}
+Test.prototype.__proto__ == Object.prototype // true
 ```
+这样看起来好像有点复杂，我们可以换个角度来看。`Object` 其实也是内置构造函数:
+```js
+const obj = new Object() // 我们可以把这个 obj 想象成原型对象 prototype
+obj.__proto__ == Object.prototype // true  换个角度来看，相当于 prototype.__proto__ == Object.prototype
+```
+从这一点来看，是不是更好理解一点。
+
+
+为了防止无休止的循环下去，所以 `Object.prototype.__proto__` 是指向 `null` 的，`null` 是万物的终点。
+```js
+Object.prototype.__proto__ == null // true
+```
+既然 `null` 是万物的终点，那使用 `Object.create(null)` 创建的对象是没有 `__proto__` 属性的，也没有 `prototype` 属性。
 
 #### [回到顶部](#JavaScript)
 
