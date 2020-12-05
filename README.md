@@ -10,3 +10,9 @@
 * ### [Webpack](https://github.com/woai3c/Front-end-basic-knowledge/blob/master/Webpack.md)
 
 ### [更多技术文章](https://github.com/woai3c/Front-end-articles)
+
+## License
+MIT
+## 赞助
+![](https://github.com/woai3c/nand2tetris/blob/master/img/wx.jpg)
+![](https://github.com/woai3c/nand2tetris/blob/master/img/zfb.jpg)
