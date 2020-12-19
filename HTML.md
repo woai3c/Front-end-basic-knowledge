@@ -61,7 +61,7 @@ Viewport ：字面意思为视图窗口，在移动web开发中使用。表示�
 
 ### Viewport属性值
 
-* width	设置layout viewport 的宽度，为一个正整数，或字符串"width-device"
+* width	设置layout viewport 的宽度，为一个正整数，或字符串"width-device"。device-width 指的是设备的物理宽度，width是页面宽度。
 * initial-scale	设置页面的初始缩放值，为一个数字，可以带小数
 * minimum-scale	允许用户的最小缩放值，为一个数字，可以带小数
 * maximum-scale	允许用户的最大缩放值，为一个数字，可以带小数
