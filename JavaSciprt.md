@@ -654,9 +654,6 @@ const symbolTag = '[object Symbol]'
 
 function deepCopy(origin, map = new WeakMap()) {
     if (!origin || !isObject(origin)) return origin
-    if (typeof origin == 'function') {
-        return eval('(' + origin.toString() + ')')
-    }
 
     const objType = getObjType(origin)
     const result = createObj(origin, objType)
@@ -665,9 +662,9 @@ function deepCopy(origin, map = new WeakMap()) {
     if (map.get(origin)) {
         return map.get(origin)
     }
-    
+
     map.set(origin, result)
-    
+
     // set
     if (objType == setTag) {
         for (const value of origin) {
@@ -706,12 +703,12 @@ function createObj(obj, type) {
     if (type == objectTag) return {}
     if (type == arrayTag) return []
     if (type == symbolTag) return Object(Symbol.prototype.valueOf.call(obj))
-    
+
     return new obj.constructor(obj)
 }
 
 function isObject(origin) {
-    return typeof origin == 'object' || typeof origin == 'function'
+    return typeof origin == 'object'
 }
 ```
 [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1)
