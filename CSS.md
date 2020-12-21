@@ -138,6 +138,10 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 两个相邻的块级盒在垂直方向上的边距会发生合并（collapse）。更多内容请参考[边距合并（margin collapsing）](https://www.sitepoint.com/web-foundations/collapsing-margins/)。
 
+浮动定位和清除浮动时只会应用于同一个BFC内的元素。浮动不会影响其它BFC中元素的布局，而清除浮动只能清除同一BFC中在它前面的元素的浮动。
+
+外边距折叠（Margin collapsing）也只会发生在属于同一BFC的块级元素之间。
+
 ###### 参考
 
 * https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
