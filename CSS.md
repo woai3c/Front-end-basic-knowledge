@@ -7,7 +7,6 @@
 * [请阐述`Float`定位的工作原理。](#请阐述float定位的工作原理)
 * [请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。](#请阐述z-index属性并说明如何形成层叠上下文stacking-context)
 * [请阐述块格式化上下文（Block Formatting Context）及其工作原理。](#请阐述块格式化上下文block-formatting-context及其工作原理)
-* [有哪些清除浮动的技术，都适用哪些情况？](#有哪些清除浮动的技术都适用哪些情况)
 * [请解释什么是雪碧图（css sprites），以及如何实现？](#请解释什么是雪碧图css-sprites以及如何实现)
 * [如何解决不同浏览器的样式兼容性问题？](#如何解决不同浏览器的样式兼容性问题)
 * [如何为功能受限的浏览器提供页面？ 使用什么样的技术和流程？](#如何为功能受限的浏览器提供页面-使用什么样的技术和流程)
@@ -83,28 +82,20 @@
 
 ### 请阐述`Float`定位的工作原理。
 
-浮动（float）是 CSS 定位属性。浮动元素从网页的正常流动中移出，但是保持了部分的流动性，会影响其他元素的定位（比如文字会围绕着浮动元素）。这一点与绝对定位不同，绝对定位的元素完全从文档流中脱离。
+浮动（float）是 CSS 定位属性。浮动元素从网页的正常流动中移出，但是保持了部分的流动性，会影响其他元素的定位（所有在浮动下面的自身不浮动的内容都将围绕浮动元素进行包装）。这一点与绝对定位不同，绝对定位的元素完全从文档流中脱离。
 
-CSS 的`clear`属性通过使用`left`、`right`、`both`，让该元素向下移动（清除浮动）到浮动元素下面。
-
-如果父元素只包含浮动元素，那么该父元素的高度将塌缩为 0。我们可以通过清除（clear）从浮动元素后到父元素关闭前之间的浮动来修复这个问题。
-
-有一种 hack 的方法，是自定义一个`.clearfix`类，利用伪元素选择器`::after`清除浮动。[另外还有一些方法](https://css-tricks.com/all-about-floats/#article-header-id-4)，比如添加空的`<div></div>`和设置浮动元素父元素的`overflow`属性。与这些方法不同的是，`clearfix`方法，只需要给父元素添加一个类，定义如下：
-
+有一种简单的方法可以解决这个问题——`clear` 属性。当你把这个应用到一个元素上时，它主要意味着"此处停止浮动"——这个元素和源码中后面的元素将不浮动，除非您稍后将一个新的float声明应用到此后的另一个元素。
 ```css
-.clearfix::after {
-  content: '';
-  display: block;
+div {
   clear: both;
 }
 ```
+clear 可以取三个值：
+* left：停止任何活动的左浮动
+* right：停止任何活动的右浮动
+* both：停止任何活动的左右浮动
 
-值得一提的是，把父元素属性设置为`overflow: auto`或`overflow: hidden`，会使其内部的子元素形成块格式化上下文（Block Formatting Context），并且父元素会扩张自己，使其能够包围它的子元素。
-
-###### 参考
-
-* https://css-tricks.com/all-about-floats/
-
+* [清除浮动](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Floats#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8)
 
 ### 请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。
 
@@ -146,16 +137,6 @@ CSS 中的`z-index`属性控制重叠元素的垂直叠加顺序。`z-index`只�
 
 * https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
 * https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/
-
-
-### 有哪些清除浮动的技术，都适用哪些情况？
-
-* 空`div`方法：`<div style="clear:both;"></div>`。
-* Clearfix 方法：上文使用`.clearfix`类已经提到。
-* `overflow: auto`或`overflow: hidden`方法：上文已经提到。
-
-在大型项目中，我会使用 Clearfix 方法，在需要的地方使用`.clearfix`。设置`overflow: hidden`的方法可能使其子元素显示不完整，当子元素的高度大于父元素时。
-
 
 
 ### 请解释什么是雪碧图（css sprites），以及如何实现？
