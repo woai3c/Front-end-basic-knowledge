@@ -394,31 +394,37 @@ CSS 盒模型负责计算：
 
 Flex 主要用于一维布局，而 Grid 则用于二维布局。
 ### Flex
-flex容器中存在两条轴， 横轴和纵轴， 容器中的每个单元称为flex item。
+使用了 `display: flex` 的元素称为容器(flex container)。flex 容器中存在两条轴，水平方向的主轴和垂直方向的交叉轴。容器中的每个单元称为flex item（项目）。
+
+在 flex 中有两种类型的属性：容器属性和项目属性。顾名思义，容器属性是在容器上配置的，项目属性则是针对项目的。
 
 在容器上可以设置6个属性：
-* flex-direction
-* flex-wrap
-* flex-flow
-* justify-content
-* align-items
-* align-content
+* flex-direction（设置主轴方向）
+* flex-wrap（主轴换行方式）
+* flex-flow（flex-flow 属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认值为row nowrap）
+* justify-content（项目在主轴上的对齐方式）
+* align-items（项目在交叉轴上的对齐方式）
+* align-content（多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用）
 
-注意：当设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。
+**注意**：设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。
 
 #### Flex 项目属性
 有六种属性可运用在 item 项目上:
-1. order
-2. flex-basis
-3. flex-grow
-4. flex-shrink
-5. flex
-6. align-self
+* order（项目的排列顺序。数值越小，排列越靠前，默认为0）
+* flex-grow（项目的放大比例，默认为0，即如果存在剩余空间，也不放大）
+* flex-shrink（项目的缩小比例，默认为1，即如果空间不足，该项目将缩小）
+* flex-basis（定义了在分配多余空间之前，项目占据的主轴空间。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。）
+* flex（flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。）
+* align-self（align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。）
 
 ### Grid
 CSS网格布局用于将页面分割成数个主要区域，或者用来定义组件内部元素间大小、位置和图层之间的关系。
 
 像表格一样，网格布局让我们能够按行或列来对齐元素。 但是，使用CSS网格可能还是比CSS表格更容易布局。 例如，网格容器的子元素可以自己定位，以便它们像CSS定位的元素一样，真正的有重叠和层次。
+
+参考资料：
+* [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+* [Flex 布局教程：实例篇](https://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 
 ### 响应式设计与自适应设计有何不同？
 
