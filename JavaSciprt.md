@@ -38,6 +38,7 @@
 * [new一个对象经历了什么](#new一个对象经历了什么)
 * [bind、call、apply的区别](#bindcallapply的区别)
 * [实现 bind call apply 函数](#实现-bind-call-apply-函数)
+* [实现 compose 函数](#实现-compose-函数)
 * [请简述JavaScript中的this](#请简述JavaScript中的this)
 * [==和===的区别是什么](#和的区别是什么)
 * [箭头函数和普通函数有什么区别](#箭头函数和普通函数有什么区别)
@@ -975,6 +976,35 @@ Function.prototype.apply = function(context, args) {
     return result
 }
 ```
+#### [回到顶部](#JavaScript)
+
+## 实现 compose 函数
+compose（组合）函数特点：
+* `compose` 的参数是函数，返回的也是一个函数
+* 因为除了第一个函数的接受参数，其他函数的接受参数都是上一个函数的返回值，所以初始函数的参数是多元的，而其他函数的接受值是一元的
+* `compsoe` 函数可以接受任意的参数，所有的参数都是函数，且执行方向是自右向左的，初始函数一定放到参数的最右面
+```js
+function compose(...fns) {
+    let isFirst = true
+    return (...args) => {
+	return fns.reduceRight((result, fn) => {
+	    if (!isFirst) return fn(result)
+	    isFirst = false
+	    return fn(...result)
+	}, args)
+    }
+}
+```
+测试
+```
+const greeting = (firstName, lastName) => 'hello, ' + firstName + ' ' + lastName
+const toUpper = str => str.toUpperCase()
+const fn = compose(toUpper, greeting)
+console.log(fn('jack', 'smith')) // HELLO, JACK SMITH
+```
+
+参考资料：
+* [关于javascript函数式编程中compose的实现](https://segmentfault.com/a/1190000008394749)
 #### [回到顶部](#JavaScript)
 
 ## 请简述`JavaScript`中的`this`。
