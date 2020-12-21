@@ -39,7 +39,6 @@
 * [bind、call、apply的区别](#bindcallapply的区别)
 * [实现 bind call apply 函数](#实现-bind-call-apply-函数)
 * [请简述JavaScript中的this](#请简述JavaScript中的this)
-* [如何确定this指向](#如何确定this指向)
 * [==和===的区别是什么](#和的区别是什么)
 * [箭头函数和普通函数有什么区别](#箭头函数和普通函数有什么区别)
 * [白屏时间](#白屏时间)
@@ -991,20 +990,6 @@ JS 中的`this`是一个相对复杂的概念，不是简单几句能解释清�
 
 想获得更深入的解释，请查看[这篇文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
 
-#### [回到顶部](#JavaScript)
-
-## 如何确定this指向
-如果要判断一个运行中函数的 this 绑定，就需要找到这个函数的直接调用位置。找到之后就可以顺序应用下面这四条规则来判断 this 的绑定对象。
-1. 由 new 调用？绑定到新创建的对象。
-2. 由 call 或者 apply （或者 bind ）调用？绑定到指定的对象。
-3. 由上下文对象调用？绑定到那个上下文对象。
-4. 默认：在严格模式下绑定到 undefined ，否则绑定到全局对象。
-
-一定要注意，有些调用可能在无意中使用默认绑定规则。如果想“更安全”地忽略 this 绑定，你可以使用一个 DMZ 对象，比如 ø = Object.create(null) ，以保护全局对象。<br>
-ES6 中的箭头函数并不会使用四条标准的绑定规则，而是根据当前的词法作用域来决定this ，具体来说，箭头函数会继承外层函数调用的 this 绑定（无论 this 绑定到什么）。这其实和 ES6 之前代码中的 self = this 机制一样
-
-参考资料：
-* [你不知道的JavaScript](https://book.douban.com/subject/26351021/)
 #### [回到顶部](#JavaScript)
 
 ## ==和===的区别是什么
