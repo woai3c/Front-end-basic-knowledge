@@ -95,6 +95,7 @@ clear 可以取三个值：
 * right：停止任何活动的右浮动
 * both：停止任何活动的左右浮动
 
+参考资料：
 * [清除浮动](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Floats#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8)
 
 ### 请阐述`z-index`属性，并说明如何形成层叠上下文（stacking context）。
