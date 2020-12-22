@@ -11,8 +11,8 @@
 * [如何自定义事件](#如何自定义事件)
 * [target和currentTarget区别](#target和currentTarget区别)
 * [prototype和__proto__的关系是什么](#prototype和__proto__的关系是什么)
-* [原型继承](#原型继承)
-* [继承](#继承)
+* [原型链](#原型链)
+* [用 ES5 和 ES6 实现继承](#用-ES5-和-ES6-实现继承)
 * [闭包](#闭包)
 * [内存回收](#内存回收)
 * [有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行3次，再次执行无效，如何实现](#有一个函数参数是一个函数返回值也是一个函数返回的函数功能和入参的函数相似但这个函数只能执行3次再次执行无效如何实现)
@@ -292,42 +292,70 @@ Object.prototype.__proto__ == null // true
 
 #### [回到顶部](#JavaScript)
 
-## 原型继承
+## 原型链
 所有的 JS 对象(JS 函数是 prototype)都有一个 `__proto__` 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
 #### [回到顶部](#JavaScript)
 
-## 继承
-JS高程第3版 第6章 继承
-寄生组合式继承
+## 用 ES5 和 ES6 实现继承
+ES5 prototype 寄生组合式继承
 ```js
 function SuperType(name) {
     this.name = name
-    this.colors = ['red']
 }
 
 SuperType.prototype.sayName = function() {
     console.log(this.name)
 }
-// 继承实例属性
+
 function SubType(name, age) {
     SuperType.call(this, name)
     this.age = age
 }
 
-function inheritPrototype(subType, superType) {
-    let prototype = Object.create(superType.prototype)
-    prototype.constructor = subType
-    subType.prototype = prototype
+function extendPrototype(Sub, Super) {
+    Sub.prototype = Object.create(Super.prototype)
+    Sub.prototype.constructor = Sub
 }
-// 继承原型方法
-inheritPrototype(SubType, SuperType)
 
-// 定义自己的原型方法
+extendPrototype(SubType, SuperType)
+
 SubType.prototype.sayAge = function() {
     console.log(this.age)
 }
+
+const sub = new SubType('tom', 18)
+sub.sayAge() // 18
+sub.sayName() // tom
 ```
+ES6 class
+```js
+class SuperType {
+    constructor(name) {
+	this.name = name
+    }
+
+    sayName() {
+	console.log(this.name)
+    }
+}
+
+class SubType extends SuperType {
+    constructor(name, age) {
+	super(name)
+	this.age = age
+    }
+
+    sayAge(age) {
+	console.log(this.age)
+    }
+}
+
+const sub = new SubType('tom', 18)
+sub.sayAge() // 18
+sub.sayName() // tom
+```
+从实现上来看，ES6 更加简洁。
 
 #### [回到顶部](#JavaScript)
 
