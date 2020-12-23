@@ -64,6 +64,7 @@
 * [Object 与 Map 的区别](#Object-与-Map-的区别)
 * [为什么 WeakMap 和 WeakSet 的键只能使用对象？](#为什么-WeakMap-和-WeakSet-的键只能使用对象)
 * [实现 async/await](#实现-asyncawait)
+* [实现发布/订阅模式](#实现发布订阅模式)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1762,5 +1763,58 @@ function async(generator) {
 
 // 1 2 3
 async(test).then(val => console.log(val))
+```
+#### [回到顶部](#JavaScript)
+
+## 实现发布/订阅模式
+```js
+class Event {
+    constructor() {
+	this.events = {}
+    }
+
+    on(event, callback) {
+	if (!this.events[event]) {
+	    this.events[event] = []
+	}
+
+	this.events[event].push(callback)
+    }
+
+    off(event, callback) {
+	if (this.events[event]) {
+	    if (callback) {
+		const cbs = this.events[event]
+		let l = cbs.length
+		while (l--) {
+		    if (callback == cbs[l]) {
+			cbs.splice(l, 1)
+		    }
+		}
+	    } else {
+		this.events[event] = []
+	    }
+	}
+    }
+
+    emit(event, ...args) {
+	if (this.events[event]) {
+	    for (const func of this.events[event]) {
+		func.call(this, ...args)
+	    }
+	}
+    }
+
+    once(event, callback) {
+	const self = this
+
+	function wrap(...args) {
+	    callback.call(self, ...args)
+	    self.off(event, wrap)
+	}
+
+	this.on(event, wrap)
+    }
+}
 ```
 #### [回到顶部](#JavaScript)
