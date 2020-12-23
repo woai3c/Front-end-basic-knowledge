@@ -959,36 +959,45 @@ Function.prototype.bind = function(context, ...extra) {
 ```
 ### call
 ```js
-Function.prototype.call = function(context = window, ...args) {
+Function.prototype.call = function (context, ...args) {
+    if (context === null || context === undefined) {
+	context = window
+    }
+
     context = context instanceof Object ? context : {}
 
     let key = Math.random()
     while (context[key]) {
-        key = Math.random()
+	key = Math.random()
     }
 
     context[key] = this
     const result = context[key](...args)
     delete context[key]
-    
+
     return result
 }
 ```
 ### apply
 ```js
-Function.prototype.apply = function(context = window, args = []) {
+Function.prototype.apply = function (context, args = []) {
     if (!Array.isArray(args)) throw '参数必须为数组'
+
+    if (context === null || context === undefined) {
+	context = window
+    }
+
     context = context instanceof Object ? context : {}
 
     let key = Math.random()
     while (context[key]) {
-        key = Math.random()
+	key = Math.random()
     }
 
     context[key] = this
     const result = context[key](...args)
     delete context[key]
-    
+
     return result
 }
 ```
