@@ -63,6 +63,7 @@
 * [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
 * [Object 与 Map 的区别](#Object-与-Map-的区别)
 * [为什么 WeakMap 和 WeakSet 的键只能使用对象？](#为什么-WeakMap-和-WeakSet-的键只能使用对象)
+* [实现 async/await](#实现-asyncawait)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -1709,4 +1710,57 @@ m.set(a, 100) // 所以执行 set 操作时，实际上是将新的 'abc' 和 10
 ```
 参考资料：
 * [JavaScript高级程序设计（第4版）](https://book.douban.com/subject/35175321/?from=tag)
+#### [回到顶部](#JavaScript)
+
+## 实现 async/await
+利用 `generator()` 实现 `async/await` 主要就是用一个函数（自动执行器）来包装 `generator()`，从而实现自动执行 `generator()`。
+
+每次执行 `next()` 返回的 `{ value, done }` 中的 value 是一个 Promise，所以要等它执行完毕后再执行下一次 `next()`。
+
+即在它的后面加一个 `then()` 函数，并且在 `then()` 函数中执行 `next()`。
+```js
+function t(data) {
+    return new Promise(r => setTimeout(() => r(data), 100))
+}
+
+function *test() {
+    const data1 = yield t(1)
+    console.log(data1)
+    const data2 = yield t(2)
+    console.log(data2)
+    return 3
+}
+
+function async(generator) {
+    return new Promise((resolve, reject) => {
+	const gen = generator()
+
+	function step(nextFun) {
+	    // 每一次 next() 都是返回这样的数据 { value: xx, done: false }，结束时 done 为 true
+	    let next
+	    try {
+		// 如果 generator() 执行报错，需要 reject 给外面的 catch 函数
+		next = nextFun()
+	    } catch(e) {
+		return reject(e)
+	    }
+
+	    // done: true 代表 generator() 结束了
+	    if (next.done) {
+		return resolve(next.value)
+	    }
+
+	    Promise.resolve(next.value).then(
+		(val) => step(() => gen.next(val)), // 通过 next(val) 将 val 传给 yield 后面的变量 
+		(err) => step(() => gen.trhow(err)),
+	    )
+	}
+
+	step(() => gen.next())
+    })
+}
+
+// 1 2 3
+async(test).then(val => console.log(val))
+```
 #### [回到顶部](#JavaScript)
