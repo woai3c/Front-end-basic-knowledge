@@ -959,12 +959,8 @@ Function.prototype.bind = function(context, ...extra) {
 ```
 ### call
 ```js
-Function.prototype.call = function(context, ...args) {
-    if (context === null || context === undefined) {
-        context = window
-    } else if (!context || context.toString() != '[object Object]') {
-        context = {}
-    }
+Function.prototype.call = function(context = window, ...args) {
+    context = context instanceof Object ? context : {}
 
     let key = Math.random()
     while (context[key]) {
@@ -974,18 +970,15 @@ Function.prototype.call = function(context, ...args) {
     context[key] = this
     const result = context[key](...args)
     delete context[key]
+    
     return result
 }
 ```
 ### apply
 ```js
-Function.prototype.apply = function(context, args) {
-    if (args !== undefined && !Array.isArray(args)) throw '参数必须为数组'
-    if (context === null || context === undefined) {
-        context = window
-    } else if (!context || context.toString() != '[object Object]') {
-        context = {}
-    }
+Function.prototype.apply = function(context = window, args = []) {
+    if (!Array.isArray(args)) throw '参数必须为数组'
+    context = context instanceof Object ? context : {}
 
     let key = Math.random()
     while (context[key]) {
@@ -993,14 +986,9 @@ Function.prototype.apply = function(context, args) {
     }
 
     context[key] = this
-    let result
-    if (args === undefined) {
-        const result = context[key]()
-    } else {
-        const result = context[key](...args)
-    }
-
+    const result = context[key](...args)
     delete context[key]
+    
     return result
 }
 ```
