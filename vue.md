@@ -15,6 +15,7 @@
 * [watch的作用是什么](#watch的作用是什么)
 * [vue-loader是什么？使用它的用途有哪些？](#vue-loader是什么使用它的用途有哪些)
 * [假设定义了一个数组a=[1,2,3]，相应的，页面上显示的值为1,2,3，现设a[0]=5，页面上的值会变成5,2,3吗？为什么？](#假设定义了一个数组a123相应的页面上显示的值为123现设a05页面上的值会变成523吗为什么)
+* [父子组件生命周期执行顺序](#父子组件生命周期执行顺序)
 
 ## 什么是mvvm
 MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离
@@ -328,4 +329,39 @@ Vue.set(vm.items, indexOfItem, newValue)
 ```
 
 [数组更新检测](https://cn.vuejs.org/v2/guide/list.html#%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B)
+#### [回到顶部](#vue)
+
+## 父子组件生命周期执行顺序
+```js
+// 渲染
+parent beforeCreate
+parent created
+parent beforeMount
+sub beforeCreate
+sub created
+sub beforeMount
+sub mounted
+parent mounted
+
+// 数据更新
+parent beforeUpdate
+sub beforeUpdate
+sub updated
+parent updated
+
+// 销毁组件
+parent beforeDestroy
+sub beforeDestroy
+sub destroyed
+parent destroyed
+```
+注意 `mounted` 不会保证所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以在 `mounted` 内部使用 `vm.$nextTick`：
+```js
+mounted: function () {
+  this.$nextTick(function () {
+    // Code that will run only after the
+    // entire view has been rendered
+  })
+}
+```
 #### [回到顶部](#vue)
