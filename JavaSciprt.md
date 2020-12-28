@@ -747,24 +747,39 @@ function isObject(origin) {
 ## 数组去重
 ES5
 ```js
-function unique(arry) {
-    const temp = []
-    arry.forEach(function(item) {
-        if (temp.indexOf(item) == -1) {
-            temp.push(item)
+function unique(arr) {
+    const result = []
+    arr.forEach(function(item) {
+        if (result.indexOf(item) == -1) {
+            result.push(item)
         }
     })
     
-    return temp
+    return result
 }
 ```
 ES6
 ```js
-function unique(arry) {
-   return Array.from(new Set(arry))
+function unique(arr) {
+   return Array.from(new Set(arr))
 }
 ```
+空间换时间
+```js
+function unique(arr) {
+    const result = []
+    const map = new Map()
 
+    for (const val of arr) {
+	if (!map.has(val)) {
+	    result.push(val)
+	    map.set(val, true)
+	}
+    }
+
+    return result
+}
+```
 
 ## 数据类型
 1. Undefined 
@@ -773,7 +788,8 @@ function unique(arry) {
 4. Number
 5. String 
 6. Object
-7. symbol(ES6新增)
+7. Symbol
+8. BigInt
 
 
 ## 内置函数(原生函数)
