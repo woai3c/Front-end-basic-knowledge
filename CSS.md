@@ -46,6 +46,7 @@
 * [行内格式化上下文 IFC）](#行内格式化上下文-IFC)
 * [margin 塌陷](#margin-塌陷)
 * [css 动画优化 GPU 合成层](#css-动画优化-GPU-合成层)
+* [css 作用域隔离方法](#css-作用域隔离方法)
 
 ### CSS 选择器的优先级是如何计算的？
 
@@ -795,5 +796,13 @@ http://www.cnblogs.com/Renyi-Fan/p/9006084.html
 
 ## css 动画优化 GPU 合成层
 [一篇文章说清浏览器解析和CSS（GPU）动画优化](https://segmentfault.com/a/1190000008015671)
+
+[回到顶部](#css)
+
+## css 作用域隔离方法
+* 命名空间，加不同的前缀
+* module，例如 vue 的 scoped
+* css-in-js，直接写成内联样式
+* Shadow DOM，其实就是 web components，作用域隔离
 
 [回到顶部](#css)
