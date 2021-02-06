@@ -65,6 +65,7 @@
 * [为什么 WeakMap 和 WeakSet 的键只能使用对象？](#为什么-WeakMap-和-WeakSet-的键只能使用对象)
 * [实现 async/await](#实现-asyncawait)
 * [实现发布/订阅模式](#实现发布订阅模式)
+* [5个fetch请求，请求完成后要求立即执行，但最终的输出顺序要按照要求输出 ABCDE](#5个fetch请求请求完成后要求立即执行但最终的输出顺序要按照要求输出ABCDE)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -890,35 +891,7 @@ https://zhuanlan.zhihu.com/p/41479807
 #### [回到顶部](#JavaScript)
 
 ## 如何实现文件断点续传
-断点续传最核心的内容就是把文件“切片”然后再一片一片的传给服务器，但是这看似简单的上传过程却有着无数的坑。
-
-首先是文件的识别，一个文件被分成了若干份之后如何告诉服务器你切了多少块，以及最终服务器应该如何把你上传上去的文件进行合并，这都是要考虑的。
-
-因此在文件开始上传之前，我们和服务器要有一个“握手”的过程，告诉服务器文件信息，然后和服务器约定切片的大小，当和服务器达成共识之后就可以开始后续的文件传输了。
-
-前台要把每一块的文件传给后台，成功之后前端和后端都要标识一下，以便后续的断点。
-
-当文件传输中断之后用户再次选择文件就可以通过标识来判断文件是否已经上传了一部分，如果是的话，那么我们可以接着上次的进度继续传文件，以达到续传的功能。
-有了HTML5 的 File api之后切割文件比想想的要简单的多的多。
-
-只要用slice 方法就可以了
-```js
-var packet = file.slice(start, end);
-```
-参数start是开始切片的位置，end是切片结束的位置 单位都是字节。通过控制start和end 就可以是实现文件的分块
-
-如
-```js
-file.slice(0,1000);
-file.slice(1000,2000);
-file.slice(2000,3000);
-// ......
-```
-在把文件切成片之后，接下来要做的事情就是把这些碎片传到服务器上。
-如果中间掉线了，下次再传的时候就得先从服务器获取上一次上传文件的位置，然后以这个位置开始上传接下来的文件内容。
-
-参考资料：
-* [HTML5 File api 实现断点续传](https://www.cnblogs.com/zhwl/p/3580776.html)
+[字节跳动面试官：请你实现一个大文件上传和断点续传](https://juejin.cn/post/6844904046436843527)
 
 #### [回到顶部](#JavaScript)
 
@@ -1832,5 +1805,39 @@ class Event {
 	this.on(event, wrap)
     }
 }
+```
+#### [回到顶部](#JavaScript)
+
+## 5个 fetch请求，请求完成后要求立即执行，但最终的输出顺序要按照要求输出 ABCDE
+```js
+function run(fetchs = []) {
+    return new Promise((resolve, reject) => {
+        const result = new Array(fetchs.length).fill(null)
+        fetchs.forEach((fetch, i) => {
+            fetch
+            .then(res => {
+                result[i] = res
+                if (!result.includes(null)) {
+                    resolve(result)
+                }
+            })
+            .catch(err => {
+                reject(err)
+            })
+        })
+    })
+}
+
+function delay(str) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(str)
+        }, Math.random() * 1000)
+    })
+}
+
+run([delay('A'), delay('B'), delay('C'), delay('D'), delay('E')]).then(res => {
+    console.log(res) // ["A", "B", "C", "D", "E"]
+})
 ```
 #### [回到顶部](#JavaScript)
