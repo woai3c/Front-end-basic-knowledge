@@ -1808,7 +1808,7 @@ class Event {
 ```
 #### [回到顶部](#JavaScript)
 
-## 5个 fetch请求，请求完成后要求立即执行，但最终的输出顺序要按照要求输出 ABCDE
+## 5个fetch请求，请求完成后要求立即执行，但最终的输出顺序要按照要求输出ABCDE
 ```js
 function run(fetchs = []) {
     return new Promise((resolve, reject) => {
