@@ -43,7 +43,7 @@
 * [去除inline-block元素间间距的方法](#去除inline-block元素间间距的方法)
 * [为什么要初始化CSS样式](#为什么要初始化CSS样式)
 * [利用html css 编写样式，div垂直body居中、div内的text垂直居中，div高度等于body宽度的一半](#利用html-css-编写样式div垂直body居中div内的text垂直居中div高度等于body宽度的一半)
-* [行内格式化上下文 IFC）](#行内格式化上下文-IFC)
+* [行内格式化上下文 IFC](#行内格式化上下文-IFC)
 * [margin 塌陷](#margin-塌陷)
 * [css 动画优化 GPU 合成层](#css-动画优化-GPU-合成层)
 * [css 作用域隔离方法](#css-作用域隔离方法)
