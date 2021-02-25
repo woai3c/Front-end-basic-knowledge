@@ -9,6 +9,7 @@
 * [事件循环](#事件循环)
 * [事件模型](#事件模型)
 * [如何自定义事件](#如何自定义事件)
+* [事件列表](#事件列表)
 * [target和currentTarget区别](#target和currentTarget区别)
 * [prototype和__proto__的关系是什么](#prototype和__proto__的关系是什么)
 * [原型链](#原型链)
@@ -66,9 +67,6 @@
 * [实现 async/await](#实现-asyncawait)
 * [实现发布/订阅模式](#实现发布订阅模式)
 * [5个fetch请求，请求完成后要求立即执行，但最终的输出顺序要按照要求输出 ABCDE](#5个fetch请求请求完成后要求立即执行但最终的输出顺序要按照要求输出ABCDE)
-* [package.json 依赖项版本号前面的 ~ ^ 有什么用？](#packagejson-依赖项版本号前面的---有什么用)
-* [项目中使用 package-lock.json 锁版本问题](#项目中使用-package-lockjson-锁版本问题)
-* [事件列表](#事件列表)
 
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
@@ -246,6 +244,11 @@ triggerEvent('resize') // 触发 resize 事件
 ```
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Creating_and_triggering_events)
+
+#### [回到顶部](#JavaScript)
+
+## 事件列表
+[事件参考-MDN](https://developer.mozilla.org/zh-CN/docs/Web/Events#%E6%A0%87%E5%87%86%E4%BA%8B%E4%BB%B6)
 
 #### [回到顶部](#JavaScript)
 
@@ -1843,23 +1846,4 @@ run([delay('A'), delay('B'), delay('C'), delay('D'), delay('E')]).then(res => {
     console.log(res) // ["A", "B", "C", "D", "E"]
 })
 ```
-#### [回到顶部](#JavaScript)
-
-## package.json 依赖项版本号前面的 ~ ^ 有什么用？
-* ~ 会匹配最近的小版本依赖包，比如~1.2.3会匹配所有1.2.x版本，但是不包括1.3.0
-* ^ 会匹配最新的大版本依赖包，比如^1.2.3会匹配所有1.x.x的包，包括1.3.0，但是不包括2.0.0
-* 不写前缀，只写版本号就不会有更新问题
-
-#### [回到顶部](#JavaScript)
-
-## 项目中使用 package-lock.json 锁版本问题
-* [项目中使用package-lock.json锁版本问题](https://www.cnblogs.com/yy95/p/10441727.html)
-* [npm install 生成的package-lock.json是什么文件？有什么用？](https://www.zhihu.com/question/62331583)
-* [npm依赖版本变动引发的惨案](https://segmentfault.com/a/1190000024520174)
-
-#### [回到顶部](#JavaScript)
-
-## 事件列表
-[事件参考-MDN](https://developer.mozilla.org/zh-CN/docs/Web/Events#%E6%A0%87%E5%87%86%E4%BA%8B%E4%BB%B6)
-
 #### [回到顶部](#JavaScript)
