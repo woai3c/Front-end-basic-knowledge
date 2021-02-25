@@ -1,10 +1,3 @@
-1. 你做过的让你最自豪的项目是什么？不限定于工作中的项目。
-2. 对于低代码平台有研究过吗？有哪些流派？
-3. 对于性能优化的方式有了解多少？
-4. 能提升前端开发效率的有哪些工具？或者说哪些办法、哪些框架？
-5. 对于未来两到三年的规划，你是怎么做的？
-6. 为什么想要来腾讯云？
-
 # CSS
 
 本文内容部分引用自 [front-end-interview-handbook](https://github.com/yangshun/front-end-interview-handbook/)
@@ -417,12 +410,13 @@ CSS网格布局用于将页面分割成数个主要区域，或者用来定义�
 
 ### 一边固定宽度一边宽度自适应
 可以使用flex布局 复制下面的HTML和CSS代码 用浏览器打开可以看到效果
-```
+```html
 <div class="wrap">
   <div class="div1"></div>
   <div class="div2"></div>
 </div>
-
+```
+```css
 .wrap {
   display: flex;
   justify-content: space-between;
@@ -444,18 +438,17 @@ div {
 
 ### 水平垂直居中的方式
 #### flex
-```
-// 父容器
+```css
 display: flex;
 justify-content: center;
 align-items: center;
 ```
 #### position
-```
-// 父容器
+```css
+/* 父容器 */
 position: relative;
 
-// 子容器
+/* 子容器 */
 position:absolute;
 margin:auto;
 top:0;
@@ -464,18 +457,18 @@ left:0;
 right:0;
 ```
 #### position+transform
-```
-// 父容器
+```css
+/* 父容器 */
 position: relative;
 
-// 子容器
+/* 子容器 */
 position: absolute;
 top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 ```
 #### table-cell
-```
+```html
 <div class="box">
     <div class="content">
         <div class="inner"></div>
@@ -525,7 +518,7 @@ html, body {
 
 ### 如何用css实现瀑布流布局
 利用column-count和break-inside这两个CSS3属性即可，复制如下代码即可察看效果
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -591,7 +584,7 @@ overflow: hidden;
 
 
 ## 利用伪元素画三角
-```
+```css
 .info-tab {
     position: relative;
 }
