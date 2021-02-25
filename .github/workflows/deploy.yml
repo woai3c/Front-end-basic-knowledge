@@ -20,7 +20,7 @@ jobs:
       - name: Deploy # 将打包内容发布到 github page
         uses: JamesIves/github-pages-deploy-action@3.7.1 # 使用别人写好的 actions
         with:  # 自定义环境变量
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.FRONT_END_BASIC_KNOWLEDGE }}
           BRANCH: master
           FOLDER: docs/.vuepress/dist
           REPOSITORY_NAME: woai3c/woai3c.github.io # 这是我的 github page 地址
