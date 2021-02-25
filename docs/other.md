@@ -1,12 +1,5 @@
 # 其他
 
-* [前端异常监控](#前端异常监控)
-* [Ascii、GBK、UTF、Unicode](#AsciiGBKUTFUnicode)
-* [前端性能优化](#前端性能优化)
-* [rpc远程过程调用](#rpc远程过程调用)
-* [浏览器工作原理](#浏览器工作原理)
-* [单点登录](#单点登录)
-
 ## 前端异常监控
 [前端性能和错误监控](https://github.com/woai3c/Front-end-articles/blob/master/monitor.md)
 

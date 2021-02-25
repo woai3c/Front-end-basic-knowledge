@@ -1,6 +1,4 @@
-* [XSS](#XSS)
-* [CSRF](#CSRF)
-* [CSP](#CSP)
+# 前端安全
 
 ## XSS
 ### XSS是什么
@@ -36,7 +34,7 @@ XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶�
 * 将重要的cookie标记为http only, 这样的话Javascript 中的document.cookie语句就不能获取到cookie了.
 * 表单数据规定值的类型，例如：年龄应为只能为int、name只能为字母数字组合。。。。
 * 对数据进行Html Encode 处理
-* 过滤或移除特殊的Html标签， 例如: <script>, <iframe> , &lt; for <, &gt; for >, &quot for
+* 过滤或移除特殊的Html标签， 例如: `<script>, <iframe> , &lt; for <, &gt; for >, &quot for`
 * 过滤JavaScript 事件的标签。例如 "onclick=", "onfocus" 等等。
 
 参考资料：

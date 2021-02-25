@@ -1,14 +1,11 @@
 # Nodejs
 
-* [package.json 依赖项版本号前面的 ~ ^ 有什么用？](#packagejson-依赖项版本号前面的---有什么用)
-* [项目中使用 package-lock.json 锁版本问题](#项目中使用-package-lockjson-锁版本问题)
-
 ## package.json 依赖项版本号前面的 ~ ^ 有什么用？
 * ~ 会匹配最近的小版本依赖包，比如~1.2.3会匹配所有1.2.x版本，但是不包括1.3.0
 * ^ 会匹配最新的大版本依赖包，比如^1.2.3会匹配所有1.x.x的包，包括1.3.0，但是不包括2.0.0
 * 不写前缀，只写版本号就不会有更新问题
 
-#### [回到顶部](#Nodejs)
+
 
 ## 项目中使用 package-lock.json 锁版本问题
 * [项目中使用package-lock.json锁版本问题](https://www.cnblogs.com/yy95/p/10441727.html)
@@ -69,4 +66,3 @@
 * [一文搞懂peerDependencies](https://segmentfault.com/a/1190000022435060)
 * [浅谈npm 的依赖与版本](https://github.com/SamHwang1990/blog/issues/7)
 
-#### [回到顶部](#Nodejs)

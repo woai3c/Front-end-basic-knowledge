@@ -1,22 +1,5 @@
 # HTML
 
-* [HTML5语义化](#html5语义化)
-* [为什么最好把 CSS 的`<link>`标签放在`<head></head>`之间？为什么最好把 JS 的`<script>`标签恰好放在`</body>`之前，有例外情况吗？](#为什么最好把css的link标签放在headhead之间为什么最好把js的script标签恰好放在body之前有例外情况吗)
-* [什么是渐进式渲染（progressive rendering）](#什么是渐进式渲染progressive-rendering)
-* [viewport](#viewport)
-* [Reflow和Repaint](#Reflow和Repaint)
-* [img中的alt和元素的title属性作用](#img中的alt和元素的title属性作用)
-* [href和src区别](#href和src区别)
-* [浏览器的渲染过程](#浏览器的渲染过程)
-* [为何会出现浏览器兼容问题](#为何会出现浏览器兼容问题)
-* [doctype有什么用](#doctype有什么用)
-* [行内元素和块级元素有哪些](#行内元素和块级元素有哪些)
-* [行内元素、块级元素区别](#行内元素块级元素区别)
-* [iframe框架有那些优缺点](#iframe框架有那些优缺点)
-* [label标签有什么作用](#label标签有什么作用)
-* [HTML5的form如何关闭自动完成功能](#HTML5的form如何关闭自动完成功能)
-* [DOM和BOM有什么区别](#DOM和BOM有什么区别)
-
 ## HTML5语义化
 什么是语义化？就是用合理、正确的标签来展示内容，比如h1~h6定义标题。
 #### 好处
@@ -70,7 +53,7 @@ Viewport ：字面意思为视图窗口，在移动web开发中使用。表示�
 * height	设置layout viewport 的高度，这个属性对我们并不重要，很少使用
 * user-scalable	是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。
 
-[回到顶部](#HTML)
+
 
 
 
@@ -99,7 +82,7 @@ Viewport ：字面意思为视图窗口，在移动web开发中使用。表示�
 * [页面重构应注意的repaint和reflow](http://www.blueidea.com/tech/web/2011/8365.asp)
 
 
-[回到顶部](#HTML)
+
 
 ## img中的alt和元素的title属性作用
 * img的alt属性<br>
@@ -107,7 +90,7 @@ Viewport ：字面意思为视图窗口，在移动web开发中使用。表示�
 * 元素title属性<br>
 在鼠标移到元素上时显示title的内容
 
-[回到顶部](#HTML)
+
 
 ## href和src区别
 * href <br>
@@ -120,7 +103,7 @@ src表示引用资源，替换当前元素，用在img，script，iframe上，sr
 参考资料：
 * [前端面试题-url、href、src](https://zhuanlan.zhihu.com/p/35571428)
 
-[回到顶部](#HTML)
+
 
 ## 浏览器的渲染过程
 1. 解析HTML生成DOM树。
@@ -130,7 +113,7 @@ src表示引用资源，替换当前元素，用在img，script，iframe上，sr
 5. 遍历渲染树开始布局，计算每个节点的位置大小信息。
 6. 浏览器将所有图层的数据发送给GPU，GPU将图层合成并显示在屏幕上。
 
-[回到顶部](#HTML)
+
 
 ## 为何会出现浏览器兼容问题
 * 同一产品，版本越老 bug 越多
@@ -155,7 +138,7 @@ src表示引用资源，替换当前元素，用在img，script，iframe上，sr
 参考资料：
 * [为何会出现浏览器兼容性问题？如何解决？](https://github.com/jirengu/frontend-interview/issues/35)
 
-[回到顶部](#HTML)
+
 
 ## doctype有什么用
 doctype是一种标准通用标记语言的文档类型声明，目的是告诉标准通用标记语言解析器要使用什么样的文档类型定义（DTD）来解析文档。
@@ -173,7 +156,7 @@ doctype是一种标准通用标记语言的文档类型声明，目的是告诉�
 而html标准和dom标准值规定了标准模式下的行为，没有对怪异模式做出规定，因此不同浏览器在怪异模式下的处理也是不同的，所以一定要在html开头使用doctype。
 
 
-[回到顶部](#HTML)
+
 
 ## 行内元素和块级元素有哪些
 ### 行内元素
@@ -191,14 +174,14 @@ button, input, label, select, textarea
 header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 ```
 
-[回到顶部](#HTML)
+
 
 ## 行内元素、块级元素区别
 行内元素：和其他元素都在一行上，高度、行高及外边距和内边距都不可改变（边距上下方向不可改变，左右方向可以改变），文字图片的宽度不可改变，只能容纳文本或者其他行内元素；其中img是行元素
 
 块级元素：总是在新行上开始，高度、行高及外边距和内边距都可控制，可以容纳内敛元素和其他元素；行元素转换为块级元素方式：display：block；
 
-[回到顶部](#HTML)
+
 
 ## iframe框架有那些优缺点
 #### 优点：
@@ -214,7 +197,7 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 * 使用框架结构时，保证设置正确的导航链接。
 * iframe页面会增加服务器的http请求
 
-[回到顶部](#HTML)
+
 
 ## label标签有什么作用
 `label` 标签通常是写在表单内，它关联一个控件，使用 `label` 可以实现点击文字选取对应的控件。
@@ -223,13 +206,13 @@ header,form,ul,ol,table,article,div,hr,aside,figure,canvas,video,audio,footer
 <label for="test" >test</label>
 ```
 
-[回到顶部](#HTML)
+
 
 
 ## HTML5的form如何关闭自动完成功能
 将不想要自动完成的 `form` 或 `input` 设置为 `autocomplete=off`
 
-[回到顶部](#HTML)
+
 
 ## DOM和BOM有什么区别
 ### DOM
@@ -248,4 +231,4 @@ BOM 是为了操作浏览器出现的 API，window 是其的一个对象
 
 window 对象既为 javascript 访问浏览器提供API，同时在 ECMAScript 中充当 Global 对象
 
-[回到顶部](#HTML)
+

@@ -1,16 +1,5 @@
 # HTTP
 
-* [RESTful](#RESTful)
-* [GET和POST的区别](#GET和POST的区别)
-* [Accept和Content-Type](#Accept和Content-Type)
-* [状态码](#状态码)
-* [HTTP缓存](#HTTP缓存)
-* [如何处理不让别人盗用你的图片，访问你的服务器资源](#如何处理不让别人盗用你的图片访问你的服务器资源)
-* [Http与Https的区别](#Http与Https的区别)
-* [什么是Http协议无状态协议?怎么解决Http协议无状态协议?](#什么是Http协议无状态协议怎么解决Http协议无状态协议)
-* [常用的HTTP方法有哪些](#常用的HTTP方法有哪些)
-* [HTTPS 握手机制](#HTTPS-握手机制)
-
 ## RESTful
 REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。
 

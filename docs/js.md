@@ -1,73 +1,5 @@
 # JavaScript
 
-* [同源策略](#同源策略)
-* [跨域](#跨域)
-* [JSONP](#JSONP)
-* [域名收敛](#域名收敛)
-* [事件绑定的方式](#事件绑定的方式)
-* [事件委托](#事件委托)
-* [事件循环](#事件循环)
-* [事件模型](#事件模型)
-* [如何自定义事件](#如何自定义事件)
-* [事件列表](#事件列表)
-* [target和currentTarget区别](#target和currentTarget区别)
-* [prototype和__proto__的关系是什么](#prototype和__proto__的关系是什么)
-* [原型链](#原型链)
-* [用 ES5 和 ES6 实现继承](#用-ES5-和-ES6-实现继承)
-* [闭包](#闭包)
-* [内存回收](#内存回收)
-* [有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行3次，再次执行无效，如何实现](#有一个函数参数是一个函数返回值也是一个函数返回的函数功能和入参的函数相似但这个函数只能执行3次再次执行无效如何实现)
-* [实现add函数,让add(a)(b)和add(a,b)两种调用结果相同](#实现add函数让addab和addab两种调用结果相同)
-* [Ajax](#Ajax)
-* [使用Ajax的优缺点分别是什么](#使用Ajax的优缺点分别是什么)
-* [Ajax和Fetch区别](#Ajax和Fetch区别)
-* [变量提升](#变量提升)
-* [使用let、var和const创建变量有什么区别](#使用letvar和const创建变量有什么区别)
-* [对象浅拷贝和深拷贝有什么区别](#对象浅拷贝和深拷贝有什么区别)
-* [怎么实现对象深拷贝](#怎么实现对象深拷贝)
-* [数组去重](#数组去重)
-* [数据类型](#数据类型)
-* [内置函数(原生函数)](#内置函数原生函数)
-* [如何判断数组与对象](#如何判断数组与对象)
-* [自动分号](#自动分号)
-* [浮点数精度](#浮点数精度)
-* [cookie、localStorage、sessionStorage区别](#cookielocalStoragesessionStorage区别)
-* [自执行函数?用于什么场景？好处?](#自执行函数用于什么场景好处)
-* [多个页面之间如何进行通信](#多个页面之间如何进行通信)
-* [css动画和js动画的差异](#css动画和js动画的差异)
-* [如何实现文件断点续传](#如何实现文件断点续传)
-* [new一个对象经历了什么](#new一个对象经历了什么)
-* [bind、call、apply的区别](#bindcallapply的区别)
-* [实现 bind call apply 函数](#实现-bind-call-apply-函数)
-* [实现 compose 函数](#实现-compose-函数)
-* [请简述JavaScript中的this](#请简述JavaScript中的this)
-* [==和===的区别是什么](#和的区别是什么)
-* [箭头函数和普通函数有什么区别](#箭头函数和普通函数有什么区别)
-* [白屏时间](#白屏时间)
-* [当你在浏览器输入一个地址后发生了什么](#当你在浏览器输入一个地址后发生了什么)
-* [页面大量图片，如何优化加载，优化用户体验](#页面大量图片如何优化加载优化用户体验)
-* [防抖与节流](#防抖与节流)
-* [如何做到修改url参数，页面不刷新](#如何做到修改url参数页面不刷新)
-* [格式化金钱，每千分位加逗号](#格式化金钱每千分位加逗号)
-* [请用js去除字符串空格](#请用js去除字符串空格)
-* [创建对象有几种方法](#创建对象有几种方法)
-* [null和undefined的区别](#null和undefined的区别)
-* [反转数组](#反转数组)
-* [将金额12345转成中文金额表示](#将金额12345转成中文金额表示)
-* [异步求和](#异步求和)
-* [异步求和升级版](#异步求和升级版)
-* [数字集转换成字母集](#数字集转换成字母集)
-* [CommonJS，ES module 是什么，有什么区别？](#commonjses-module-是什么有什么区别)
-* [preload和prefetch](#preload和prefetch)
-* [preload 和 defer 的区别](#preload-和-defer-的区别)
-* [window.onload 和 DOMContentLoaded 的区别](#windowonload-和-DOMContentLoaded-的区别)
-* [websocket 鉴权、多人连接、心跳机制](#websocket-鉴权多人连接心跳机制)
-* [Object 与 Map 的区别](#Object-与-Map-的区别)
-* [为什么 WeakMap 和 WeakSet 的键只能使用对象？](#为什么-WeakMap-和-WeakSet-的键只能使用对象)
-* [实现 async/await](#实现-asyncawait)
-* [实现发布/订阅模式](#实现发布订阅模式)
-* [5个fetch请求，请求完成后要求立即执行，但最终的输出顺序要按照要求输出 ABCDE](#5个fetch请求请求完成后要求立即执行但最终的输出顺序要按照要求输出ABCDE)
-
 ## 同源策略
 同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
 
@@ -83,7 +15,7 @@
 参考资料：
 * [浏览器的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
 
-#### [回到顶部](#JavaScript)
+
 
 ## 跨域
 * 原因 <br>
@@ -100,12 +32,12 @@
 * [新鲜出炉的8月前端面试题](https://zhuanlan.zhihu.com/p/41479807)
 * [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
-#### [回到顶部](#JavaScript)
+
 
 ## JSONP
 这是我认为写得比较通俗易懂的一篇文章[jsonp原理详解——终于搞清楚jsonp是啥了](https://blog.csdn.net/hansexploration/article/details/80314948)。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 域名收敛
 PC 时代为了突破浏览器的域名并发限制，有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。
@@ -115,7 +47,7 @@ PC 时代为了突破浏览器的域名并发限制，有了域名发散。浏�
 **域名发散**：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。
 
 域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。
-#### [回到顶部](#JavaScript)
+
 
 ## 事件绑定的方式
 * 嵌入dom
@@ -133,7 +65,7 @@ btn.onclick = function(){}
 btn.addEventListener('click',function(){})
 ```
 
-#### [回到顶部](#JavaScript)
+
 
 ## 事件委托
 事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。所有用到按钮的事件（多数鼠标事件和键盘事件）都适合采用事件委托技术，
@@ -161,12 +93,12 @@ document.querySelectorAll('li').forEach((e) => {
 }) 
 ```
 
-#### [回到顶部](#JavaScript)
+
 
 ## 事件循环
 事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 事件模型
 ### DOM0
@@ -206,7 +138,7 @@ UI事件，当用户与页面上的元素交互时触发，如：load、scroll
 参考资料：
 * [dom0、dom2、dom3事件](https://www.jianshu.com/p/3acdf5f71d5b)
 
-#### [回到顶部](#JavaScript)
+
 
 ## 如何自定义事件
 ### 新模式
@@ -245,12 +177,12 @@ triggerEvent('resize') // 触发 resize 事件
 
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Creating_and_triggering_events)
 
-#### [回到顶部](#JavaScript)
+
 
 ## 事件列表
 [事件参考-MDN](https://developer.mozilla.org/zh-CN/docs/Web/Events#%E6%A0%87%E5%87%86%E4%BA%8B%E4%BB%B6)
 
-#### [回到顶部](#JavaScript)
+
 
 ## target和currentTarget区别
 * event.target<br>
@@ -258,7 +190,7 @@ triggerEvent('resize') // 触发 resize 事件
 * event.currentTarget<br>
 返回绑定事件的元素
 
-#### [回到顶部](#JavaScript)
+
 
 ## prototype和__proto__的关系是什么
 **先说结论：**
@@ -299,12 +231,12 @@ Object.prototype.__proto__ == null // true
 ```
 既然 `null` 是万物的终点，那使用 `Object.create(null)` 创建的对象是没有 `__proto__` 属性的，也没有 `prototype` 属性。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 原型链
 所有的 JS 对象(JS 函数是 prototype)都有一个 `__proto__` 属性，指向它的原型对象。当试图访问一个对象的属性时，如果没有在该对象上找到，它还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 用 ES5 和 ES6 实现继承
 ES5 prototype 寄生组合式继承
@@ -366,7 +298,7 @@ sub.sayName() // tom
 ```
 从实现上来看，ES6 更加简洁。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 闭包
 闭包是指有权访问另一个函数作用域中的变量的函数。
@@ -394,7 +326,7 @@ const test = (function () {
 })()
 ```
 上面的代码，就实现了一个私有属性 `value`，它只能用过 `getVal()` 来获取值，通过 `setVal(val)` 来设置值。
-#### [回到顶部](#JavaScript)
+
 
 ## 内存回收
 在 JS 中，有两种内存回收算法。第一种是引用计数垃圾收集，第二种是标记-清除算法（从2012年起，所有现代浏览器都使用了标记-清除垃圾回收算法）。
@@ -437,7 +369,7 @@ f();
 参考资料：
 * [内存管理](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management)
 
-#### [回到顶部](#JavaScript)
+
 
 ## 有一个函数，参数是一个函数，返回值也是一个函数，返回的函数功能和入参的函数相似，但这个函数只能执行3次，再次执行无效，如何实现
 这个题目是考察闭包的使用
@@ -463,7 +395,7 @@ newFn()
 newFn() // 后面两次执行都无任何反应
 ```
 通过闭包变量 `times` 来控制函数的执行
-#### [回到顶部](#JavaScript)
+
 
 ## 实现add函数,让add(a)(b)和add(a,b)两种调用结果相同
 
@@ -500,7 +432,7 @@ console.log(curry(add, 1)(2)) // 3
 console.log(curry(add, 1, 2)) // 3
 ```
 
-#### [回到顶部](#JavaScript)
+
 
 ## Ajax
 Ajax(asynchronous JavaScript and XML) 是客户端上创建异步 Web 应用的一种 Web 开发技术。
@@ -519,7 +451,7 @@ xhr.onload = (res) => {
 xhr.open('get', 'https://api.github.com/')
 xhr.send()
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 使用Ajax的优缺点分别是什么
 
@@ -541,7 +473,7 @@ xhr.send()
 * [使用 Ajax 的优缺点分别是什么？](https://github.com/yangshun/front-end-interview-handbook/blob/master/contents/zh/javascript-questions.md#%E4%BD%BF%E7%94%A8ajax%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88)
 
 
-#### [回到顶部](#JavaScript)
+
 
 ## Ajax和Fetch区别
 * ajax是使用XMLHttpRequest对象发起的，但是用起来很麻烦，所以ES6新规范就有了fetch，fetch发一个请求不用像ajax那样写一大堆代码。
@@ -551,13 +483,13 @@ xhr.send()
 * fetch只对网络请求报错，对400，500都当做成功的请求，需要封装去处理
 * fetch由于是ES6规范，兼容性上比不上XMLHttpRequest
 
-#### [回到顶部](#JavaScript)
+
 
 ## 变量提升
 var 会使变量提升，var 无论发生在何处，都在执行任何代码之前进行处理。let和const不会使变量提升，提前使用会报错。
 变量提升（hoisting）是用于解释代码中变量声明行为的术语。使用var关键字声明或初始化的变量，会将声明语句“提升”到当前作用域的顶部。 但是，只有声明才会触发提升，赋值语句（如果有的话）将保持原样。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 使用let、var和const创建变量有什么区别
 用 var 声明的变量的作用域是它当前的执行上下文，它可以是嵌套的函数，也可以是声明在任何函数外的变量。let 和 const 是块级作用域，意味着它们只能在最近的一组花括号（function、if-else 代码块或 for 循环中）中访问。
@@ -633,7 +565,7 @@ foo = 'bar';
 const baz = 'baz';
 baz = 'qux';
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 对象浅拷贝和深拷贝有什么区别
 在 `JS` 中，除了基本数据类型，还存在对象、数组这种引用类型。
@@ -649,7 +581,7 @@ console.log(o1.a) // 3
 ```
 而浅拷贝和深拷贝就是在这个基础之上做的区分，如果在拷贝这个对象的时候，只对基本数据类型进行了拷贝，而对引用数据类型只是进行了引用的传递，而没有重新创建一个新的对象，则认为是浅拷贝。反之，在对引用数据类型进行拷贝的时候，创建了一个新的对象，并且复制其内的成员变量，则认为是深拷贝。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 怎么实现对象深拷贝
 这种方法有缺陷，详情请看[关于JSON.parse(JSON.stringify(obj))实现深拷贝应该注意的坑](https://www.jianshu.com/p/b084dfaad501)
@@ -749,7 +681,7 @@ function isObject(origin) {
 }
 ```
 [如何写出一个惊艳面试官的深拷贝?](https://juejin.im/post/5d6aa4f96fb9a06b112ad5b1)
-#### [回到顶部](#JavaScript)
+
 
 ## 数组去重
 ES5
@@ -816,7 +748,7 @@ function unique(arr) {
 如果要在这个字面量上执行一些操作，比如获取长度、访问其中某个字符等，那需要将其转换为 String 对象。
 
 幸好，在必要时语言会自动把字符串字面量转换成一个 String 对象，也就是说你并不需要显式创建一个对象。
-#### [回到顶部](#JavaScript)
+
 
 ## 如何判断数组与对象
 ```js
@@ -831,7 +763,7 @@ Object.prototype == {}.__proto__ // true
 Array.prototype == [].__proto__ // true
 Array.prototype == {}.__proto__ // false
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 自动分号
 有时 JavaScript 会自动为代码行补上缺失的分号，即自动分号插入（Automatic SemicolonInsertion，ASI）。
@@ -841,12 +773,12 @@ Array.prototype == {}.__proto__ // false
 请注意，ASI 只在换行符处起作用，而不会在代码行的中间插入分号。
 
 如果 JavaScript 解析器发现代码行可能因为缺失分号而导致错误，那么它就会自动补上分号。并且，只有在代码行末尾与换行符之间除了空格和注释之外没有别的内容时，它才会这样做。
-#### [回到顶部](#JavaScript)
+
 
 ## 浮点数精度
 https://www.css88.com/archives/7340
 
-#### [回到顶部](#JavaScript)
+
 
 ## cookie、localStorage、sessionStorage区别
 |特性 | cookie | localStorage | sessionStorage|
@@ -858,7 +790,7 @@ https://www.css88.com/archives/7340
 |用途|一般由服务器生成，用于标识用户身份|用于浏览器缓存数据|用于浏览器缓存数据|
 | 访问权限  | 任意窗口 | 任意窗口 | 当前页面窗口  |
 
-#### [回到顶部](#JavaScript)
+
 
 ## 自执行函数?用于什么场景？好处?
 #### 自执行函数:
@@ -877,7 +809,7 @@ https://www.css88.com/archives/7340
 #### 场景
 一般用于框架、插件等场景
 
-#### [回到顶部](#JavaScript)
+
 
 ## 多个页面之间如何进行通信
 有如下几个方式：
@@ -885,7 +817,7 @@ https://www.css88.com/archives/7340
 * web worker
 * localeStorage和sessionStorage
 
-#### [回到顶部](#JavaScript)
+
 
 ## css动画和js动画的差异
 1. 代码复杂度，js 动画代码相对复杂一些
@@ -894,12 +826,12 @@ https://www.css88.com/archives/7340
 
 https://zhuanlan.zhihu.com/p/41479807
 
-#### [回到顶部](#JavaScript)
+
 
 ## 如何实现文件断点续传
 [字节跳动面试官：请你实现一个大文件上传和断点续传](https://juejin.cn/post/6844904046436843527)
 
-#### [回到顶部](#JavaScript)
+
 
 ## new一个对象经历了什么
 ```js
@@ -922,7 +854,7 @@ Test.call(obj)
 ```
 4. 将初始化完毕的新对象地址，保存到等号左边的变量中
 
-#### [回到顶部](#JavaScript)
+
 
 ## bind、call、apply的区别
 call和apply其实是一样的，区别就在于传参时参数是一个一个传或者是以一个数组的方式来传。<br>
@@ -941,7 +873,7 @@ bind也是改变this指向，不过不是在调用时生效，而是返回一个
 const newFunc = sayHi.bind(obj)
 newFunc() // Hi! Tom
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 实现 bind call apply 函数
 ### bind
@@ -998,7 +930,7 @@ Function.prototype.apply = function (context, args = []) {
     return result
 }
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 实现 compose 函数
 compose（组合）函数特点：
@@ -1027,7 +959,7 @@ console.log(fn('jack', 'smith')) // HELLO, JACK SMITH
 
 参考资料：
 * [关于javascript函数式编程中compose的实现](https://segmentfault.com/a/1190000008394749)
-#### [回到顶部](#JavaScript)
+
 
 ## 请简述`JavaScript`中的`this`
 `this`取值符合以下规则：
@@ -1040,7 +972,7 @@ console.log(fn('jack', 'smith')) // HELLO, JACK SMITH
 
 想获得更深入的解释，请查看[这篇文章](https://codeburst.io/the-simple-rules-to-this-in-javascript-35d97f31bde3)。
 
-#### [回到顶部](#JavaScript)
+
 
 ## ==和===的区别是什么
 `==`是抽象相等运算符，而`===`是严格相等运算符。`==`运算符是在进行必要的类型转换后，再比较。`===`运算符不会进行类型转换，所以如果两个值不是相同的类型，会直接返回`false`。使用`==`时，可能发生一些特别的事情，例如：
@@ -1054,7 +986,7 @@ console.log(fn('jack', 'smith')) // HELLO, JACK SMITH
 ```
 如果你对`==`和`===`的概念不是特别了解，建议大多数情况下使用`===`
 
-#### [回到顶部](#JavaScript)
+
 
 ## 箭头函数和普通函数有什么区别
 * 函数体内的`this`对象，就是定义时所在的对象，而不是使用时所在的对象，用`call` `apply` `bind`也不能改变`this`指向
@@ -1063,7 +995,7 @@ console.log(fn('jack', 'smith')) // HELLO, JACK SMITH
 * 不可以使用`yield`命令，因此箭头函数不能用作 `Generator` 函数。
 * 箭头函数没有原型对象`prototype`
 
-#### [回到顶部](#JavaScript)
+
 
 ## 白屏时间
 白屏时间是指浏览器从输入网址，到浏览器开始显示内容的时间。
@@ -1073,7 +1005,7 @@ Performance 接口可以获取到当前页面中与性能相关的信息,该类�
 `performance.timing.navigationStart` 是一个返回代表一个时刻的 unsigned long long 型只读属性，为紧接着在相同的浏览环境下卸载前一个文档结束之时的 Unix 毫秒时间戳。如果没有上一个文档，则它的值相当于 PerformanceTiming.fetchStart。
 
 所以将以下脚本放在 `</head>` 前面就能获取白屏时间。
-```
+```js
 <script>
 	new Date() - performance.timing.navigationStart
 </script>
@@ -1085,7 +1017,7 @@ Performance 接口可以获取到当前页面中与性能相关的信息,该类�
 ## 当你在浏览器输入一个地址后发生了什么
 [当···时发生了什么？](https://github.com/skyline75489/what-happens-when-zh_CN/blob/master/README.rst?utm_medium=social&utm_source=wechat_session&from=timeline&isappinstalled=0)
 
-#### [回到顶部](#JavaScript)
+
 
 ## 页面大量图片，如何优化加载，优化用户体验
 1. 图片懒加载。在页面的未可视区域添加一个滚动事件，判断图片位置与浏览器顶端的距离与页面的距离，如果前者小于后者，优先加载。
@@ -1094,7 +1026,7 @@ Performance 接口可以获取到当前页面中与性能相关的信息,该类�
 4. 如果图片过大，可以使用特殊编码的图片，加载时会先加载一张压缩的特别厉害的缩略图，以提高用户体验。
 5. 如果图片展示区域小于图片的真实大小，应在服务器端根据业务需要先进行图片压缩，图片压缩后大小与展示一致。
 
-#### [回到顶部](#JavaScript)
+
 
 ## 防抖与节流
 #### 防抖(debounce)
@@ -1133,7 +1065,7 @@ button.on('click', () => {
 
 来个困难点的，根据图片要求实现节流函数
 
-![](./imgs/throttle.png)
+![](./img/throttle.png)
 
 实现
 ```js
@@ -1187,7 +1119,7 @@ setTimeout(() => {
 参考资料：
 * [js网络请求性能优化之防抖与节流](https://blog.csdn.net/jacoox/article/details/80719456)
 
-#### [回到顶部](#JavaScript)
+
 
 ## 如何做到修改url参数页面不刷新
 HTML5引入了 `history.pushState()` 和 `history.replaceState()` 方法，它们分别可以添加和修改历史记录条目。
@@ -1210,7 +1142,7 @@ history.pushState(stateObj, "page 2", "bar.html");
 
 参考资料：
 * [History API](https://developer.mozilla.org/zh-CN/docs/Web/API/History_API)
-#### [回到顶部](#JavaScript)
+
 
 ## 格式化金钱，每千分位加逗号
 ```js
@@ -1232,7 +1164,7 @@ function format(str) {
     return str.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
 }
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 请用js去除字符串空格
 ### 去除所有空格
@@ -1245,7 +1177,7 @@ str.replace(/^\s+|\s+$/g, '')
 // 原生方法
 str.trim()
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 创建对象有几种方法
 * 字面量
@@ -1264,7 +1196,7 @@ const obj = new Obj(1)
 ```js
 const obj = Object.create({a: 1})
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## null和undefined的区别
 `null` 表示一个对象是“没有值”的值，也就是值为“空”
@@ -1283,7 +1215,7 @@ Javascript将未赋值的变量默认值设为 `undefined`
 
 Javascript从来不会将变量设为 `null`。 它是用来让程序员表明某个用var声明的变量时没有值的
 	
-#### [回到顶部](#JavaScript)
+
 
 ## 反转数组
 ### 要求
@@ -1319,7 +1251,7 @@ function reverseArry(arry) {
 }
 ```
 
-#### [回到顶部](#JavaScript)
+
 
 ## 将金额12345转成中文金额表示
 ### 要求
@@ -1361,7 +1293,7 @@ console.log(numToString(10086)) // 一万零八十六
 console.log(numToString(100010001)) // 一亿零一万零一
 console.log(numToString(100000000)) // 一亿
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 异步求和
 ### 要求
@@ -1419,7 +1351,7 @@ async function test() {
 
 test() // 66
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 异步求和升级版
 ### 要求
@@ -1498,7 +1430,7 @@ function sum(...args) {
 })()
 ```
 
-#### [回到顶部](#JavaScript)
+
 
 ## 数字集转换成字母集
 ### 要求
@@ -1529,7 +1461,7 @@ function _getDecodes(num, start, path, result) {
     path.pop()
 }
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## CommonJS，ES module 是什么，有什么区别？
 它们都是一种模块规范，例如 Node 使用的就是 CommonJS 规范。ES module 则是语言标准上的模块规范。
@@ -1549,7 +1481,7 @@ function _getDecodes(num, start, path, result) {
 参考资料：
 * [Module 的加载实现](https://es6.ruanyifeng.com/#docs/module-loader)
 
-#### [回到顶部](#JavaScript)
+
 
 ## preload和prefetch
 ### preload
@@ -1619,7 +1551,7 @@ purpose: prefetch
 
 另外，空闲时间是如何确定、如何获取的，目前还没有相关 API。
 
-#### [回到顶部](#JavaScript)
+
 
 ## preload 和 defer 的区别
 preload 和 defer 的相同点是异步下载。那它们的不同点是什么呢？
@@ -1635,7 +1567,7 @@ preload 下载的资源只有在遇到同样的 script 标签时，才会执行�
 
 defer 则是异步下载资源，在所有元素解析完成后，触发 DOMContentLoaded 事件前执行。
 
-#### [回到顶部](#JavaScript)
+
 
 ## window.onload 和 DOMContentLoaded 的区别
 当整个页面及所有依赖资源如样式表和图片都已完成加载时，将触发load事件。
@@ -1645,13 +1577,13 @@ defer 则是异步下载资源，在所有元素解析完成后，触发 DOMCont
 * [load](https://developer.mozilla.org/zh-CN/docs/Web/Events/load)
 * [DOMContentLoaded 事件](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/DOMContentLoaded_event)
 
-#### [回到顶部](#JavaScript)
+
 ## websocket 鉴权、多人连接、心跳机制
 * [WebSocket 的鉴权授权方案](http://www.moye.me/2017/02/10/websocket-authentication-and-authorization/)
 * [WebSocket学习（一）——基于socket.io实现简单多人聊天室](https://segmentfault.com/a/1190000011538416)
 * [理解WebSocket心跳及重连机制（五）](https://www.cnblogs.com/tugenhua0707/p/8648044.html)
 
-#### [回到顶部](#JavaScript)
+
 
 ## Object 与 Map 的区别
 1. Object 只能选择字符、数值、符号作为 key，Map 则可以使用任何类型的数据作为 key。
@@ -1680,7 +1612,7 @@ Object 和 Map 的工程级实现在不同浏览器间存在明显差异，但�
 参考资料：
 * [JavaScript高级程序设计（第4版）](https://book.douban.com/subject/35175321/?from=tag)
 * [js能够保证object属性的输出顺序吗？](http://jartto.wang/2016/10/25/does-js-guarantee-object-property-order/)
-#### [回到顶部](#JavaScript)
+
 
 ## 为什么 WeakMap 和 WeakSet 的键只能使用对象？
 >是为了保证只有通过键对象的引用来取得值。
@@ -1706,7 +1638,7 @@ m.set(a, 100) // 所以执行 set 操作时，实际上是将新的 'abc' 和 10
 ```
 参考资料：
 * [JavaScript高级程序设计（第4版）](https://book.douban.com/subject/35175321/?from=tag)
-#### [回到顶部](#JavaScript)
+
 
 ## 实现 async/await
 利用 `generator()` 实现 `async/await` 主要就是用一个函数（自动执行器）来包装 `generator()`，从而实现自动执行 `generator()`。
@@ -1759,7 +1691,7 @@ function async(generator) {
 // 1 2 3
 async(test).then(val => console.log(val))
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 实现发布/订阅模式
 ```js
@@ -1812,7 +1744,7 @@ class Event {
     }
 }
 ```
-#### [回到顶部](#JavaScript)
+
 
 ## 5个fetch请求，请求完成后要求立即执行，但最终的输出顺序要按照要求输出ABCDE
 ```js
@@ -1846,4 +1778,4 @@ run([delay('A'), delay('B'), delay('C'), delay('D'), delay('E')]).then(res => {
     console.log(res) // ["A", "B", "C", "D", "E"]
 })
 ```
-#### [回到顶部](#JavaScript)
+

@@ -1,10 +1,4 @@
 # Webpack
-* [webpack 和 rollup 的区别](#webpack-和-rollup-的区别)
-* [webpack 的 runtime 和 manifest 代码有什么用](#webpack-的-runtime-和-manifest-代码有什么用)
-* [怎么写一个 plugin 和 loader](#怎么写一个-plugin-和-loader)
-* [webpack 能做哪些性能优化](#webpack-能做哪些性能优化)
-* [webpack 热更新原理](#webpack-热更新原理)
-* [webpack 模块加载原理](#webpack-模块加载原理)
 
 ## webpack 和 rollup 的区别
 webpack 优点：
@@ -22,7 +16,7 @@ rollup 优点：
 
 参考资料：
 * [【第九期】Rollup：下一代ES模块打包工具](https://zhuanlan.zhihu.com/p/75717476)
-#### [回到顶部](#webpack)
+
 
 ## webpack 的 runtime 和 manifest 代码有什么用
 runtime：根据 manifest 数据来管理模块代码。主要是指模块交互时，连接模块所需的加载和解析逻辑。
@@ -33,12 +27,12 @@ manifest：记录了在打包过程中，各个模块之间的信息及关联关
 参考资料：
 * [manifest](https://webpack.docschina.org/concepts/manifest/)
 
-#### [回到顶部](#webpack)
+
 
 ## 怎么写一个 plugin 和 loader
 [实现一个 webpack loader 和 webpack plugin](https://github.com/woai3c/Front-end-articles/issues/6)
 
-#### [回到顶部](#webpack)
+
 
 ## webpack 能做哪些性能优化
 1. 压缩代码
@@ -47,7 +41,7 @@ manifest：记录了在打包过程中，各个模块之间的信息及关联关
 4. 分割代码，按需加载
 5. 将第三方插件或公共代码单独提取出来打包
 
-#### [回到顶部](#webpack)
+
 
 ## webpack 热更新原理
 HMR 即 Hot Module Replacement是指当你对代码修改并保存后，webpack将会对代码进行重新打包，并将改动的模块发送到浏览器端。
@@ -72,13 +66,13 @@ HMR 即 Hot Module Replacement是指当你对代码修改并保存后，webpack�
 参考资料：
 * [搞懂webpack热更新原理](https://juejin.im/post/6844903933157048333)
 
-#### [回到顶部](#webpack)
+
 
 ## webpack 模块加载原理
 
 
 [深入了解 webpack 模块加载原理](https://github.com/woai3c/Front-end-articles/issues/7)
-#### [回到顶部](#webpack)
+
 
 ## 其他参考资料
 
