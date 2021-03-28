@@ -15,7 +15,8 @@
 * CSS
 * HTML
 * Vue
-* HTTP
+* 浏览器
+* 计算机网络
 * Node
 * Webpack
 * 前端安全
