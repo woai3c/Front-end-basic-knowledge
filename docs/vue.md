@@ -348,3 +348,8 @@ mounted: function () {
 }
 ```
 
+
+## 实现虚拟 DOM 和 diff 算法
+* 一个 DOM 具有非常多的属性，DOM 进行增删操作开销大。所以使用虚拟 DOM 能有效降低消耗。
+
+[如何理解虚拟DOM?](https://www.zhihu.com/question/29504639)

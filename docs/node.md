@@ -66,3 +66,5 @@
 * [一文搞懂peerDependencies](https://segmentfault.com/a/1190000022435060)
 * [浅谈npm 的依赖与版本](https://github.com/SamHwang1990/blog/issues/7)
 
+## 垃圾回收机制
+[内存回收](https://github.com/woai3c/Notes-and-Labs/blob/master/notes/nodejs-srjc/docs/5.md)

@@ -69,13 +69,27 @@ HMR 即 Hot Module Replacement是指当你对代码修改并保存后，webpack�
 
 
 ## webpack 模块加载原理
-
-
 [深入了解 webpack 模块加载原理](https://github.com/woai3c/Front-end-articles/issues/7)
 
-
-## 其他参考资料
-
+其他参考资料
 * [code-splitting 代码切割](https://github.com/youngwind/blog/issues/100)
 * [loader 机制](https://github.com/youngwind/blog/issues/101)
 * [Webpack 源码解析](https://github.com/lihongxun945/diving-into-webpack)
+
+## 如何提高构建速度
+1. HappyPack开启多线程打包受限于 Node 是单线程运行的，所以 Webpack 在打包的过程中也是单线程的，特别是在执行 Loader 的时候，长时间编译的任务很多，这样就会导致等待的情况。HappyPack 可以将 Loader 的同步执行转换为并行的，这样就能充分利用系统资源来加快打包效率了。（或者使用 thread-loader）
+
+2. terser-webpack-plugin 开启多线程压缩。
+
+## 如何利用webpack来优化前端性能
+webpack 做性能优化主要是考虑打包体积和打包速度。
+
+打包体积分析用 webpack-bundle-analyzer 插件，速度分析用：speed-measure-webpack-plugin 插件。
+
+[三十分钟掌握Webpack性能优化](https://juejin.cn/post/6844903651291447309)
+### webpack 模块加载原理
+[深入了解 webpack 模块加载原理](https://juejin.cn/post/6872354325553741838)
+### webpack的构建流程是什么
+[webpack构建流程分析](https://juejin.cn/post/6844904000169607175)
+### webpack的分包策略
+[webpack的分包策略](https://panjiachen.github.io/awesome-bookmarks/blog/webpack/webpack4-b.html)

@@ -68,7 +68,6 @@ Content-Type:text/html <br>
 
 [HTTP 响应代码](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status)
 
-[回到顶部](#HTTP)
 
 ## HTTP缓存
 https://segmentfault.com/a/1190000010690320
@@ -77,7 +76,7 @@ https://segmentfault.com/a/1190000010690320
 * http header, 对refer做判断看来源是不是自己的网站，如果不是就拒绝
 * 通过session校验，如果不通过特定服务生成cookie和session就不能请求得到资源
 
-[回到顶部](#HTTP)
+
 
 ## Http与Https的区别
 * HTTP 的URL 以http:// 开头，而HTTPS 的URL 以https:// 开头
@@ -89,7 +88,7 @@ https://segmentfault.com/a/1190000010690320
 
 https://zhuanlan.zhihu.com/p/33778904
 
-[回到顶部](#HTTP)
+
 
 ## 什么是Http协议无状态协议?怎么解决Http协议无状态协议?
 无状态协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息也就是说，<br>
@@ -100,7 +99,7 @@ https://zhuanlan.zhihu.com/p/33778904
 
 https://zhuanlan.zhihu.com/p/33778904
 
-[回到顶部](#HTTP)
+
 
 ## 常用的HTTP方法有哪些
 * GET：用于请求访问已经被URL（统一资源标识符）识别的资源，可以通过URL传参给服务器。
@@ -110,7 +109,7 @@ https://zhuanlan.zhihu.com/p/33778904
 * DELET：删除文件，与PUT方法相反，删除对应URL位置的文件。
 * OPTIONS：查询相应URL支持的HTTP方法。
 
-[回到顶部](#HTTP)
+
 
 ## HTTPS 握手机制
 
@@ -118,4 +117,15 @@ https://zhuanlan.zhihu.com/p/33778904
 * [SSL/TLS协议运行机制的概述](https://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
 * [SSL/TLS 握手过程详解](https://www.jianshu.com/p/7158568e4867)
 
-[回到顶部](#HTTP)
+
+## options 预检请求
+[预检请求](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS#%E9%A2%84%E6%A3%80%E8%AF%B7%E6%B1%82)
+
+## dns查询过程，dns用什么协议发起dns查询的
+[为什么 DNS 使用 UDP 协议](https://draveness.me/whys-the-design-dns-udp-tcp/)
+
+## keep-alive 和多路复用的区别
+keep-alive 是指 TCP 处理完一个 HTTP 连接后不关闭，可以继续处理下一个 HTTP 连接。多路复用是 HTTP2 的特性，指多个 HTTP 连接可以同时在一个 TCP 连接上处理。
+
+## websocket握手过程
+[socket 及 websocket的握手过程](https://blog.csdn.net/yournevermore/article/details/103067079)

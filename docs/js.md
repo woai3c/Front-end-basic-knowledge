@@ -1,54 +1,5 @@
 # JavaScript
 
-## 同源策略
-同源策略可防止 JavaScript 发起跨域请求。源被定义为协议、主机名和端口号的组合。此策略可防止页面上的恶意脚本通过该页面的文档对象模型，访问另一个网页上的敏感数据。
-
-下表给出了与 URL http://store.company.com/dir/page.html 的源进行对比的示例:
-|URL|	结果|	原因|
-|-|-|-|
-|http://store.company.com/dir2/other.html|	同源	|只有路径不同|
-|http://store.company.com/dir/inner/another.html	|同源	|只有路径不同|
-|https://store.company.com/secure.html|	失败	|协议不同|
-|http://store.company.com:81/dir/etc.html|	失败	|端口不同 ( http:// 默认端口是80)|
-|http://news.company.com/dir/other.html|	失败	|主机不同|
-
-参考资料：
-* [浏览器的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
-
-
-
-## 跨域
-* 原因 <br>
-浏览器的同源策略导致了跨域
-* 作用 <br>
-用于隔离潜在恶意文件的重要安全机制
-* 解决
-1. jsonp ，允许 script 加载第三方资源
-2. 反向代理（nginx 服务内部配置 Access-Control-Allow-Origin *）
-3. cors 前后端协作设置请求头部，Access-Control-Allow-Origin 等头部信息
-4. iframe 嵌套通讯，postmessage
-
-参考资料：
-* [新鲜出炉的8月前端面试题](https://zhuanlan.zhihu.com/p/41479807)
-* [跨域资源共享 CORS 阮一峰](http://www.ruanyifeng.com/blog/2016/04/cors.html)
-
-
-
-## JSONP
-这是我认为写得比较通俗易懂的一篇文章[jsonp原理详解——终于搞清楚jsonp是啥了](https://blog.csdn.net/hansexploration/article/details/80314948)。
-
-
-
-## 域名收敛
-PC 时代为了突破浏览器的域名并发限制，有了域名发散。浏览器有并发限制，是为了防止DDOS攻击。
-
-**域名收敛**：就是将静态资源放在一个域名下。减少DNS解析的开销。
-
-**域名发散**：是将静态资源放在多个子域名下，就可以多线程下载，提高并行度，使客户端加载静态资源更加迅速。
-
-域名发散是pc端为了利用浏览器的多线程并行下载能力。而域名收敛多用与移动端，提高性能，因为dns解析是是从后向前迭代解析，如果域名过多性能会下降，增加DNS的解析开销。
-
-
 ## 事件绑定的方式
 * 嵌入dom
 ```js
@@ -101,6 +52,8 @@ document.querySelectorAll('li').forEach((e) => {
 ## 事件循环
 事件循环是一个单线程循环，用于监视调用堆栈并检查是否有工作即将在任务队列中完成。如果调用堆栈为空并且任务队列中有回调函数，则将回调函数出队并推送到调用堆栈中执行。
 
+* [浏览器事件循环](https://github.com/woai3c/Front-end-articles/blob/master/eventloop.md)
+* [Node.js 事件循环，定时器和 process.nextTick()](https://nodejs.org/zh-cn/docs/guides/event-loop-timers-and-nexttick/)
 
 
 ## 事件模型
@@ -1782,3 +1735,62 @@ run([delay('A'), delay('B'), delay('C'), delay('D'), delay('E')]).then(res => {
 })
 ```
 
+## requestIdleCallback 是干什么用的
+[你应该知道的requestIdleCallback](https://juejin.cn/post/6844903592831238157)
+
+## js 对象循环引用会导致什么问题
+1. 引用计数无法回收内存
+2. `JSON.stringify()` 执行会报错。
+
+## 如何埋点，为什么用1 * 1像素的gif图片做上报
+1. 能够完成整个 HTTP 请求+响应（尽管不需要响应内容）
+2. 触发 GET 请求之后不需要获取和处理数据、服务器也不需要发送数据
+3. 没有跨域问题
+4. 执行过程无阻塞
+5. 相比 XMLHttpRequest 对象发送 GET 请求，性能上更好
+6. GIF的最低合法体积最小（最小的BMP文件需要74个字节，PNG需要67个字节，而合法的GIF，只需要43个字节）
+
+[为什么通常在发送数据埋点请求的时候使用的是 1x1 像素的透明 gif 图片](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/87)
+
+
+## Base64图片有什么问题
+1. 使用base64 编码后比原图大
+2. 内联到 HTML/CSS 文件，会造成文件尺寸变大，影响首屏加载。如果用外链图片的话，图片可以在页面渲染完成后继续加载，不会造成阻塞。
+
+## 如何实现一个可设置过期时间的 localStorage
+```js
+(function () {
+    const getItem = localStorage.getItem.bind(localStorage)
+    const setItem = localStorage.setItem.bind(localStorage)
+    const removeItem = localStorage.removeItem.bind(localStorage)
+
+    localStorage.getItem = function (key) {
+        const expires = getItem(key + '_expires')
+        if (expires && new Date() > new Date(Number(expires))) {
+            removeItem(key)
+            removeItem(key + '_expires')
+        }
+
+        return getItem(key)
+    }
+
+    localStorage.setItem = function (key, value, time) {
+        if (typeof time !== 'undefined') {
+            setItem(key + '_expires', new Date().getTime() + Number(time))
+        }
+
+        return setItem(key, value)
+    }
+})()
+```
+
+## JavaScript的sort方法内部使用的什么排序
+sort 使用的是插入排序和快速排序结合的排序算法。
+
+数组长度不超过10时，使用插入排序。长度超过10使用快速排序。在数组较短时插入排序更有效率。
+
+## 服务端渲染和预渲染的区别
+[服务端渲染(SSR)和预渲染(Prerendering)有什么区别？](https://www.zhihu.com/question/273930443)
+
+## canvas 和 svg 区别
+[SVG 与 HTML5 的 canvas 各有什么优点，哪个更有前途？](https://www.zhihu.com/question/19690014)
