@@ -142,6 +142,9 @@ PC 时代为了突破浏览器的域名并发限制，有了域名发散。浏�
 
 如果一定要放在 `<head>` 中，可以让 `<script>` 标签使用 `defer` 属性。
 
+参考资料：
+* [使用 JavaScript 添加交互](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript)
+
 ## 什么是渐进式渲染（progressive rendering）？
 渐进式渲染是用于提高网页性能（尤其是提高用户感知的加载速度），以尽快呈现页面的技术。
 
